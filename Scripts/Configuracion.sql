@@ -1,0 +1,55 @@
+-- Configuración de la PDB
+-- Crear una nueva PDB que se llame GestorEmpresa 
+-- Ejecutar en SYS de CDB
+
+ALTER SESSION SET CONTAINER = GestorEmpresa;
+ALTER PLUGGABLE DATABASE OPEN;
+ALTER PLUGGABLE DATABASE GestorEmpresa SAVE STATE;
+
+---
+-- Ejecutar en el SYSTEM de la GestorEmpresa
+---
+
+CREATE TABLESPACE GE_TBL
+DATAFILE 'C:\app\Emmanuel\oradata\TECDB\GestorEmpresa\ge_tb1.dat'
+SIZE 10M
+REUSE
+AUTOEXTEND ON
+NEXT 512
+MAXSIZE 200M;
+
+-- 
+CREATE TABLESPACE GE_IDX
+DATAFILE 'C:\app\Emmanuel\oradata\TECDB\GestorEmpresa\ge_idx.dat'
+SIZE 10M
+REUSE
+AUTOEXTEND ON
+NEXT 512k
+MAXSIZE 200M;
+
+------
+
+CREATE USER GestorEmpresarial
+IDENTIFIED BY gestorE
+DEFAULT TABLESPACE ge_tbl
+QUOTA 500K ON ge_tbl
+TEMPORARY TABLESPACE temp
+PROFILE DEFAULT
+CONTAINER = CURRENT;
+
+---
+
+GRANT CREATE SESSION TO GestorEmpresarial;
+GRANT CREATE ANY TABLE TO GestorEmpresarial;
+GRANT CREATE ANY INDEX TO GestorEmpresarial;
+GRANT CREATE ANY VIEW TO GestorEmpresarial;
+GRANT CREATE PUBLIC SYNONYM TO GestorEmpresarial;
+GRANT CREATE PROCEDURE TO GestorEmpresarial;
+GRANT CREATE ANY SEQUENCE TO GestorEmpresarial;
+GRANT INSERT ANY TABLE TO GestorEmpresarial;
+GRANT CREATE ANY TRIGGER TO GestorEmpresarial;
+GRANT CREATE ANY JOB TO GestorEmpresarial;
+GRANT UNLIMITED TABLESPACE TO GestorEmpresarial;
+
+
+--
