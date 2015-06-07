@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/ojdbc7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/ons.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/orai18n.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/simplefan.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/ucp.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/xdb6.jar"/>
+	<classpathentry excluding="src/" kind="src" path=""/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/ojdbc7.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/ons.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/orai18n.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/simplefan.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/ucp.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/xdb6.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Downloads/Microsoft JDBC Driver 4.0 for SQL Server/sqljdbc_4.0/enu/sqljdbc.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Downloads/Microsoft JDBC Driver 4.0 for SQL Server/sqljdbc_4.0/enu/sqljdbc4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
