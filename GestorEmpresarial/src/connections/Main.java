@@ -8,15 +8,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Main {
+	
+	
 
 	public static void main(String[] args) {
+	
 		
 		// TODO Auto-generated method stub
 		
 		
 		// Create a variable for the connection string.
 	      String connectionUrl = "jdbc:sqlserver://localhost:1433;" +
-	         "databaseName=EMMANUEL-PC;user=Emmanuel-PC\\Emmanuel;password=''";
+	         "databaseName=ROSALESE;user=emmanuelrosales;password=rosalese";
 
 	      // Declare the JDBC objects.
 	      Connection con = null;
@@ -29,13 +32,13 @@ public class Main {
 	         con = DriverManager.getConnection(connectionUrl);
 
 	         // Create and execute an SQL statement that returns some data.
-	         String SQL = "SELECT TOP 10 * FROM Person.Contact";
+	         String SQL = "SELECT  * FROM DEPARTAMENTO";
 	         stmt = con.createStatement();
 	         rs = stmt.executeQuery(SQL);
 
 	         // Iterate through the data in the result set and display it.
 	         while (rs.next()) {
-	            System.out.println(rs.getString(4) + " " + rs.getString(6));
+	            System.out.println(rs.getString(1) + " " + rs.getString(2));
 	         }
 	      }
 
@@ -55,5 +58,5 @@ public class Main {
 		}
 		catch(Exception e) {
 			System.out.println(e);
-		}*/
-
+		}
+*/
