@@ -4,8 +4,6 @@
 package connections;
 
 import java.sql.Connection;
-
-import com.microsoft.sqlserver.jdbc.SQLServerConnectionPoolDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
 /**
