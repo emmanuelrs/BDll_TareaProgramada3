@@ -9,6 +9,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/simplefan.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/ucp.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/Oracla Java lib/xdb6.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Downloads/Microsoft JDBC Driver 4.0 for SQL Server/sqljdbc_4.0/enu/sqljdbc4.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/sqljdbc_4.1/enu/sqljdbc4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

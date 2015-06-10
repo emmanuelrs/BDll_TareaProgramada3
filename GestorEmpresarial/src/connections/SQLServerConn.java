@@ -7,7 +7,7 @@ public class SQLServerConn {
 		 
 		// Create a variable for the connection string.
 	      String connectionUrl = "jdbc:sqlserver://localhost:1433;" +
-	         "databaseName=ROSALESE;user=emmanuelrosales;password=rosalese";
+	         "databaseName=GestorEmpresarial;user=GE;password=ge";
 
 	      // Declare the JDBC objects.
 	      Connection con = null;
