@@ -12,7 +12,8 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/inventarioCss.css" rel="stylesheet">
+    
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -54,7 +55,7 @@
           </div>
         </div><!--/sidebar-->
         
-        <table border="1">
+        <table border="1"class="inventarioCss">
         <tr>
         <td>id  </td>
         <td>Producto  </td>
