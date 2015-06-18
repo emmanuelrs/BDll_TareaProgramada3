@@ -25,21 +25,22 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     int minimo1 = Integer.parseInt(minimo);
     OracleDataSource ds;
     ds = new OracleDataSource();
-    ds.setURL(jdbcUrl);
-    conn=ds.getConnection(userid,password);
-    CallableStatement cs = null;
+    ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
+    conn=ds.getConnection("GestorEmpresarial","gestorE");
+    CallableStatement cs;
    //conn = dataSource.getConnection();
-    cs = conn.prepareCall("{ CALL insertarProducto(?,?,?,?,?,?,?) }");
+    
+    cs = conn.prepareCall("{ CALL insertarProducto(?,?,?,?,?,?,?,?) }");
     //populate stored proc parameters
     cs.setString(1, producto);
     cs.setString(2, descripcion);
-    cs.setInt(2, precio1);
-    cs.setString(2, marca);
-    cs.setString(2, categoria);
-    cs.setInt(2, cantidad1);
-    cs.setInt(2, minimo1);
-    cs.setString(1, NOMBRE_BODEGA);
-    cs.registerOutParameter(3, Types.NUMERIC); 
+    cs.setInt(3, precio1);
+    cs.setString(4, marca);
+    cs.setString(5, categoria);
+    cs.setInt(6, cantidad1);
+    cs.setInt(7, minimo1);
+    cs.setString(8, NOMBRE_BODEGA);
+    //cs.registerOutParameter(3, Types.NUMERIC); 
     //execute stored procedure
     cs.execute();
     cs.close();

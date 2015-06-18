@@ -35,14 +35,12 @@ public class newProduct extends HttpServlet {
                 oracleConn conect;
                 conect = new oracleConn();
 
-        
-        //try {
-           // conect.insertarProducto(producto, descripcion, precio, marca, categoria, cantidad, minimo, bodega);
-       // } catch (SQLException ex) {
-          //  System.out.println("ERROR");
-          //  System.out.println(ex);
-          //  Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
-       // }
+        try {
+            conect.insertarProducto(producto, descripcion, precio, marca, categoria, cantidad, minimo, bodega);
+        } catch (SQLException ex) {
+            System.out.print("Error");
+            Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
                 response.sendRedirect(response.encodeRedirectURL("index.jsp"));
     }
