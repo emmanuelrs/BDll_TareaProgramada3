@@ -141,7 +141,7 @@ public Connection ejecutarSQL() throws SQLException{
     public LinkedList<inventario> getInventario(){
         LinkedList<inventario> listaInv =new LinkedList<inventario>();
         try{
-            inventario Inv = new inventario();
+            
             OracleDataSource ds;
             ds = new OracleDataSource();
             ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
@@ -150,6 +150,7 @@ public Connection ejecutarSQL() throws SQLException{
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
+                inventario Inv = new inventario();
                 Inv.setId(rs.getNString("ID_PRODUCTO"));
                 Inv.setProducto(rs.getNString("PRODUCTO"));
                 Inv.setDescripcion(rs.getNString("DESCRIPCION"));
