@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oracle.jdbc.pool.OracleDataSource;
 
 
@@ -21,16 +23,23 @@ public class newProduct extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		String contextPath = request.getContextPath();
 		
-		String nombre = request.getParameter("nombre");
+		String producto = request.getParameter("nombre");
 		String descripcion = request.getParameter("descripcion");
 		String precio = request.getParameter("precio");
                 String marca = request.getParameter("marca");
-                String tipo = request.getParameter("tipo");
-                String total = request.getParameter("total");
+                String categoria = request.getParameter("categoria");
+                String cantidad = request.getParameter("cantidad");
                 String minimo = request.getParameter("minimo");
-
-                System.out.print(nombre + descripcion + precio + marca + tipo + total + minimo);
+                String bodega = request.getParameter("NOMBRE_BODEGA");
                 
+                oracleConn conect;
+                conect = new oracleConn();
+        try {
+            conect.insertarProducto(producto, descripcion, precio, marca, categoria, cantidad, minimo, bodega);
+        } catch (SQLException ex) {
+            Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
                 response.sendRedirect(response.encodeRedirectURL("index.jsp"));
     }
 }

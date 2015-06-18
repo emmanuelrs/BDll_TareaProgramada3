@@ -71,11 +71,13 @@
             <label for="male">Marca: </label> <br/> 
                 <INPUT NAME = "marca" TYPE = "text" id="marca"> <br/>
             <label for="male">Tipo de producto: </label> <br/> 
-                <INPUT NAME = "tipo" TYPE = "text" id="tipo"> <br/>
+                <INPUT NAME = "categoria" TYPE = "text" id="categoria"> <br/>
             <label for="male">Total de Unidades: </label> <br/> 
-                <INPUT NAME = "total" TYPE = "text" id="total"> <br/>
+                <INPUT NAME = "cantidad" TYPE = "text" id="cantidad"> <br/>
             <label for="male">Minimo para Reordenar:</label> <br/>  
                 <INPUT NAME = "minimo" TYPE = "text" id="minimo"> <br/>           
+            <label for="male">Bodega donde se encuentra:</label> <br/>  
+                <INPUT NAME = "NOMBRE_BODEGA" TYPE = "text" id="NOMBRE_BODEGA"> <br/>
             <br/>
             <input type="submit" value="submit"> </form>
 </

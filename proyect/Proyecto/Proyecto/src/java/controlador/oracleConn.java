@@ -9,6 +9,7 @@ public class oracleConn {
     static String userid = "GestorEmpresarial";
     static String password = "gestorE"; 
     static Connection conn;
+    static Object dataSource;
     
 public void oracleConn() throws SQLException{
         OracleDataSource ds;
@@ -17,6 +18,35 @@ public void oracleConn() throws SQLException{
         conn=ds.getConnection(userid,password);
         conn.close();
     }
+
+public void insertarProducto(String producto,String descripcion,String precio,String marca,String categoria,String cantidad,String minimo, String NOMBRE_BODEGA) throws SQLException{
+    int precio1 = Integer.parseInt(precio);
+    int cantidad1 = Integer.parseInt(cantidad);
+    int minimo1 = Integer.parseInt(minimo);
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs = null;
+   //conn = dataSource.getConnection();
+    cs = conn.prepareCall("{ CALL insertarProducto(?,?,?,?,?,?,?) }");
+    //populate stored proc parameters
+    cs.setString(1, producto);
+    cs.setString(2, descripcion);
+    cs.setInt(2, precio1);
+    cs.setString(2, marca);
+    cs.setString(2, categoria);
+    cs.setInt(2, cantidad1);
+    cs.setInt(2, minimo1);
+    cs.setString(1, NOMBRE_BODEGA);
+    cs.registerOutParameter(3, Types.NUMERIC); 
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close();
+    
+    
+}
 
 public Connection ejecutarSQL() throws SQLException{
     OracleDataSource ds;
