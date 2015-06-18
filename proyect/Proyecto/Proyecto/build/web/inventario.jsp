@@ -13,6 +13,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/inventarioCss.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
+        
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#example').DataTable();} );
+        </script>
     
 </head>
 <body id="page-top">
@@ -55,19 +63,26 @@
           </div>
         </div><!--/sidebar-->
         
-        <table border="1" class="inventarioCss">
-        <tr>
-        <td>id  </td>
-        <td>Producto  </td>
-        <td>Descripcion  </td>
-        <td>Precio  </td>
-        <td>Marca  </td>
-        <td>Categoria  </td>
-        <td>Cantidad  </td>
-        <td>Minimo  </td>
-        </tr>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+            <td>id  </td>
+            <td>Producto  </td>
+            <td>Descripcion  </td>
+            <td>Precio  </td>
+            <td>Marca  </td>
+            <td>Categoria  </td>
+            <td>Cantidad  </td>
+            <td>Minimo  </td>
+            <td>Bodega  </td>
+            </tr>
+            </tr>
+        </thead>
+        <tbody>
+     
         <%
-        LinkedList<inventario> lista = oracleConn.getInventario();
+        oracleConn con = new oracleConn();
+        LinkedList<inventario> lista = con.getInventario();
         for (int i=0;i<lista.size();i++)
         {
         out.println("<tr>");
@@ -79,9 +94,11 @@
         out.println("<td>"+lista.get(i).getCategoria()+"</td>");
         out.println("<td>"+lista.get(i).getCantidad()+"</td>");
         out.println("<td>"+lista.get(i).getMinimo()+"</td>");
+        out.println("<td>"+lista.get(i).getBodega()+"</td>");
         out.println("</tr>");
         }
         %>
-</table>
-</
+        </tbody>
+        </table>
+
 </html>

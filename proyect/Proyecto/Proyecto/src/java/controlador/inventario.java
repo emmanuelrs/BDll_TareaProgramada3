@@ -10,6 +10,15 @@ public class inventario {
     private String Categoria;
     private String Cantidad;
     private String minimo;
+    private String bodega;
+
+    public String getBodega() {
+        return bodega;
+    }
+
+    public void setBodega(String bodega) {
+        this.bodega = bodega;
+    }
 
     public String getId() {
         return id;
@@ -69,5 +78,6 @@ public class inventario {
         this.Categoria = null;
         this.Cantidad = null;
         this.minimo = null;
+        this.bodega = null;
     }
 }

@@ -138,19 +138,18 @@ public Connection ejecutarSQL() throws SQLException{
             return conn;
 }
 
-    public static LinkedList<inventario> getInventario(){
+    public LinkedList<inventario> getInventario(){
         LinkedList<inventario> listaInv =new LinkedList<inventario>();
         try{
             inventario Inv = new inventario();
             OracleDataSource ds;
             ds = new OracleDataSource();
-            ds.setURL(jdbcUrl);
-            conn=ds.getConnection(userid,password);
-            String sql = "select p.id_producto, p.producto, p.descripcion, p.preciounitario, m.marca, ca.categoria, p.cantidad, p.minimo from producto p, marca m, categoria ca" ;
+            ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
+            conn=ds.getConnection("GestorEmpresarial","gestorE");
+            String sql = "select p.id_producto, p.producto, p.descripcion,p.preciounitario, m.marca, ca.categoria, p.cantidad, p.minimo, g.NOMBREBODEGA from producto p, marca m,categoria ca, bodega g, inventario ie where p.IDMARCA = m.ID_MARCA and p.IDCATEGORIA = ca.ID_CATEGORIA and ie.ID_PRODUCTO = p.ID_PRODUCTO and ie.ID_BODEGA = g.ID_BODEGA" ;
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
-                
                 Inv.setId(rs.getNString("ID_PRODUCTO"));
                 Inv.setProducto(rs.getNString("PRODUCTO"));
                 Inv.setDescripcion(rs.getNString("DESCRIPCION"));
@@ -159,6 +158,7 @@ public Connection ejecutarSQL() throws SQLException{
                 Inv.setCategoria(rs.getNString("CATEGORIA"));
                 Inv.setCantidad(rs.getNString("CANTIDAD"));
                 Inv.setMinimo(rs.getNString("MINIMO"));
+                Inv.setBodega(rs.getNString("NOMBREBODEGA"));
                 listaInv.add(Inv);
             }
             rs.close();
