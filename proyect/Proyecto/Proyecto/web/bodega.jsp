@@ -35,6 +35,7 @@
                     <li><a class="page-scroll" href="inventario.jsp">Inventario</a></li>
                     <li><a class="page-scroll" href="reportes.jsp">Reportes</a></li>
                     <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>
+                    <li><a href="respaldo.jsp">Crear Bodega</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -51,6 +52,7 @@
               <li><a href="inventario.jsp">Inventario</a></li>
               <li><a href="reportes.jsp">Reportes</a></li>
               <li><a href="respaldo.jsp">Respaldo</a></li>
+              <li><a href="respaldo.jsp">Crear Bodega</a></li>
             </ul>
           </div>
         </div><!--/sidebar-->
