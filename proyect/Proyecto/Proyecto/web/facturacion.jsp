@@ -51,30 +51,18 @@
         </div><!--/sidebar-->
         <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
             <br/>
-            <h2> Crear Factura </h2>
+            <h2> Realizar Venta </h2>
             <br/>
             <img class="divimg" src="img/user.png">
         <form action="facturacion" class="ui form segment"  method="post"> 
-            <label for="male">Id Punto de Venta</label> <br/> 
-                <INPUT class ="tb1" NAME = "IdPV" TYPE = "text" id="IdPV"> <br/>
-            <label for="male">%de descuento</label> <br/> 
-                <INPUT class ="tb1" NAME = "descuento" TYPE = "text" id="descuento"> <br/>
-            <input class="myButton" type="submit" value="Crear"> 
-        </form>
-            
-        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
-            <br/>
-            <h2> Agregar Producto </h2>
-            <br/>
-            <img class="divimg" src="img/user.png">
-        <form action="facturacion" class="ui form segment"  method="post"> 
-            <label for="male">numero de factura</label> <br/> 
-                <INPUT class ="tb1" NAME = "numFactura" TYPE = "text" id="numFactura"> <br/>
             <label for="male">Id Producto</label> <br/> 
                 <INPUT class ="tb1" NAME = "IdProducto" TYPE = "text" id="IdProducto"> <br/>
             <label for="male">Cantidad</label> <br/> 
-                <INPUT class ="tb1" NAME = "Cantidad" TYPE = "text" id="cantidad"> <br/>
+                <INPUT class ="tb1" NAME = "Cantidad" TYPE = "text" id="Cantidad"> <br/>
             <input class="myButton" type="submit" value="Agregar"> 
+            <label for="male">%de descuento</label> <br/> 
+                <INPUT class ="tb1" NAME = "descuento" TYPE = "text" id="descuento"> <br/>
+            <input class="myButton" type="submit" value="Vender"> 
         </form>
 </
 </html>

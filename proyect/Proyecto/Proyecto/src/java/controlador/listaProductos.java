@@ -7,7 +7,10 @@ public class listaProductos {
     private static List<productosVendidos> productos;
     private static Boolean instancia = false;
 
-    public static List<productosVendidos> getlista(){
+    public listaProductos() {
+    }
+
+    public List<productosVendidos> getlista(){
         if(instancia == false){
             instancia = true;
             productos = new ArrayList<productosVendidos>();

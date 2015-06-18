@@ -86,6 +86,22 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     
     
 }
+public void ActualizarInventario(String IdProducto, String Cantidad) throws SQLException{ 
+    int id = Integer.parseInt(IdProducto);
+    int Cant = Integer.parseInt(Cantidad);
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
+    conn = ds.getConnection("GestorEmpresarial","gestorE");
+    CallableStatement cs;
+   
+    cs = conn.prepareCall("{ CALL actualizarInventario(?,?)}");
+    cs.setInt(1, id);
+    cs.setInt(2, Cant);
+    cs.execute();
+    cs.close();
+    conn.close();  
+}
 
 public void crearBodega(String pNombreB, String pPais, String pProvincia,
         String pCanton, String pDireccion, String pNumero) throws SQLException{  
