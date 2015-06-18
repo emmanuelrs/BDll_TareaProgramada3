@@ -6,6 +6,7 @@
 package controlador;
 
 import java.io.IOException;
+import static java.lang.System.out;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,6 +49,8 @@ public class crearUsuario extends HttpServlet {
             System.out.print("Error");
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
+              
+               
 
                 response.sendRedirect(response.encodeRedirectURL("crearUsuario.jsp"));
     }

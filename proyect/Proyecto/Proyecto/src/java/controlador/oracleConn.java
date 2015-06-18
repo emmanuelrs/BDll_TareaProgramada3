@@ -77,12 +77,13 @@ public void crearUsuario(String pNombre, String pCedula,String pApellido,
         String pPais, String pProvincia,String pCanton, String pDireccion, String pEmail,
         String pNumero,String pTipo) throws SQLException{
     
-    int nCedula = -1;
     
-    if((Integer.parseInt(pCedula)) > 10){
+    
+    if(pCedula.length() > 10){
         System.out.println("Numeromuylargo");
     }
     else{
+    int nCedula = -1;
     nCedula= Integer.parseInt(pCedula);
     OracleDataSource ds;
     ds = new OracleDataSource();

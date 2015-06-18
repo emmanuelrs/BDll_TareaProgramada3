@@ -83,8 +83,8 @@
                 <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>
             <label for="male">Tipo</label> <br/> 
                 <INPUT class ="tb1" NAME = "tipo" TYPE = "text" id="tipo"> <br/>
-            <input class="myButton" type="submit" value="Crear"> </form>
-
-  
+            <input class="myButton" type="submit" value="Crear">
+           
+        </form>
 
 </html>
