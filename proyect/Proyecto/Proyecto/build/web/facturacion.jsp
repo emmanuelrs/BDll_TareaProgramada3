@@ -9,8 +9,7 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-</head>
+    <link href="css/crearUserCSS.css" rel="stylesheet">
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -50,5 +49,32 @@
             </ul>
           </div>
         </div><!--/sidebar-->
+        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+            <br/>
+            <h2> Crear Factura </h2>
+            <br/>
+            <img class="divimg" src="img/user.png">
+        <form action="facturacion" class="ui form segment"  method="post"> 
+            <label for="male">Id Punto de Venta</label> <br/> 
+                <INPUT class ="tb1" NAME = "IdPV" TYPE = "text" id="IdPV"> <br/>
+            <label for="male">%de descuento</label> <br/> 
+                <INPUT class ="tb1" NAME = "descuento" TYPE = "text" id="descuento"> <br/>
+            <input class="myButton" type="submit" value="Crear"> 
+        </form>
+            
+        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+            <br/>
+            <h2> Agregar Producto </h2>
+            <br/>
+            <img class="divimg" src="img/user.png">
+        <form action="facturacion" class="ui form segment"  method="post"> 
+            <label for="male">numero de factura</label> <br/> 
+                <INPUT class ="tb1" NAME = "numFactura" TYPE = "text" id="numFactura"> <br/>
+            <label for="male">Id Producto</label> <br/> 
+                <INPUT class ="tb1" NAME = "IdProducto" TYPE = "text" id="IdProducto"> <br/>
+            <label for="male">Cantidad</label> <br/> 
+                <INPUT class ="tb1" NAME = "Cantidad" TYPE = "text" id="cantidad"> <br/>
+            <input class="myButton" type="submit" value="Agregar"> 
+        </form>
 </
 </html>

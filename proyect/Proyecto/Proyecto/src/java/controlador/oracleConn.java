@@ -18,6 +18,45 @@ public void oracleConn() throws SQLException{
         conn.close();
     }
 
+public void agregarProducto(String IdFactura,String IdProducto, String cantidad) throws SQLException{
+    int cant = Integer.parseInt(cantidad);
+    int idFact = Integer.parseInt(IdFactura);
+    int idProducto = Integer.parseInt(IdProducto);
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{ CALL insertarProductoXFactura(?,?,?)}");
+    //populate stored proc parameters
+    cs.setInt(1, idFact);
+    cs.setInt(2, idProducto);
+    cs.setInt(3, cant);
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close(); 
+}
+
+public void crearFactura(String PuntoDeVenta,String descuento) throws SQLException{
+    int desc = Integer.parseInt(descuento);
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+   //conn = dataSource.getConnection();
+    
+    cs = conn.prepareCall("{ CALL insertarFactura(?,?)}");
+    //populate stored proc parameters
+    cs.setString(1, PuntoDeVenta);
+    cs.setInt(2, desc);
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close(); 
+}
+
 public void insertarProducto(String producto,String descripcion,String precio,String marca,String categoria,String cantidad,String minimo, String NOMBRE_BODEGA) throws SQLException{
     int precio1 = Integer.parseInt(precio);
     int cantidad1 = Integer.parseInt(cantidad);
