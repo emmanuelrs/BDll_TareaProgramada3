@@ -10,13 +10,21 @@ public class oracleConn {
     static String password = "gestorE"; 
     static Connection conn;
     
-public void getDBConnection() throws SQLException{
+public void oracleConn() throws SQLException{
         OracleDataSource ds;
         ds = new OracleDataSource();
         ds.setURL(jdbcUrl);
         conn=ds.getConnection(userid,password);
         conn.close();
     }
+
+public Connection ejecutarSQL() throws SQLException{
+    OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            return conn;
+}
 
     public static LinkedList<inventario> getInventario(){
         LinkedList<inventario> listaInv =new LinkedList<inventario>();

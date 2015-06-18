@@ -6,6 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
+import oracle.jdbc.pool.OracleDataSource;
+
 
 @WebServlet("/newProduct")
 public class newProduct extends HttpServlet {
@@ -27,7 +30,6 @@ public class newProduct extends HttpServlet {
                 String minimo = request.getParameter("minimo");
 
                 System.out.print(nombre + descripcion + precio + marca + tipo + total + minimo);
-                
                 
                 response.sendRedirect(response.encodeRedirectURL("index.jsp"));
     }
