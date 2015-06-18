@@ -63,21 +63,21 @@
             <br/>
         <form action="newProduct" class="ui form segment"  method="post"> 
             <label for="male">Nombre del producto: </label> <br/>
-                <INPUT NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class ="tb1"NAME = "nombre" TYPE = "text" id="nombre" > <br/>
             <label for="male">Descripcion del producto: </label> <br/>
-                <INPUT NAME = "descripcion" TYPE = "text" id="descripcion" > <br/>
+                <INPUT class ="tb1" NAME = "descripcion" TYPE = "text" id="descripcion" > <br/>
             <label for="male">Precio: </label> <br/>                   
-                <INPUT NAME = "precio" TYPE = "text" id="precio"> <br/>
+                <INPUT class ="tb1" NAME = "precio" TYPE = "text" id="precio"> <br/>
             <label for="male">Marca: </label> <br/> 
-                <INPUT NAME = "marca" TYPE = "text" id="marca"> <br/>
+                <INPUT class ="tb1" NAME = "marca" TYPE = "text" id="marca"> <br/>
             <label for="male">Tipo de producto: </label> <br/> 
-                <INPUT NAME = "categoria" TYPE = "text" id="categoria"> <br/>
+                <INPUT class ="tb1" NAME = "categoria" TYPE = "text" id="categoria"> <br/>
             <label for="male">Total de Unidades: </label> <br/> 
-                <INPUT NAME = "cantidad" TYPE = "text" id="cantidad"> <br/>
+                <INPUT class ="tb1" NAME = "cantidad" TYPE = "text" id="cantidad"> <br/>
             <label for="male">Minimo para Reordenar:</label> <br/>  
-                <INPUT NAME = "minimo" TYPE = "text" id="minimo"> <br/>           
+                <INPUT class ="tb1" NAME = "minimo" TYPE = "text" id="minimo"> <br/>           
             <label for="male">Bodega donde se encuentra:</label> <br/>  
-                <INPUT NAME = "NOMBRE_BODEGA" TYPE = "text" id="NOMBRE_BODEGA"> <br/>
+                <INPUT class ="tb1" NAME = "NOMBRE_BODEGA" TYPE = "text" id="NOMBRE_BODEGA"> <br/>
             <br/>
             <input type="submit" value="submit"> </form>
 </

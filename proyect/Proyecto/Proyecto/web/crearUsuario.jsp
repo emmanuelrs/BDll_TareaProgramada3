@@ -14,7 +14,7 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/crearBodegaCSS.css" rel="stylesheet">
+    <link href="css/crearUserCSS.css" rel="stylesheet">
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -63,24 +63,24 @@
             <img class="divimg" src="img/user.png">
         <form action="crearUsuario" class="ui form segment"  method="post"> 
             <label for="male">Nombre</label> <br/>
-                <INPUT NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class ="tb1"  NAME = "nombre" TYPE = "text" id="nombre"> <br/>
             <label for="male">Apellido</label> <br/>
-                <INPUT NAME = "apellido" TYPE = "text" id="apellido" > <br/>
+                <INPUT class ="tb1" NAME = "apellido" TYPE = "text" id="apellido" > <br/>
             <label for="male">Cédula</label> <br/>
-                <INPUT NAME = "cedula" TYPE = "text" id="cedula" > <br/>
+                <INPUT class ="tb1" NAME = "cedula" TYPE = "text" id="cedula" > <br/>
             <label for="male">País</label> <br/>
-                <INPUT NAME = "pais" TYPE = "text" id="pais" > <br/>
+                <INPUT class ="tb1" NAME = "pais" TYPE = "text" id="pais" > <br/>
             <label for="male">Provincia</label> <br/>                   
-                <INPUT NAME = "provincia" TYPE = "text" id="provincia"> <br/>
+                <INPUT class ="tb1" NAME = "provincia" TYPE = "text" id="provincia"> <br/>
             <label for="male">Canton</label> <br/> 
-                <INPUT NAME = "canton" TYPE = "text" id="canton"> <br/>
+                <INPUT class ="tb1" NAME = "canton" TYPE = "text" id="canton"> <br/>
             <label for="male">Dirección Exacta</label> <br/> 
-                <INPUT NAME = "direccion" TYPE = "text" id="direccion"> <br/>
+                <INPUT class ="tb1" NAME = "direccion" TYPE = "text" id="direccion"> <br/>
             <label for="male">Email</label> <br/>
-                <INPUT NAME = "email" TYPE = "text" id="email" > <br/>
+                <INPUT class ="tb1"  NAME = "email" TYPE = "text" id="email" > <br/>
             <label for="male">Número de Teléfono</label> <br/> 
-                <INPUT NAME = "telefono" TYPE = "text" id="telefono"> <br/>
+                <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>
             <label for="male">Tipo</label> <br/> 
-                <INPUT NAME = "tipo" TYPE = "text" id="tipo"> <br/>
+                <INPUT class ="tb1" NAME = "tipo" TYPE = "text" id="tipo"> <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
 </html>

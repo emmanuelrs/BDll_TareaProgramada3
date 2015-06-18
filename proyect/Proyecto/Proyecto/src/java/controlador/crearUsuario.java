@@ -20,7 +20,7 @@ import oracle.jdbc.pool.OracleDataSource;
  * @author Emmanuel
  */
 @WebServlet("/crearUsuario")
-public class crearUsuario {
+public class crearUsuario extends HttpServlet {
     public crearUsuario(){
         super();
     }
@@ -37,17 +37,18 @@ public class crearUsuario {
                 String direccion = request.getParameter("direccion");
                 String numero = request.getParameter("telefono");
                 String tipo = request.getParameter("tipo");
+                String email = request.getParameter("email");
                 oracleConn conect;
                 conect = new oracleConn();
 
         try {
-            conect.crearUsuario(nombreUsuario,apellido,cedula, pais, provincia, canton,direccion,numero,tipo);
+            conect.crearUsuario(nombreUsuario,cedula,apellido, pais, provincia,canton,direccion,email,numero,tipo);
         } catch (SQLException ex) {
             System.out.print("Error");
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-                //response.sendRedirect(response.encodeRedirectURL("crearUsuario.jsp"));
+                response.sendRedirect(response.encodeRedirectURL("crearUsuario.jsp"));
     }
     
    

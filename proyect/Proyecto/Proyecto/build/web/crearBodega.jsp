@@ -63,17 +63,17 @@
             <img class="divimg" src="img/bodega.jpg">
         <form action="crearBodega" class="ui form segment"  method="post"> 
             <label for="male">Nombre de la Bodega: </label> <br/>
-                <INPUT NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class ="tb1"  = "nombre" TYPE = "text" id="nombre" > <br/>
             <label for="male">País </label> <br/>
-                <INPUT NAME = "pais" TYPE = "text" id="pais" > <br/>
+                <INPUT class ="tb1" NAME = "pais" TYPE = "text" id="pais" > <br/>
             <label for="male">Provincia </label> <br/>                   
-                <INPUT NAME = "provincia" TYPE = "text" id="provincia"> <br/>
+                <INPUT class ="tb1" NAME = "provincia" TYPE = "text" id="provincia"> <br/>
             <label for="male">Canton </label> <br/> 
-                <INPUT NAME = "canton" TYPE = "text" id="canton"> <br/>
+                <INPUT class ="tb1" NAME = "canton" TYPE = "text" id="canton"> <br/>
             <label for="male">Dirección Exacta</label> <br/> 
-                <INPUT NAME = "direccion" TYPE = "text" id="direccion"> <br/>
+                <INPUT class ="tb1" NAME = "direccion" TYPE = "text" id="direccion"> <br/>
             <label for="male">Número de Teléfono</label> <br/> 
-                <INPUT NAME = "telefono" TYPE = "text" id="telefono"> <br/>          
+                <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>          
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
 </html>

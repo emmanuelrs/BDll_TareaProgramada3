@@ -71,37 +71,42 @@ public void crearBodega(String pNombreB, String pPais, String pProvincia,
     cs.close();
     conn.close();  
 }
-<<<<<<< HEAD
-public void crearUsuario(String pNombre, String pApellido, String pCedula,
-        String pPais, String pProvincia,String pCanton, String pDireccion,
+
+public void crearUsuario(String pNombre, String pCedula,String pApellido,
+        String pPais, String pProvincia,String pCanton, String pDireccion, String pEmail,
         String pNumero,String pTipo) throws SQLException{
     
-    int nCedula = Integer.parseInt(pCedula);
+    int nCedula = -1;
     
+    if((Integer.parseInt(pCedula)) > 10){
+        System.out.println("Numeromuylargo");
+    }
+    else{
+    nCedula= Integer.parseInt(pCedula);
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
     conn = ds.getConnection("GestorEmpresarial","gestorE");
     CallableStatement cs;
    
-    cs = conn.prepareCall("{ CALL insertarPersona(?,?,?,?,?,?,?,?,?) }");
+    cs = conn.prepareCall("{ CALL insertarPersona(?,?,?,?,?,?,?,?,?,?) }");
     //populate stored proc parameters
     cs.setString(1, pNombre);
-    cs.setString(2, pApellido);
-    cs.setInt(3, nCedula);
+    cs.setInt(2, nCedula);
+    cs.setString(3, pApellido);
     cs.setString(4, pPais);
     cs.setString(5, pProvincia);
     cs.setString(6,pCanton);
     cs.setString(7,pDireccion);
-    cs.setString(8,pNumero);
-    cs.setString(9,pTipo);
+    cs.setString(8, pEmail);
+    cs.setString(9,pNumero);
+    cs.setString(10,pTipo);
   
     cs.execute();
     cs.close();
     conn.close();
-    
+    }
 }
-=======
 
 public void crearPuntoVenta(String NombrePV, String Pais, String Provincia,
         String Canton, String Direccion, String Numero) throws SQLException{  
@@ -123,7 +128,6 @@ public void crearPuntoVenta(String NombrePV, String Pais, String Provincia,
     conn.close();  
 }
 
->>>>>>> origin/master
 public Connection ejecutarSQL() throws SQLException{
     OracleDataSource ds;
             ds = new OracleDataSource();
