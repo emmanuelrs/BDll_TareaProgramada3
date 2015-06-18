@@ -46,6 +46,7 @@
                     <li><a class="page-scroll" href="inventario.jsp">Inventario</a></li>
                     <li><a class="page-scroll" href="reportes.jsp">Reportes</a></li>
                     <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>
+                    <li><a class="page-scroll" href="crearUsuario.jsp">Crear Usuario</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
