@@ -1,19 +1,20 @@
+<%-- 
+    Document   : crearBodega
+    Created on : Jun 17, 2015, 6:45:42 PM
+    Author     : Emmanuel
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page language="java" %>
-<%@ page import = "controlador.oracleConn"%> 
-<%@ page import = "controlador.bodega"%> 
-<%@ page import = "java.util.LinkedList"%> 
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+    <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>iFacture</title>
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/bodegaCSS.css" rel="stylesheet">
+    <link href="css/crearBodegaCSS.css" rel="stylesheet">
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -35,7 +36,6 @@
                     <li><a class="page-scroll" href="inventario.jsp">Inventario</a></li>
                     <li><a class="page-scroll" href="reportes.jsp">Reportes</a></li>
                     <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>
-                    <li><a class="page-scroll" href="crearBodega.jsp">Crear Bodega</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -52,36 +52,28 @@
               <li><a href="inventario.jsp">Inventario</a></li>
               <li><a href="reportes.jsp">Reportes</a></li>
               <li><a href="respaldo.jsp">Respaldo</a></li>
-              <li><a href="crearBodega.jsp">Crear Bodega</a></li>
             </ul>
           </div>
-        </div><!--/sidebar-->
         
-        <table border="1" class="bodegaCSS">
-        <tr>
-        <td>id  </td>
-        <td>Nombre  </td>
-        <td>Pais </td>
-        <td>Provincia  </td>
-        <td>Canton </td>
-        <td>Direccion Exacta  </td>
-        <td>Telefono  </td>
-        </tr>
-        <%
-        LinkedList<bodega> lista = oracleConn.getBodega();
-        for (int i=0;i<lista.size();i++)
-        {
-        out.println("<tr>");
-        out.println("<td>"+lista.get(i).getId()+"</td>");
-        out.println("<td>"+lista.get(i).getNombre()+"</td>");
-        out.println("<td>"+lista.get(i).getPais()+"</td>");
-        out.println("<td>"+lista.get(i).getProvincia()+"</td>");
-        out.println("<td>"+lista.get(i).getCanton()+"</td>");
-        out.println("<td>"+lista.get(i).getDireccion()+"</td>");
-        out.println("<td>"+lista.get(i).getTelefono()+"</td>");
-        out.println("</tr>");
-        }
-        %>
-</table>
-</
+        </div><!--/sidebar-->
+        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+            <br/>
+            <h2> Crear nueva Bodega </h2>
+            <br/>
+            <img class="divimg" src="img/bodega.jpg">
+        <form action="newProduct" class="ui form segment"  method="post"> 
+            <label for="male">Nombre de la Bodega: </label> <br/>
+                <INPUT NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+            <label for="male">País </label> <br/>
+                <INPUT NAME = "descripcion" TYPE = "text" id="descripcion" > <br/>
+            <label for="male">Provincia </label> <br/>                   
+                <INPUT NAME = "precio" TYPE = "text" id="precio"> <br/>
+            <label for="male">Canton </label> <br/> 
+                <INPUT NAME = "marca" TYPE = "text" id="marca"> <br/>
+            <label for="male">Dirección Exacta</label> <br/> 
+                <INPUT NAME = "tipo" TYPE = "text" id="tipo"> <br/>
+            <label for="male">Número de Teléfono</label> <br/> 
+                <INPUT NAME = "total" TYPE = "text" id="total"> <br/>          
+            <br/>
+            <input class="myButton" type="submit" value="Crear"> </form>
 </html>
