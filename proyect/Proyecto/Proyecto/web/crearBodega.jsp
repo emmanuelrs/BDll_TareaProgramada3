@@ -13,8 +13,10 @@
     <title>iFacture</title>
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/crearBodegaCSS.css" rel="stylesheet">
+     <link href="css/crearBodegaCSS.css" rel="stylesheet">
+    
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -63,17 +65,17 @@
             <img class="divimg" src="img/bodega.jpg">
         <form action="crearBodega" class="ui form segment"  method="post"> 
             <label for="male">Nombre de la Bodega: </label> <br/>
-                <INPUT class ="tb1"  = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class ="tb2"  = "nombre" TYPE = "text" id="nombre" > <br/>
             <label for="male">País </label> <br/>
-                <INPUT class ="tb1" NAME = "pais" TYPE = "text" id="pais" > <br/>
+                <INPUT class="tb2" NAME = "pais" TYPE = "text" id="pais" > <br/>
             <label for="male">Provincia </label> <br/>                   
-                <INPUT class ="tb1" NAME = "provincia" TYPE = "text" id="provincia"> <br/>
+                <INPUT class="tb2" NAME = "provincia" TYPE = "text" id="provincia"> <br/>
             <label for="male">Canton </label> <br/> 
-                <INPUT class ="tb1" NAME = "canton" TYPE = "text" id="canton"> <br/>
+                <INPUT class ="tb2" NAME = "canton" TYPE = "text" id="canton"> <br/>
             <label for="male">Dirección Exacta</label> <br/> 
-                <INPUT class ="tb1" NAME = "direccion" TYPE = "text" id="direccion"> <br/>
+                <INPUT class="tb2" NAME = "direccion" TYPE = "text" id="direccion"> <br/>
             <label for="male">Número de Teléfono</label> <br/> 
-                <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>          
+                <INPUT class="tb2" NAME = "telefono" TYPE = "text" id="telefono"> <br/>          
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
 </html>

@@ -27,11 +27,12 @@ html,body {
   font-family: 'Droid Sans Mono', sans-serif;
   color:"white";
 }
-.tb2 {
+.tb1 {
     color:black;
     border-style: none;
     border-radius: 5px;
 }
+
 p,h1,h2,h3,h4 {
   font-family: 'Droid Sans Mono', sans-serif;
   color:white;
@@ -71,7 +72,7 @@ body {
   color: white;
 }
 body2{
-    color:white;
+    //color:white;
 }
 a {
   color:#bcbcbc;
@@ -263,3 +264,4 @@ boton1{
 	position:relative;
 	top:1px;
 }
+

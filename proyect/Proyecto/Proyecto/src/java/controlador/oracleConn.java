@@ -71,7 +71,7 @@ public void crearBodega(String pNombreB, String pPais, String pProvincia,
     cs.close();
     conn.close();  
 }
-<<<<<<< HEAD
+
 
 public void crearUsuario(String pNombre, String pCedula,String pApellido,
         String pPais, String pProvincia,String pCanton, String pDireccion, String pEmail,
@@ -108,8 +108,6 @@ public void crearUsuario(String pNombre, String pCedula,String pApellido,
     conn.close();
     }
 }
-=======
->>>>>>> origin/master
 
 public void crearPuntoVenta(String NombrePV, String Pais, String Provincia,
         String Canton, String Direccion, String Numero) throws SQLException{  

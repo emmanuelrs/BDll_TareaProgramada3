@@ -5,11 +5,21 @@
  */
 package controlador;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author Emmanuel
  */
-<<<<<<< HEAD
+
 @WebServlet("/crearUsuario")
 public class crearUsuario extends HttpServlet {
     public crearUsuario(){
@@ -41,10 +51,6 @@ public class crearUsuario extends HttpServlet {
 
                 response.sendRedirect(response.encodeRedirectURL("crearUsuario.jsp"));
     }
-    
-   
-=======
-public class crearUsuario {
->>>>>>> origin/master
-    
 }
+    
+
