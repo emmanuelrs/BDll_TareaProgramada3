@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.LinkedList;
+import controlador.PuntoDeVenta;
+import controlador.oracleConn;
 
 public final class puntoVenta_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +44,9 @@ public final class puntoVenta_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -114,6 +120,40 @@ public final class puntoVenta_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <INPUT NAME = \"telefono\" TYPE = \"text\" id=\"telefono\"> <br/>\n");
       out.write("            <br/>\n");
       out.write("            <input class=\"myButton\" type=\"submit\" value=\"Crear\"> </form>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"col-xs-12 col-sm-18\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\n");
+      out.write("            <br/>\n");
+      out.write("            <h2> Puntos de Venta </h2>\n");
+      out.write("            <br/>\n");
+      out.write("        <table border=\"1\" class=\"inventarioCss\">\n");
+      out.write("        <tr>\n");
+      out.write("        <td>Id  </td>\n");
+      out.write("        <td>Nombre  </td>\n");
+      out.write("        <td>Pais  </td>\n");
+      out.write("        <td>Provincia  </td>\n");
+      out.write("        <td>Canton  </td>\n");
+      out.write("        <td>Direccion exacta  </td>\n");
+      out.write("        <td>Telefono  </td>\n");
+      out.write("        </tr>\n");
+      out.write("        ");
+
+        LinkedList<PuntoDeVenta> lista = oracleConn.getPuntoVenta();
+        for (int i=0;i<lista.size();i++)
+        {
+        out.println("<tr>");
+        out.println("<td>"+lista.get(i).getId()+"</td>");
+        out.println("<td>"+lista.get(i).getNombre()+"</td>");
+        out.println("<td>"+lista.get(i).getPais()+"</td>");
+        out.println("<td>"+lista.get(i).getProvincia()+"</td>");
+        out.println("<td>"+lista.get(i).getCanton()+"</td>");
+        out.println("<td>"+lista.get(i).getDireccion()+"</td>");
+        out.println("<td>"+lista.get(i).getTelefono()+"</td>");
+        out.println("</tr>");
+        }
+        
+      out.write("\n");
+      out.write("</table>\n");
+      out.write("        </div>\n");
       out.write("</\n");
       out.write("</html>");
     } catch (Throwable t) {

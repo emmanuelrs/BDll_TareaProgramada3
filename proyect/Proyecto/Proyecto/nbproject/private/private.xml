@@ -3,13 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Emmanuel/Desktop/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/src/java/controlador/crearBodega.java</file>
-            <file>file:/C:/Users/Emmanuel/Desktop/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/src/java/controlador/crearUsuario.java</file>
-            <file>file:/C:/Users/Emmanuel/Desktop/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/web/crearBodega.jsp</file>
-            <file>file:/C:/Users/Emmanuel/Desktop/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/src/java/controlador/oracleConn.java</file>
-            <file>file:/C:/Users/Emmanuel/Desktop/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/web/bodega.jsp</file>
-=======
             <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/web/inventario.jsp</file>
             <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/web/index.jsp</file>
             <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/src/java/controlador/oracleConn.java</file>
@@ -17,7 +10,6 @@
             <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/src/java/controlador/newProduct.java</file>
             <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/src/java/controlador/crearBodega.java</file>
             <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/Proyecto/src/java/controlador/inventario.java</file>
->>>>>>> origin/master
         </group>
     </open-files>
 </project-private>

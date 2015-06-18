@@ -4,6 +4,9 @@
     Author     : LUIS
 --%>
 
+<%@page import="java.util.LinkedList"%>
+<%@page import="controlador.PuntoDeVenta"%>
+<%@page import="controlador.oracleConn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,5 +78,37 @@
                 <INPUT NAME = "telefono" TYPE = "text" id="telefono"> <br/>
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
+        </div>
+        <div class="col-xs-12 col-sm-18" data-spy="scroll" data-target="#sidebar-nav">
+            <br/>
+            <h2> Puntos de Venta </h2>
+            <br/>
+        <table border="1" class="inventarioCss">
+        <tr>
+        <td>Id  </td>
+        <td>Nombre  </td>
+        <td>Pais  </td>
+        <td>Provincia  </td>
+        <td>Canton  </td>
+        <td>Direccion exacta  </td>
+        <td>Telefono  </td>
+        </tr>
+        <%
+        LinkedList<PuntoDeVenta> lista = oracleConn.getPuntoVenta();
+        for (int i=0;i<lista.size();i++)
+        {
+        out.println("<tr>");
+        out.println("<td>"+lista.get(i).getId()+"</td>");
+        out.println("<td>"+lista.get(i).getNombre()+"</td>");
+        out.println("<td>"+lista.get(i).getPais()+"</td>");
+        out.println("<td>"+lista.get(i).getProvincia()+"</td>");
+        out.println("<td>"+lista.get(i).getCanton()+"</td>");
+        out.println("<td>"+lista.get(i).getDireccion()+"</td>");
+        out.println("<td>"+lista.get(i).getTelefono()+"</td>");
+        out.println("</tr>");
+        }
+        %>
+</table>
+        </div>
 </
 </html>
