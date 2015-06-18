@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+<<<<<<< HEAD
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>iFacture - Usuario</title>
@@ -83,4 +84,12 @@
             <label for="male">Tipo</label> <br/> 
                 <INPUT class ="tb1" NAME = "tipo" TYPE = "text" id="tipo"> <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
+=======
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+>>>>>>> origin/master
 </html>

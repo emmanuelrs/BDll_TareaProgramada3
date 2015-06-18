@@ -5,20 +5,11 @@
  */
 package controlador;
 
-import java.io.IOException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import oracle.jdbc.pool.OracleDataSource;
 /**
  *
  * @author Emmanuel
  */
+<<<<<<< HEAD
 @WebServlet("/crearUsuario")
 public class crearUsuario extends HttpServlet {
     public crearUsuario(){
@@ -52,5 +43,8 @@ public class crearUsuario extends HttpServlet {
     }
     
    
+=======
+public class crearUsuario {
+>>>>>>> origin/master
     
 }

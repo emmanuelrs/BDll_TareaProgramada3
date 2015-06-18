@@ -71,6 +71,7 @@ public void crearBodega(String pNombreB, String pPais, String pProvincia,
     cs.close();
     conn.close();  
 }
+<<<<<<< HEAD
 
 public void crearUsuario(String pNombre, String pCedula,String pApellido,
         String pPais, String pProvincia,String pCanton, String pDireccion, String pEmail,
@@ -107,6 +108,8 @@ public void crearUsuario(String pNombre, String pCedula,String pApellido,
     conn.close();
     }
 }
+=======
+>>>>>>> origin/master
 
 public void crearPuntoVenta(String NombrePV, String Pais, String Provincia,
         String Canton, String Direccion, String Numero) throws SQLException{  
@@ -198,5 +201,35 @@ public Connection ejecutarSQL() throws SQLException{
          e.printStackTrace();
         }
       return listaBodega;
+    }
+        public static LinkedList<PuntoDeVenta> getPuntoVenta(){
+        LinkedList<PuntoDeVenta> listaPV =new LinkedList<PuntoDeVenta>();
+        try{
+            PuntoDeVenta PV = new PuntoDeVenta();
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String sql = "select pv.id_puntodeventa, pv.nombrepuntodeventa, d.pais, d.provincia, d.canton, d.direccion_exacta, t.numtelefono from puntodeventa pv, direccion d, telefono t where pv.id_direccion = d.id_direccion and pv.id_telefono = t.id_telefono" ;
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+                PV.setId(rs.getNString("id_puntodeventa"));
+                PV.setNombre(rs.getNString("nombrepuntodeventa"));
+                PV.setPais(rs.getNString("pais"));
+                PV.setProvincia(rs.getNString("provincia"));
+                PV.setCanton(rs.getNString("canton"));
+                PV.setDireccion(rs.getNString("direccion_exacta"));
+                PV.setTelefono(rs.getNString("numtelefono"));
+                listaPV.add(PV);
+            }
+            rs.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+      return listaPV;
     }
 }
