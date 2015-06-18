@@ -55,7 +55,7 @@
           </div>
         </div><!--/sidebar-->
         
-        <table border="1"class="inventarioCss">
+        <table border="1" class="inventarioCss">
         <tr>
         <td>id  </td>
         <td>Producto  </td>

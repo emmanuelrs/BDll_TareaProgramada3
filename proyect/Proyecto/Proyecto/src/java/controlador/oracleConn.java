@@ -49,8 +49,7 @@ public void insertarProducto(String producto,String descripcion,String precio,St
 }
 
 public void crearBodega(String pNombreB, String pPais, String pProvincia,
-        String pCanton, String pDireccion, String pNumero) throws SQLException{
-    
+        String pCanton, String pDireccion, String pNumero) throws SQLException{  
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
@@ -66,14 +65,33 @@ public void crearBodega(String pNombreB, String pPais, String pProvincia,
     cs.setString(5, pDireccion);
     cs.setString(6,pNumero);
    
-    
     //cs.registerOutParameter(3, Types.NUMERIC); 
     //execute stored procedure
     cs.execute();
     cs.close();
-    conn.close();
-    
+    conn.close();  
 }
+
+public void crearPuntoVenta(String NombrePV, String Pais, String Provincia,
+        String Canton, String Direccion, String Numero) throws SQLException{  
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn = ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{CALL insertarPuntoDeVenta(?,?,?,?,?,?)}");
+    //populate stored proc parameters
+    cs.setString(1, NombrePV);
+    cs.setString(2, Pais);
+    cs.setString(3, Provincia);
+    cs.setString(4, Canton);
+    cs.setString(5, Direccion);
+    cs.setString(6, Numero);
+    cs.execute();
+    cs.close();
+    conn.close();  
+}
+
 public Connection ejecutarSQL() throws SQLException{
     OracleDataSource ds;
             ds = new OracleDataSource();

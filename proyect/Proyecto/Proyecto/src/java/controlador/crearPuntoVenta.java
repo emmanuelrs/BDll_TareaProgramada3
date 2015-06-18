@@ -10,33 +10,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import oracle.jdbc.pool.OracleDataSource;
 
-@WebServlet("/crearBodega")
-public class crearBodega extends HttpServlet{
-    
-    public crearBodega(){
+@WebServlet("/crearPuntoVenta")
+public class crearPuntoVenta extends HttpServlet{
+    public crearPuntoVenta(){
         super();
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		String contextPath = request.getContextPath();
-                String nombreBodega = request.getParameter("nombre");
+                String nombrePV = request.getParameter("nombre");
                 String pais = request.getParameter("pais");
                 String provincia = request.getParameter("provincia");
-                String canton = request.getParameter("canton");
+                String canton = request.getParameter("Canton");
                 String direccion = request.getParameter("direccion");
                 String numero = request.getParameter("telefono");
                 oracleConn conect;
                 conect = new oracleConn();
-
         try {
-            conect.crearBodega(nombreBodega,pais,provincia,canton,direccion,numero);
+            conect.crearPuntoVenta(nombrePV,pais,provincia,canton,direccion,numero);
         } catch (SQLException ex) {
             System.out.print("Error");
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-                response.sendRedirect(response.encodeRedirectURL("crearBodega.jsp"));
+                response.sendRedirect(response.encodeRedirectURL("puntoVenta.jsp"));
     }
-     
 }
-    

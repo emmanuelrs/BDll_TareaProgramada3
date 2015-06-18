@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class crearBodega_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class facturacion_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -43,17 +43,16 @@ public final class crearBodega_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write("    <head>\r\n");
+      out.write("<html lang=\"en\">\r\n");
+      out.write("<head>\r\n");
       out.write("    <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("    <meta charset=\"utf-8\">\r\n");
       out.write("    <title>iFacture</title>\r\n");
       out.write("    <meta name=\"generator\" content=\"Bootply\" />\r\n");
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\r\n");
       out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
-      out.write("    <link href=\"css/crearBodegaCSS.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link href=\"css/styles.css\" rel=\"stylesheet\">\r\n");
       out.write("</head>\r\n");
       out.write("<body id=\"page-top\">\r\n");
       out.write("    <nav id=\"mainNav\" class=\"navbar navbar-default navbar-fixed-top\">\r\n");
@@ -71,7 +70,7 @@ public final class crearBodega_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <!-- Collect the nav links, forms, and other content for toggling -->\r\n");
       out.write("            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n");
       out.write("                <ul class=\"nav navbar-nav navbar-right\">\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"facturacion.jsp\">Facturación</a></li>\r\n");
+      out.write("                    <li><a class=\"page-scroll\" href=\"puntoVenta.jsp\">Puntos de Venta</a></li>\r\n");
       out.write("                    <li><a class=\"page-scroll\" href=\"inventario.jsp\">Inventario</a></li>\r\n");
       out.write("                    <li><a class=\"page-scroll\" href=\"reportes.jsp\">Reportes</a></li>\r\n");
       out.write("                    <li><a class=\"page-scroll\" href=\"respaldo.jsp\">Respaldo</a></li>\r\n");
@@ -93,28 +92,8 @@ public final class crearBodega_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              <li><a href=\"respaldo.jsp\">Respaldo</a></li>\r\n");
       out.write("            </ul>\r\n");
       out.write("          </div>\r\n");
-      out.write("        \r\n");
       out.write("        </div><!--/sidebar-->\r\n");
-      out.write("        <div class=\"col-xs-12 col-sm-9\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <h2> Crear nueva Bodega </h2>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <img class=\"divimg\" src=\"img/bodega.jpg\">\r\n");
-      out.write("        <form action=\"crearBodega\" class=\"ui form segment\"  method=\"post\"> \r\n");
-      out.write("            <label for=\"male\">Nombre de la Bodega: </label> <br/>\r\n");
-      out.write("                <INPUT NAME = \"nombre\" TYPE = \"text\" id=\"nombre\" > <br/>\r\n");
-      out.write("            <label for=\"male\">País </label> <br/>\r\n");
-      out.write("                <INPUT NAME = \"pais\" TYPE = \"text\" id=\"pais\" > <br/>\r\n");
-      out.write("            <label for=\"male\">Provincia </label> <br/>                   \r\n");
-      out.write("                <INPUT NAME = \"provincia\" TYPE = \"text\" id=\"provincia\"> <br/>\r\n");
-      out.write("            <label for=\"male\">Canton </label> <br/> \r\n");
-      out.write("                <INPUT NAME = \"canton\" TYPE = \"text\" id=\"canton\"> <br/>\r\n");
-      out.write("            <label for=\"male\">Dirección Exacta</label> <br/> \r\n");
-      out.write("                <INPUT NAME = \"direccion\" TYPE = \"text\" id=\"direccion\"> <br/>\r\n");
-      out.write("            <label for=\"male\">Número de Teléfono</label> <br/> \r\n");
-      out.write("                <INPUT NAME = \"telefono\" TYPE = \"text\" id=\"telefono\"> <br/>          \r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <input class=\"myButton\" type=\"submit\" value=\"Crear\"> </form>\r\n");
+      out.write("</\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
