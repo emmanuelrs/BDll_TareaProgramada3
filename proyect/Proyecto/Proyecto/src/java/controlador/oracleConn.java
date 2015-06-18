@@ -1,5 +1,4 @@
 package controlador;
-import conect.*;
 import java.sql.*;
 import oracle.jdbc.pool.OracleDataSource;
 import java.util.LinkedList;
@@ -49,6 +48,32 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     
 }
 
+public void crearBodega(String pNombreB, String pPais, String pProvincia,
+        String pCanton, String pDireccion, String pNumero) throws SQLException{
+    
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
+    conn = ds.getConnection("GestorEmpresarial","gestorE");
+    CallableStatement cs;
+   
+    cs = conn.prepareCall("{ CALL insertarBodega(?,?,?,?,?,?) }");
+    //populate stored proc parameters
+    cs.setString(1, pNombreB);
+    cs.setString(2, pPais);
+    cs.setString(3, pProvincia);
+    cs.setString(4, pCanton);
+    cs.setString(5, pDireccion);
+    cs.setString(6,pNumero);
+   
+    
+    //cs.registerOutParameter(3, Types.NUMERIC); 
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close();
+    
+}
 public Connection ejecutarSQL() throws SQLException{
     OracleDataSource ds;
             ds = new OracleDataSource();

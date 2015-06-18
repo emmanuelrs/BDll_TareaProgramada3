@@ -61,19 +61,19 @@
             <h2> Crear nueva Bodega </h2>
             <br/>
             <img class="divimg" src="img/bodega.jpg">
-        <form action="newProduct" class="ui form segment"  method="post"> 
+        <form action="crearBodega" class="ui form segment"  method="post"> 
             <label for="male">Nombre de la Bodega: </label> <br/>
                 <INPUT NAME = "nombre" TYPE = "text" id="nombre" > <br/>
             <label for="male">País </label> <br/>
-                <INPUT NAME = "descripcion" TYPE = "text" id="descripcion" > <br/>
+                <INPUT NAME = "pais" TYPE = "text" id="pais" > <br/>
             <label for="male">Provincia </label> <br/>                   
-                <INPUT NAME = "precio" TYPE = "text" id="precio"> <br/>
+                <INPUT NAME = "provincia" TYPE = "text" id="provincia"> <br/>
             <label for="male">Canton </label> <br/> 
-                <INPUT NAME = "marca" TYPE = "text" id="marca"> <br/>
+                <INPUT NAME = "canton" TYPE = "text" id="canton"> <br/>
             <label for="male">Dirección Exacta</label> <br/> 
-                <INPUT NAME = "tipo" TYPE = "text" id="tipo"> <br/>
+                <INPUT NAME = "direccion" TYPE = "text" id="direccion"> <br/>
             <label for="male">Número de Teléfono</label> <br/> 
-                <INPUT NAME = "total" TYPE = "text" id="total"> <br/>          
+                <INPUT NAME = "telefono" TYPE = "text" id="telefono"> <br/>          
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
 </html>
