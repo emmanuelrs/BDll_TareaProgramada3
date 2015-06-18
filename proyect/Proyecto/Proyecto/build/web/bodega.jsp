@@ -14,6 +14,15 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/bodegaCSS.css" rel="stylesheet">
+     <link href="css/inventarioCss.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
+        
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#example').DataTable();} );
+        </script>
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -57,16 +66,19 @@
           </div>
         </div><!--/sidebar-->
         
-        <table border="1" class="bodegaCSS">
-        <tr>
-        <td>id  </td>
-        <td>Nombre  </td>
-        <td>Pais </td>
-        <td>Provincia  </td>
-        <td>Canton </td>
-        <td>Direccion Exacta  </td>
-        <td>Telefono  </td>
-        </tr>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+            <td>id</td>
+            <td>Nombre</td>
+            <td>Pais</td>
+            <td>Provincia</td>
+            <td>Canton </td>
+            <td>Direccion Exacta</td>
+            <td>Telefono</td>
+            </tr>
+            </thead>
+        <tbody>
         <%
         LinkedList<bodega> lista = oracleConn.getBodega();
         for (int i=0;i<lista.size();i++)
@@ -82,6 +94,7 @@
         out.println("</tr>");
         }
         %>
-</table>
-</
+        </tbody>
+        </table>
+
 </html>
