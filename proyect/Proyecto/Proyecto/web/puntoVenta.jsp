@@ -1,8 +1,10 @@
+<%-- 
+    Document   : puntoVenta
+    Created on : 17-jun-2015, 21:26:31
+    Author     : LUIS
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page language="java" %>
-<%@ page import = "controlador.oracleConn"%> 
-<%@ page import = "controlador.inventario"%> 
-<%@ page import = "java.util.LinkedList"%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/inventarioCss.css" rel="stylesheet">
+    <link href="css/crearBodegaCSS.css" rel="stylesheet">
     
 </head>
 <body id="page-top">
@@ -54,34 +56,24 @@
             </ul>
           </div>
         </div><!--/sidebar-->
-        
-        <table border="1" class="inventarioCss">
-        <tr>
-        <td>id  </td>
-        <td>Producto  </td>
-        <td>Descripcion  </td>
-        <td>Precio  </td>
-        <td>Marca  </td>
-        <td>Categoria  </td>
-        <td>Cantidad  </td>
-        <td>Minimo  </td>
-        </tr>
-        <%
-        LinkedList<inventario> lista = oracleConn.getInventario();
-        for (int i=0;i<lista.size();i++)
-        {
-        out.println("<tr>");
-        out.println("<td>"+lista.get(i).getId()+"</td>");
-        out.println("<td>"+lista.get(i).getProducto()+"</td>");
-        out.println("<td>"+lista.get(i).getDescripcion()+"</td>");
-        out.println("<td>"+lista.get(i).getPrecio()+"</td>");
-        out.println("<td>"+lista.get(i).getMarca()+"</td>");
-        out.println("<td>"+lista.get(i).getCategoria()+"</td>");
-        out.println("<td>"+lista.get(i).getCantidad()+"</td>");
-        out.println("<td>"+lista.get(i).getMinimo()+"</td>");
-        out.println("</tr>");
-        }
-        %>
-</table>
+        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+            <br/>
+            <h2> Crear Punto de Venta </h2>
+            <br/>
+        <form action="crearPuntoVenta" class="ui form segment"  method="post"> 
+            <label for="male">Nombre del punto de veta: </label> <br/>
+                <INPUT NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+            <label for="male">Pais: </label> <br/>
+                <INPUT NAME = "pais" TYPE = "text" id="pais" > <br/>
+            <label for="male">Provincia: </label> <br/>                   
+                <INPUT NAME = "provincia" TYPE = "text" id="provincia"> <br/>
+            <label for="male">Canton: </label> <br/> 
+                <INPUT NAME = "Canton" TYPE = "text" id="Canton"> <br/>
+            <label for="male">Direccion exacta: </label> <br/> 
+                <INPUT NAME = "direccion" TYPE = "text" id="direccion"> <br/>
+            <label for="male">Numero Telefono: </label> <br/> 
+                <INPUT NAME = "telefono" TYPE = "text" id="telefono"> <br/>
+            <br/>
+            <input class="myButton" type="submit" value="Crear"> </form>
 </
 </html>
