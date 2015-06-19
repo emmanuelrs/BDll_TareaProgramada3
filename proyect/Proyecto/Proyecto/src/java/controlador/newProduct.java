@@ -31,6 +31,12 @@ public class newProduct extends HttpServlet {
                 String cantidad = request.getParameter("cantidad");
                 String minimo = request.getParameter("minimo");
                 String bodega = request.getParameter("NOMBRE_BODEGA");
+                
+                producto = producto.toUpperCase();
+                descripcion = descripcion.toUpperCase();
+                marca = marca.toUpperCase();
+                categoria = categoria.toUpperCase();
+                bodega = bodega.toUpperCase();
 
                 oracleConn conect;
                 conect = new oracleConn();
