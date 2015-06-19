@@ -65,7 +65,7 @@
             <img class="divimg" src="img/bodega.jpg">
         <form action="crearBodega" class="ui form segment"  method="post"> 
             <label for="male">Nombre de la Bodega: </label> <br/>
-                <INPUT class ="tb2"  = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class ="tb2"  NAME= "nombre" TYPE = "text" id="nombre" > <br/>
             <label for="male">País </label> <br/>
                 <INPUT class="tb2" NAME = "pais" TYPE = "text" id="pais" > <br/>
             <label for="male">Provincia </label> <br/>                   
