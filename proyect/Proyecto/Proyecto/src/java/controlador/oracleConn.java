@@ -83,17 +83,19 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
         }
     }
     
-private void insertarControl(String PuntoVenta, Integer total, Integer idFactura) throws SQLException{
-    OracleDataSource ds;
+private void insertarControl(String PuntoDeVenta, Integer tota, Integer idFac) throws SQLException{
+OracleDataSource ds;
     ds = new OracleDataSource();
-    ds.setURL(jdbcUrl);
-    conn=ds.getConnection(userid,password);
+    ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
+    conn=ds.getConnection("GestorEmpresarial","gestorE");
     CallableStatement cs;
-    cs = conn.prepareCall("{ CALL insertarVenta(?,?,?)}");
+   //conn = dataSource.getConnection(); 
+    cs = conn.prepareCall("{ CALL insertarVenta(?,?,?) }");
     //populate stored proc parameters
-    cs.setNString(1, PuntoVenta);
-    cs.setInt(2, total);
-    cs.setInt(2, idFactura);
+    cs.setString(1, PuntoDeVenta);
+    cs.setInt(2, tota);
+    cs.setInt(3, idFac);
+    //cs.registerOutParameter(3, Types.NUMERIC); 
     //execute stored procedure
     cs.execute();
     cs.close();

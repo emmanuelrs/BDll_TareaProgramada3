@@ -1,7 +1,7 @@
 SET serveroutput on;
 DECLARE
 BEGIN
-   insertarproducto('garbanzos','las mejores',900,'diana','granitos',12,6);
+   insertarVenta('LA PULPE', 1800, 32);
    
 END;
 
