@@ -103,6 +103,9 @@ public final class facturacion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <label for=\"male\">Cantidad</label> <br/> \r\n");
       out.write("                <INPUT class =\"tb1\" NAME = \"Cantidad\" TYPE = \"text\" id=\"Cantidad\"> <br/>\r\n");
       out.write("            <input class=\"myButton\" type=\"submit\" value=\"Agregar\"> \r\n");
+      out.write("            <br/>\r\n");
+      out.write("            <label for=\"male\">Id Punto de Venta</label> <br/> \r\n");
+      out.write("                <INPUT class =\"tb1\" NAME = \"IdPuntoVenta\" TYPE = \"text\" id=\"IdPuntoVenta\"> <br/>\r\n");
       out.write("            <label for=\"male\">%de descuento</label> <br/> \r\n");
       out.write("                <INPUT class =\"tb1\" NAME = \"descuento\" TYPE = \"text\" id=\"descuento\"> <br/>\r\n");
       out.write("            <input class=\"myButton\" type=\"submit\" value=\"Vender\"> \r\n");
