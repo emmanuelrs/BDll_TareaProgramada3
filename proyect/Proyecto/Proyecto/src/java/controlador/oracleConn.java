@@ -74,13 +74,29 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
             rs.close();
             conn.close();
             resetPivot();
+            ActualizarFactura(IdFactura,tot);
         }
         catch (Exception e)
         {
          e.printStackTrace();
         }
     }
-
+private void ActualizarFactura(Integer idFactura,Integer total) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{ CALL actualizarFactura(?,?)}");
+    //populate stored proc parameters
+    cs.setInt(1, idFactura);
+    cs.setInt(2, total);
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close(); 
+}
+    
 private void agregarProducto(Integer idFactura,Integer IdProducto,Integer cantidad) throws SQLException{
     OracleDataSource ds;
     ds = new OracleDataSource();
