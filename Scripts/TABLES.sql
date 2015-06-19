@@ -286,7 +286,6 @@ CREATE TABLE Producto(
               CONSTRAINT INV_Descripcion_NN NOT NULL,
        PrecioUnitario number(10)
               CONSTRAINT INV_PrecioUnitario_NN NOT NULL,
-       Nombre VARCHAR2(35),
        IdMarca number(10),
        IDCategoria number(10),
        Cantidad NUMBER(10),
