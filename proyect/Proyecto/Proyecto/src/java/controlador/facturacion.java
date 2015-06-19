@@ -33,7 +33,7 @@ public class facturacion extends HttpServlet{
         conect = new oracleConn();
         
         
-        if(varDes == 0 & varIdPV == 0){
+        if(varDes == 0 & varIdPV == 0 & varId > 0 & varCant > 0){
             int cant = Integer.parseInt(Cantidad);
             int pro = Integer.parseInt(IdProducto);
             conect = new oracleConn();
@@ -45,7 +45,7 @@ public class facturacion extends HttpServlet{
                 Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
             }
         } //if varDes
-        else if (varId == 0 & varCant == 0) {
+        else if (varId == 0 & varCant == 0 & varDes > 0 & varIdPV > 0) {
             try {
                 fac = conect.crearFactura(IdPV,Descuento);
             } catch (SQLException ex) {
@@ -71,6 +71,9 @@ public class facturacion extends HttpServlet{
             }
             conect.getPivot(fac, IdPV);
         }//else if 2
+        if(varDes == 0 & varIdPV == 0 & varId == 0 & varCant == 0){
+            conect.resetPivot();
+        } //else if 3
         response.sendRedirect(response.encodeRedirectURL("facturacion.jsp"));
     }
 

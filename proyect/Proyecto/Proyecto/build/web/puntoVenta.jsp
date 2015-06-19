@@ -21,12 +21,7 @@
     <link href="css/crearUserCSS.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
         
-	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
-	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
-        <script>
-            $(document).ready(function() {
-            $('#example').DataTable();} );
-        </script>
+
     
 </head>
 <body id="page-top">
@@ -86,40 +81,6 @@
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
         </div>
-        <div class="col-xs-12 col-sm-18" data-spy="scroll" data-target="#sidebar-nav">
-            <br/>
-            <h2> Puntos de Venta </h2>
-            <br/>
-        <table id="example" class="display" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-        <td>Id  </td>
-        <td>Nombre  </td>
-        <td>Pais  </td>
-        <td>Provincia  </td>
-        <td>Canton  </td>
-        <td>Direccion exacta  </td>
-        <td>Telefono  </td>
-        </tr>
-        </thead>
-        <tbody>
-        
-        <%
-        LinkedList<PuntoDeVenta> lista = oracleConn.getPuntoVenta();
-        for (int i=0;i<lista.size();i++)
-        {
-        out.println("<tr>");
-        out.println("<td>"+lista.get(i).getId()+"</td>");
-        out.println("<td>"+lista.get(i).getNombre()+"</td>");
-        out.println("<td>"+lista.get(i).getPais()+"</td>");
-        out.println("<td>"+lista.get(i).getProvincia()+"</td>");
-        out.println("<td>"+lista.get(i).getCanton()+"</td>");
-        out.println("<td>"+lista.get(i).getDireccion()+"</td>");
-        out.println("<td>"+lista.get(i).getTelefono()+"</td>");
-        out.println("</tr>");
-        }
-        %>
-</table>
-        </div>
+       
 </
 </html>

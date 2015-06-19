@@ -32,6 +32,6 @@ public class crearPuntoVenta extends HttpServlet{
             System.out.print("Error");
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
-                response.sendRedirect(response.encodeRedirectURL("puntoVenta.jsp"));
+                response.sendRedirect(response.encodeRedirectURL("verPuntoVenta.jsp"));
     }
 }

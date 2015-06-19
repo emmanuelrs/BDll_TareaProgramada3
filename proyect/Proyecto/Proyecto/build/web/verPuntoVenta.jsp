@@ -1,5 +1,10 @@
+<%-- 
+    Document   : verPuntoVenta
+    Created on : 19-jun-2015, 17:20:39
+    Author     : LUIS
+--%>
 
-<%@page import="controlador.inventario"%>
+<%@page import="controlador.PuntoDeVenta"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="controlador.oracleConn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,15 +17,17 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/FacturacionCSS.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/crearUserCSS.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
-        
-	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
+    
+    	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
 	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
         <script>
             $(document).ready(function() {
             $('#example').DataTable();} );
         </script>
+</head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -37,7 +44,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="verPuntoVenta.jsp">Puntos de Venta</a></li>
+                    <li><a class="page-scroll" href="facturacion.jsp">Facturación</a></li>
                     <li><a class="page-scroll" href="puntoVenta.jsp">Crear Punto de Venta</a></li>
                 </ul>
             </div>
@@ -55,65 +62,43 @@
               <li><a href="inventario.jsp">Inventario</a></li>
               <li><a href="reportes.jsp">Reportes</a></li>
               <li><a href="respaldo.jsp">Respaldo</a></li>
-              <li><a href="iFactura.jsp">Ver Factura</a></li>
             </ul>
           </div>
         </div><!--/sidebar-->
-        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+        <div class="col-xs-12 col-sm-18" data-spy="scroll" data-target="#sidebar-nav">
             <br/>
-            <h2> Realizar Venta </h2>
+            <h2> Puntos de Venta </h2>
             <br/>
-            <img class="divimg" src="img/user.png">
-        <form action="facturacion" class="ui form segment"  method="post"> 
-            <label for="male">Id Producto</label> <br/> 
-                <INPUT class ="tb1" NAME = "IdProducto" TYPE = "text" id="IdProducto"> <br/>
-            <label for="male">Cantidad</label> <br/> 
-                <INPUT class ="tb1" NAME = "Cantidad" TYPE = "text" id="Cantidad"> <br/>
-            <input class="myButton" type="submit" value="Agregar"> 
-            <br/>
-            <label for="male">Punto de Venta</label> <br/> 
-                <INPUT class ="tb1" NAME = "IdPuntoVenta" TYPE = "text" id="IdPuntoVenta"> <br/>
-            <label for="male">%de descuento</label> <br/> 
-                <INPUT class ="tb1" NAME = "descuento" TYPE = "text" id="descuento"> <br/>
-            <input class="myButton" type="submit" value="Vender"><input class="myButton" type="submit" value="Cancelar Venta">
-        </form>
-            
         <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
-            <td>id  </td>
-            <td>Producto  </td>
-            <td>Descripcion  </td>
-            <td>Precio  </td>
-            <td>Marca  </td>
-            <td>Categoria  </td>
-            <td>Cantidad  </td>
-            <td>Minimo  </td>
-            <td>Bodega  </td>
-            </tr>
-            </tr>
+        <td>Id  </td>
+        <td>Nombre  </td>
+        <td>Pais  </td>
+        <td>Provincia  </td>
+        <td>Canton  </td>
+        <td>Direccion exacta  </td>
+        <td>Telefono  </td>
+        </tr>
         </thead>
         <tbody>
-     
+        
         <%
-        oracleConn con = new oracleConn();
-        LinkedList<inventario> lista = con.getInventario();
+        LinkedList<PuntoDeVenta> lista = oracleConn.getPuntoVenta();
         for (int i=0;i<lista.size();i++)
         {
         out.println("<tr>");
         out.println("<td>"+lista.get(i).getId()+"</td>");
-        out.println("<td>"+lista.get(i).getProducto()+"</td>");
-        out.println("<td>"+lista.get(i).getDescripcion()+"</td>");
-        out.println("<td>"+lista.get(i).getPrecio()+"</td>");
-        out.println("<td>"+lista.get(i).getMarca()+"</td>");
-        out.println("<td>"+lista.get(i).getCategoria()+"</td>");
-        out.println("<td>"+lista.get(i).getCantidad()+"</td>");
-        out.println("<td>"+lista.get(i).getMinimo()+"</td>");
-        out.println("<td>"+lista.get(i).getBodega()+"</td>");
+        out.println("<td>"+lista.get(i).getNombre()+"</td>");
+        out.println("<td>"+lista.get(i).getPais()+"</td>");
+        out.println("<td>"+lista.get(i).getProvincia()+"</td>");
+        out.println("<td>"+lista.get(i).getCanton()+"</td>");
+        out.println("<td>"+lista.get(i).getDireccion()+"</td>");
+        out.println("<td>"+lista.get(i).getTelefono()+"</td>");
         out.println("</tr>");
         }
         %>
-        </tbody>
-        </table>
-
+</table>
+        </div>
+</
 </html>

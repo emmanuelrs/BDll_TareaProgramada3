@@ -34,7 +34,7 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
     conn.close(); 
 }
 
-    private void resetPivot(){
+    public void resetPivot(){
         try{
             OracleDataSource ds;
             ds = new OracleDataSource();

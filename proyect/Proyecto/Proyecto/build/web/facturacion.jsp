@@ -37,10 +37,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <!--<li><a class="page-scroll" href="puntoVenta.jsp">Puntos de Venta</a></li>
-                    <li><a class="page-scroll" href="inventario.jsp">Inventario</a></li>
-                    <li><a class="page-scroll" href="reportes.jsp">Reportes</a></li>
-                    <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>-->
+                    <li><a class="page-scroll" href="verPuntoVenta.jsp">Puntos de Venta</a></li>
+                    <li><a class="page-scroll" href="puntoVenta.jsp">Crear Punto de Venta</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -77,7 +75,7 @@
                 <INPUT class ="tb1" NAME = "IdPuntoVenta" TYPE = "text" id="IdPuntoVenta"> <br/>
             <label for="male">%de descuento</label> <br/> 
                 <INPUT class ="tb1" NAME = "descuento" TYPE = "text" id="descuento"> <br/>
-            <input class="myButton" type="submit" value="Vender"> 
+            <input class="myButton" type="submit" value="Vender"><input class="myButton" type="submit" value="Cancelar Venta">
         </form>
             
         <table id="example" class="display" cellspacing="0" width="100%">
