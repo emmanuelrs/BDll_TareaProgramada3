@@ -50,8 +50,8 @@ public class facturacion extends HttpServlet{
             } catch (SQLException ex) {
                 Logger.getLogger(facturacion.class.getName()).log(Level.SEVERE, null, ex);
             }
-            conect.getPivot(fac); 
-        }// else if
+            conect.getPivot(fac, IdPV);
+        }// else if 
         else if (varId > 0 & varCant > 0 & varDes > 0 & varIdPV > 0) {
             int cant = Integer.parseInt(Cantidad);
             int pro = Integer.parseInt(IdProducto);
@@ -67,7 +67,7 @@ public class facturacion extends HttpServlet{
             } catch (SQLException ex) {
                 Logger.getLogger(facturacion.class.getName()).log(Level.SEVERE, null, ex);
             }
-            conect.getPivot(fac);
+            conect.getPivot(fac, IdPV);
         }//else if 2
         response.sendRedirect(response.encodeRedirectURL("facturacion.jsp"));
     }

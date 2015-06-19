@@ -52,7 +52,7 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
 
     }
 
-    public void getPivot(Integer IdFactura){
+    public void getPivot(Integer IdFactura, String puntoVenta){
         try{
             Integer tot = 0;
             PuntoDeVenta PV = new PuntoDeVenta();
@@ -68,19 +68,38 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
                 Integer cant;
                 producto = rs.getInt("id_producto");
                 cant = rs.getInt("cantidad");
-                tot = tot + Precio(producto); 
+                tot = tot + (Precio(producto)*cant); 
                 agregarProducto(IdFactura, producto, cant);
             }
             rs.close();
             conn.close();
             resetPivot();
             ActualizarFactura(IdFactura,tot);
+            insertarControl(puntoVenta, tot, IdFactura);
         }
         catch (Exception e)
         {
          e.printStackTrace();
         }
     }
+    
+private void insertarControl(String PuntoVenta, Integer total, Integer idFactura) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{ CALL insertarVenta(?,?,?)}");
+    //populate stored proc parameters
+    cs.setNString(1, PuntoVenta);
+    cs.setInt(2, total);
+    cs.setInt(2, idFactura);
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close(); 
+}
+    
 private void ActualizarFactura(Integer idFactura,Integer total) throws SQLException{
     OracleDataSource ds;
     ds = new OracleDataSource();
