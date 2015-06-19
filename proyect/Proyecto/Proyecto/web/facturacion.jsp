@@ -57,6 +57,7 @@
               <li><a href="inventario.jsp">Inventario</a></li>
               <li><a href="reportes.jsp">Reportes</a></li>
               <li><a href="respaldo.jsp">Respaldo</a></li>
+              <li><a href="iFactura.jsp">Ver Factura</a></li>
             </ul>
           </div>
         </div><!--/sidebar-->
