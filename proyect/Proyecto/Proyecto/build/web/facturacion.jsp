@@ -61,7 +61,7 @@
                 <INPUT class ="tb1" NAME = "Cantidad" TYPE = "text" id="Cantidad"> <br/>
             <input class="myButton" type="submit" value="Agregar"> 
             <br/>
-            <label for="male">Id Punto de Venta</label> <br/> 
+            <label for="male">Punto de Venta</label> <br/> 
                 <INPUT class ="tb1" NAME = "IdPuntoVenta" TYPE = "text" id="IdPuntoVenta"> <br/>
             <label for="male">%de descuento</label> <br/> 
                 <INPUT class ="tb1" NAME = "descuento" TYPE = "text" id="descuento"> <br/>

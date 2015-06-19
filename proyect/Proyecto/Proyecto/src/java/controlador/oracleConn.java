@@ -18,6 +18,22 @@ public void oracleConn() throws SQLException{
         conn.close();
     }
 
+public void agregarPivot(String IdProduct,Integer cantidad) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{ CALL insertarPivot(?,?)}");
+    //populate stored proc parameters
+    cs.setString(1, IdProduct);
+    cs.setInt(2, cantidad);
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close(); 
+}
+
 public void agregarProducto(String IdFactura,String IdProducto, String cantidad) throws SQLException{
     int cant = Integer.parseInt(cantidad);
     int idFact = Integer.parseInt(IdFactura);
@@ -45,7 +61,7 @@ public Integer crearFactura(String PuntoDeVenta,String descuento) throws SQLExce
     ds.setURL(jdbcUrl);
     conn=ds.getConnection(userid,password);
     CallableStatement cs;
-    cs = conn.prepareCall("{? = CALL insertarFactura(?,?)}");
+    cs = conn.prepareCall("{CALL ? := insertarFactura(?,?)}");
     cs.registerOutParameter(1, Types.INTEGER);
     cs.setString(2, PuntoDeVenta);
     cs.setInt(3, desc);

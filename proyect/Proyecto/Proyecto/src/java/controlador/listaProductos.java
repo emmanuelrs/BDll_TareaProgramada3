@@ -4,27 +4,29 @@ package controlador;
 import java.util.*;
 
 public class listaProductos {
-    private static List<productosVendidos> productos;
-    private static Boolean instancia = false;
+    private static listaProductos instance;
+    private  List<productosVendidos> productos;
 
-    public listaProductos() {
+    private listaProductos() {
     }
 
-    public List<productosVendidos> getlista(){
-        if(instancia == false){
-            instancia = true;
-            productos = new ArrayList<productosVendidos>();
-            return productos;
+    public static listaProductos  getInstance(){
+        if(instance == null){
+            instance = new listaProductos();
         }
-        return productos;  
+        return instance;  
     }
+    
     public void setProducto(String id, int cant){
         productosVendidos product = new productosVendidos(id, cant);
-        if(instancia == false){
-            instancia = true;
-            productos = new ArrayList<productosVendidos>();
-            productos.add(product);
-        }
         productos.add(product);
     } 
+    
+    public int getsize(){
+        return productos.size();
+    }
+
+    public List<productosVendidos> getLista(){
+        return productos;
+    }
 }
