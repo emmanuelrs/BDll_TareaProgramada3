@@ -54,6 +54,7 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
 
     public void getPivot(Integer IdFactura){
         try{
+            Integer tot = 0;
             PuntoDeVenta PV = new PuntoDeVenta();
             OracleDataSource ds;
             ds = new OracleDataSource();
@@ -67,6 +68,7 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
                 Integer cant;
                 producto = rs.getInt("id_producto");
                 cant = rs.getInt("cantidad");
+                tot = tot + Precio(producto); 
                 agregarProducto(IdFactura, producto, cant);
             }
             rs.close();
@@ -94,6 +96,22 @@ private void agregarProducto(Integer idFactura,Integer IdProducto,Integer cantid
     cs.execute();
     cs.close();
     conn.close(); 
+}
+
+private Integer Precio(Integer idProducto) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{CALL ? := retornarPrecio(?)}");
+    cs.registerOutParameter(1, Types.INTEGER);
+    cs.setInt(2, idProducto);
+    cs.execute();
+    int precio = cs.getInt(1);
+    cs.close();
+    conn.close(); 
+    return precio;
 }
 
 public Integer crearFactura(String PuntoDeVenta,String descuento) throws SQLException{
