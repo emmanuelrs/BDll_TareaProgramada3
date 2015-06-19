@@ -17,8 +17,8 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/crearBodegaCSS.css" rel="stylesheet">
-     <link href="css/inventarioCss.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/crearUserCSS.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
         
 	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
@@ -46,9 +46,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="page-scroll" href="newProduct.jsp">Nuevo Producto</a></li>
-                    <li><a class="page-scroll" href="InvBodega.jsp">Inventario por bodega</a></li>
                     <li><a class="page-scroll" href="bodega.jsp">Bodegas</a></li>
-                    <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -74,17 +72,17 @@
             <br/>
         <form action="crearPuntoVenta" class="ui form segment"  method="post"> 
             <label for="male">Nombre del punto de veta: </label> <br/>
-                <INPUT NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class="tb1" NAME = "nombre" TYPE = "text" id="nombre" > <br/>
             <label for="male">Pais: </label> <br/>
-                <INPUT NAME = "pais" TYPE = "text" id="pais" > <br/>
+                <INPUT class="tb1" NAME = "pais" TYPE = "text" id="pais" > <br/>
             <label for="male">Provincia: </label> <br/>                   
-                <INPUT NAME = "provincia" TYPE = "text" id="provincia"> <br/>
+                <INPUT class="tb1" NAME = "provincia" TYPE = "text" id="provincia"> <br/>
             <label for="male">Canton: </label> <br/> 
-                <INPUT NAME = "Canton" TYPE = "text" id="Canton"> <br/>
+                <INPUT class="tb1" NAME = "Canton" TYPE = "text" id="Canton"> <br/>
             <label for="male">Direccion exacta: </label> <br/> 
-                <INPUT NAME = "direccion" TYPE = "text" id="direccion"> <br/>
+                <INPUT class="tb1" NAME = "direccion" TYPE = "text" id="direccion"> <br/>
             <label for="male">Numero Telefono: </label> <br/> 
-                <INPUT NAME = "telefono" TYPE = "text" id="telefono"> <br/>
+                <INPUT class="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
         </div>

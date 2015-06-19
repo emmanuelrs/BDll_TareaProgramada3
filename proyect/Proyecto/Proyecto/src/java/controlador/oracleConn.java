@@ -365,8 +365,7 @@ public Connection ejecutarSQL() throws SQLException{
     }
     public static LinkedList<PuntoDeVenta> getPuntoVenta(){
         LinkedList<PuntoDeVenta> listaPV =new LinkedList<PuntoDeVenta>();
-        try{
-            PuntoDeVenta PV = new PuntoDeVenta();
+        try{            
             OracleDataSource ds;
             ds = new OracleDataSource();
             ds.setURL(jdbcUrl);
@@ -375,6 +374,7 @@ public Connection ejecutarSQL() throws SQLException{
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
+                PuntoDeVenta PV = new PuntoDeVenta();
                 PV.setId(rs.getNString("id_puntodeventa"));
                 PV.setNombre(rs.getNString("nombrepuntodeventa"));
                 PV.setPais(rs.getNString("pais"));
