@@ -167,8 +167,6 @@ Comment on table ProductoXFactura is 'tabla encargada de almacenar los productos
 CREATE TABLE Venta(
        Id_Venta NUMBER(10)
               CONSTRAINT VEN_Id_Venta_NN NOT NULL,
-       Id_Producto NUMBER(10)
-              CONSTRAINT VEN_Id_Producto_NN NOT NULL,
        Id_PuntoDeVenta number(10),
        FechaVenta Date, 
        TotalVentaXDia number(10),
