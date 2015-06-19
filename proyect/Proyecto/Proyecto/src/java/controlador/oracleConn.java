@@ -38,24 +38,24 @@ public void agregarProducto(String IdFactura,String IdProducto, String cantidad)
     conn.close(); 
 }
 
-public void crearFactura(String PuntoDeVenta,String descuento) throws SQLException{
+public Integer crearFactura(String PuntoDeVenta,String descuento) throws SQLException{
     int desc = Integer.parseInt(descuento);
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
     conn=ds.getConnection(userid,password);
     CallableStatement cs;
-   //conn = dataSource.getConnection();
-    
-    cs = conn.prepareCall("{ CALL insertarFactura(?,?)}");
-    //populate stored proc parameters
-    cs.setString(1, PuntoDeVenta);
-    cs.setInt(2, desc);
-    //execute stored procedure
+    cs = conn.prepareCall("{? = CALL insertarFactura(?,?)}");
+    cs.registerOutParameter(1, Types.INTEGER);
+    cs.setString(2, PuntoDeVenta);
+    cs.setInt(3, desc);
     cs.execute();
+    int id = cs.getInt(1);
     cs.close();
     conn.close(); 
+    return id;
 }
+
 
 public void insertarProducto(String producto,String descripcion,String precio,String marca,String categoria,String cantidad,String minimo, String NOMBRE_BODEGA) throws SQLException{
     int precio1 = Integer.parseInt(precio);
@@ -85,6 +85,22 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     conn.close();
     
     
+}
+public void ActualizarInventario(String IdProducto, String Cantidad) throws SQLException{ 
+    int id = Integer.parseInt(IdProducto);
+    int Cant = Integer.parseInt(Cantidad);
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
+    conn = ds.getConnection("GestorEmpresarial","gestorE");
+    CallableStatement cs;
+   
+    cs = conn.prepareCall("{ CALL actualizarInventario(?,?)}");
+    cs.setInt(1, id);
+    cs.setInt(2, Cant);
+    cs.execute();
+    cs.close();
+    conn.close();  
 }
 
 public void crearBodega(String pNombreB, String pPais, String pProvincia,
