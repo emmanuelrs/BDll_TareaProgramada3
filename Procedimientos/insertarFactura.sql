@@ -7,7 +7,7 @@ BEGIN
   varIdPuntoDeVenta := retornaIdPuntoDeVenta(pPuntoDeVenta);
   
   INSERT INTO Factura(id_factura,id_puntodeventa,fechacompra,descuento,total)
-  VALUES(varIdFactura,varIdPuntoDeVenta,sysdate,descuento,0);
+  VALUES(varIdFactura,varIdPuntoDeVenta,TO_DATE(SYSDATE,'yyyy/mm/dd hh24:mi:ss'),descuento,0);
   COMMIT;
   return varIdFactura;
 END;

@@ -39,6 +39,7 @@ public class facturacion extends HttpServlet{
             conect = new oracleConn();
             try {
                 conect.agregarPivot(pro,cant);
+                conect.ActualizarInventario(IdProducto, Cantidad);
             } catch (SQLException ex) {
                 System.out.print("Error cargando a la lista");
                 Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
@@ -58,6 +59,7 @@ public class facturacion extends HttpServlet{
             conect = new oracleConn();
             try {
                 conect.agregarPivot(pro,cant);
+                conect.ActualizarInventario(IdProducto, Cantidad);
             } catch (SQLException ex) {
                 System.out.print("Error cargando a la lista");
                 Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
