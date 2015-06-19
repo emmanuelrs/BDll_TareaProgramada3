@@ -1,11 +1,10 @@
-CREATE OR REPLACE PROCEDURE insertarProductoXFactura(pIdFactura number,pProducto varchar2,pcantidadProducto number)
+CREATE OR REPLACE PROCEDURE insertarProductoXFactura(pIdFactura number,ID_Producto number,pcantidadProducto number)
 IS
-  varIdProducto NUMBER(10);
+
 BEGIN
-  varIdProducto := retornarIdProducto(pProducto);
   
   INSERT INTO productoXfactura(id_factura,id_producto,CANTIDADPRODUCTOS)
-  VALUES(pIdFactura,varIdProducto,pcantidadProducto);
+  VALUES(pIdFactura,ID_Producto,pcantidadProducto);
         
   COMMIT;
 END;
