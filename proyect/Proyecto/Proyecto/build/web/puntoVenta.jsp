@@ -18,6 +18,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/crearBodegaCSS.css" rel="stylesheet">
+     <link href="css/inventarioCss.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
+        
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#example').DataTable();} );
+        </script>
     
 </head>
 <body id="page-top">
@@ -83,8 +92,9 @@
             <br/>
             <h2> Puntos de Venta </h2>
             <br/>
-        <table border="1" class="inventarioCss">
-        <tr>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
         <td>Id  </td>
         <td>Nombre  </td>
         <td>Pais  </td>
@@ -93,6 +103,9 @@
         <td>Direccion exacta  </td>
         <td>Telefono  </td>
         </tr>
+        </thead>
+        <tbody>
+        
         <%
         LinkedList<PuntoDeVenta> lista = oracleConn.getPuntoVenta();
         for (int i=0;i<lista.size();i++)
