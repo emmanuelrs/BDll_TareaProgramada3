@@ -1,0 +1,16 @@
+drop table bodega;
+drop table categoria;
+drop table control_de_venta;
+drop table direccion;
+drop table factura;
+drop table historial_de_compras;
+drop table inventario;
+drop table marca;
+drop table persona;
+drop table producto;
+drop table productoxfactura;
+drop table puntodeventa;
+drop table telefono;
+drop table total_puntoventa;
+drop table venta;
+drop table pivot;
