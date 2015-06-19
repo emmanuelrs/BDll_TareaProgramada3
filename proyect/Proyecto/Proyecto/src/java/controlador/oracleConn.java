@@ -18,7 +18,7 @@ public void oracleConn() throws SQLException{
         conn.close();
     }
 
-public void agregarPivot(String IdProduct,Integer cantidad) throws SQLException{
+public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException{
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -26,7 +26,7 @@ public void agregarPivot(String IdProduct,Integer cantidad) throws SQLException{
     CallableStatement cs;
     cs = conn.prepareCall("{ CALL insertarPivot(?,?)}");
     //populate stored proc parameters
-    cs.setString(1, IdProduct);
+    cs.setInt(1, IdProduct);
     cs.setInt(2, cantidad);
     //execute stored procedure
     cs.execute();
@@ -34,10 +34,52 @@ public void agregarPivot(String IdProduct,Integer cantidad) throws SQLException{
     conn.close(); 
 }
 
-public void agregarProducto(String IdFactura,String IdProducto, String cantidad) throws SQLException{
-    int cant = Integer.parseInt(cantidad);
-    int idFact = Integer.parseInt(IdFactura);
-    int idProducto = Integer.parseInt(IdProducto);
+    private void resetPivot(){
+        try{
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String sql = "delete from pivot" ;
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+
+    }
+
+    public void getPivot(Integer IdFactura){
+        try{
+            PuntoDeVenta PV = new PuntoDeVenta();
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String sql = "select id_producto, cantidad from pivot" ;
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+                Integer producto;
+                Integer cant;
+                producto = rs.getInt("id_producto");
+                cant = rs.getInt("cantidad");
+                agregarProducto(IdFactura, producto, cant);
+            }
+            rs.close();
+            conn.close();
+            resetPivot();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+    }
+
+private void agregarProducto(Integer idFactura,Integer IdProducto,Integer cantidad) throws SQLException{
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -45,9 +87,9 @@ public void agregarProducto(String IdFactura,String IdProducto, String cantidad)
     CallableStatement cs;
     cs = conn.prepareCall("{ CALL insertarProductoXFactura(?,?,?)}");
     //populate stored proc parameters
-    cs.setInt(1, idFact);
-    cs.setInt(2, idProducto);
-    cs.setInt(3, cant);
+    cs.setInt(1, idFactura);
+    cs.setInt(2, IdProducto);
+    cs.setInt(3, cantidad);
     //execute stored procedure
     cs.execute();
     cs.close();
@@ -72,7 +114,6 @@ public Integer crearFactura(String PuntoDeVenta,String descuento) throws SQLExce
     return id;
 }
 
-
 public void insertarProducto(String producto,String descripcion,String precio,String marca,String categoria,String cantidad,String minimo, String NOMBRE_BODEGA) throws SQLException{
     int precio1 = Integer.parseInt(precio);
     int cantidad1 = Integer.parseInt(cantidad);
@@ -82,8 +123,7 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
     conn=ds.getConnection("GestorEmpresarial","gestorE");
     CallableStatement cs;
-   //conn = dataSource.getConnection();
-    
+   //conn = dataSource.getConnection(); 
     cs = conn.prepareCall("{ CALL insertarProducto(?,?,?,?,?,?,?,?) }");
     //populate stored proc parameters
     cs.setString(1, producto);
@@ -98,9 +138,7 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     //execute stored procedure
     cs.execute();
     cs.close();
-    conn.close();
-    
-    
+    conn.close(); 
 }
 public void ActualizarInventario(String IdProducto, String Cantidad) throws SQLException{ 
     int id = Integer.parseInt(IdProducto);
@@ -147,9 +185,6 @@ public void crearBodega(String pNombreB, String pPais, String pProvincia,
 public void crearUsuario(String pNombre, String pCedula,String pApellido,
         String pPais, String pProvincia,String pCanton, String pDireccion, String pEmail,
         String pNumero,String pTipo) throws SQLException{
-    
-    
-    
     if(pCedula.length() > 10){
         System.out.println("Numeromuylargo");
     }
@@ -273,7 +308,7 @@ public Connection ejecutarSQL() throws SQLException{
         }
       return listaBodega;
     }
-        public static LinkedList<PuntoDeVenta> getPuntoVenta(){
+    public static LinkedList<PuntoDeVenta> getPuntoVenta(){
         LinkedList<PuntoDeVenta> listaPV =new LinkedList<PuntoDeVenta>();
         try{
             PuntoDeVenta PV = new PuntoDeVenta();
@@ -303,4 +338,12 @@ public Connection ejecutarSQL() throws SQLException{
         }
       return listaPV;
     }
+
+    Statement createStatement() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+
+        
+
 }
