@@ -68,7 +68,8 @@ public final class iFactura_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <main>\n");
       out.write("      <div id=\"details\" class=\"clearfix\">\n");
       out.write("        <div id=\"invoice\">\n");
-      out.write("          <h1>INVOICE 3-2-1</h1> <!-- Código java aqui -->\n");
+      out.write("          <h1>FACTURA</h1> <!-- Código java aqui -->\n");
+      out.write("          <h1>1</h1>\n");
       out.write("        </div>\n");
       out.write("      </div>\n");
       out.write("      <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n");

@@ -29,7 +29,8 @@
     <main>
       <div id="details" class="clearfix">
         <div id="invoice">
-          <h1>INVOICE 3-2-1</h1> <!-- Código java aqui -->
+          <h1>FACTURA</h1> <!-- Código java aqui -->
+          <h1>1</h1>
         </div>
       </div>
       <table border="0" cellspacing="0" cellpadding="0">
