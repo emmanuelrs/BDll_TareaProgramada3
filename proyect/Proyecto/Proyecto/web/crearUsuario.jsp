@@ -59,7 +59,7 @@
         </div><!--/sidebar-->
         <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
             <br/>
-            <h2> Crear nueva Bodega </h2>
+            <h2> Agregar un nuevo Proveedor/Cliente </h2>
             <br/>
             <img class="divimg" src="img/user.png">
         <form action="crearUsuario" class="ui form segment"  method="post"> 
