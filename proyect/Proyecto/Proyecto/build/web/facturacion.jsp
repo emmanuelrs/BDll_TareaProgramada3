@@ -1,4 +1,7 @@
 
+<%@page import="controlador.inventario"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="controlador.oracleConn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +12,15 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/crearUserCSS.css" rel="stylesheet">
+    <link href="css/FacturacionCSS.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
+        
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#example').DataTable();} );
+        </script>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -67,5 +78,43 @@
                 <INPUT class ="tb1" NAME = "descuento" TYPE = "text" id="descuento"> <br/>
             <input class="myButton" type="submit" value="Vender"> 
         </form>
-</
+            
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+            <td>id  </td>
+            <td>Producto  </td>
+            <td>Descripcion  </td>
+            <td>Precio  </td>
+            <td>Marca  </td>
+            <td>Categoria  </td>
+            <td>Cantidad  </td>
+            <td>Minimo  </td>
+            <td>Bodega  </td>
+            </tr>
+            </tr>
+        </thead>
+        <tbody>
+     
+        <%
+        oracleConn con = new oracleConn();
+        LinkedList<inventario> lista = con.getInventario();
+        for (int i=0;i<lista.size();i++)
+        {
+        out.println("<tr>");
+        out.println("<td>"+lista.get(i).getId()+"</td>");
+        out.println("<td>"+lista.get(i).getProducto()+"</td>");
+        out.println("<td>"+lista.get(i).getDescripcion()+"</td>");
+        out.println("<td>"+lista.get(i).getPrecio()+"</td>");
+        out.println("<td>"+lista.get(i).getMarca()+"</td>");
+        out.println("<td>"+lista.get(i).getCategoria()+"</td>");
+        out.println("<td>"+lista.get(i).getCantidad()+"</td>");
+        out.println("<td>"+lista.get(i).getMinimo()+"</td>");
+        out.println("<td>"+lista.get(i).getBodega()+"</td>");
+        out.println("</tr>");
+        }
+        %>
+        </tbody>
+        </table>
+
 </html>
