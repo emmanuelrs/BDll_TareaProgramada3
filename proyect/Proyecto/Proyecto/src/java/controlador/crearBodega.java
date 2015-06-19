@@ -34,7 +34,7 @@ public class crearBodega extends HttpServlet{
             System.out.print("Error");
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect(response.encodeRedirectURL("crearBodega.jsp"));
+        response.sendRedirect(response.encodeRedirectURL("bodega.jsp"));
     }
      
 }

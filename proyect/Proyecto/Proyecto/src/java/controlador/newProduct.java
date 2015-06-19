@@ -48,6 +48,6 @@ public class newProduct extends HttpServlet {
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-                response.sendRedirect(response.encodeRedirectURL("index.jsp"));
+                response.sendRedirect(response.encodeRedirectURL("inventario.jsp"));
     }
 }
