@@ -2,6 +2,9 @@ package controlador;
 import java.sql.*;
 import oracle.jdbc.pool.OracleDataSource;
 import java.util.LinkedList;
+import java.util.Locale;
+import oracle.net.aso.e;
+import static oracle.sql.NUMBER.e;
 
 public class oracleConn {
     static String jdbcUrl = "jdbc:oracle:thin:@localhost:1521/GestorEmpresa";
@@ -315,17 +318,15 @@ public Connection ejecutarSQL() throws SQLException{
 public LinkedList<contenidoFactura> getProductosFactura(){
         LinkedList<contenidoFactura> listaProd = new LinkedList<contenidoFactura>();
         try{
-            OracleDataSource ds;
-            ds = new OracleDataSource();
-            ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
-            conn=ds.getConnection("GestorEmpresarial","gestorE");
             oracleConn ora1 = new oracleConn();
             int idFactura = ora1.IdFactura();
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
             String idFacturaS = Integer.toString(idFactura);
-            System.out.println(idFacturaS);
             String sql = "SELECT P.PRODUCTO, C.CANTIDADPRODUCTOS ,P.PRECIOUNITARIO, P.DESCRIPCION FROM PRODUCTO P, PRODUCTOXFACTURA C WHERE P.ID_PRODUCTO = C.ID_PRODUCTO AND C.ID_FACTURA = " + idFacturaS; 
-            Statement ejec = conn.createStatement();
-            System.out.println("Se dano");
+            Statement ejec = conn.createStatement();     
             ResultSet rs = ejec.executeQuery(sql);
             
             while (rs.next()){
@@ -334,7 +335,12 @@ public LinkedList<contenidoFactura> getProductosFactura(){
                 factura.setDescripcion(rs.getNString("DESCRIPCION"));
                 factura.setCantidad(rs.getNString("CANTIDADPRODUCTOS"));
                 factura.setPrecio(rs.getNString("PRECIOUNITARIO"));
+                factura.setTotalC();
                 listaProd.add(factura);
+                System.out.println(rs.getNString("PRODUCTO"));
+                System.out.println(rs.getNString("DESCRIPCION"));
+                System.out.println(rs.getNString("CANTIDADPRODUCTOS"));
+                System.out.println(rs.getNString("PRECIOUNITARIO"));
             }
             rs.close();
             conn.close();
@@ -345,7 +351,50 @@ public LinkedList<contenidoFactura> getProductosFactura(){
         }
       return listaProd;
     }
-    
+
+    public int totalDescuento(){
+        int descuento = 0;
+        try{
+            oracleConn ora1 = new oracleConn();
+            int idFactura = ora1.IdFactura();
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String idFacturaS = Integer.toString(idFactura);
+            String sql ="SELECT DESCUENTO FROM FACTURA WHERE ID_FACTURA = "+idFacturaS;
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+            descuento = Integer.parseInt(rs.getNString("DESCUENTO"));}
+            
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return descuento;
+    }
+    public int totalPagar(){
+        int total = -1;
+        try{
+        oracleConn ora1 = new oracleConn();
+        int idFactura = ora1.IdFactura();
+        OracleDataSource ds;
+        ds = new OracleDataSource();
+        ds.setURL(jdbcUrl);
+        conn=ds.getConnection(userid,password);
+        String idFacturaS = Integer.toString(idFactura);
+        String sql ="SELECT TOTAL FROM FACTURA WHERE ID_FACTURA = "+idFacturaS;
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()){
+        total = Integer.parseInt(rs.getNString("TOTAL"));}
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return total;
+    }
 
     public LinkedList<inventario> getInventario(){
         LinkedList<inventario> listaInv =new LinkedList<inventario>();

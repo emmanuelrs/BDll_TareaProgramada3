@@ -15,7 +15,21 @@ public class contenidoFactura {
     public String nombreP;
     public String cantidad;
     public String precio;
+    public String totalC;
     public String descripcion;
+
+    public void setTotalC() {
+        int totalInt = Integer.parseInt(getPrecio()) * Integer.parseInt(getCantidad());
+        this.totalC = Integer.toString(totalInt);
+    }
+    
+    public String getTotalC() {
+        
+        return totalC;
+    }
+
+    
+    
 
     public String getDescripcion() {
         return descripcion;

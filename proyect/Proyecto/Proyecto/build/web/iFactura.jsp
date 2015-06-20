@@ -46,10 +46,10 @@
         <thead>
           <tr>
             <th class="no">#</th>
-            <th class="desc">DESCRIPCIÓN</th>
-            <th class="unit">PRECIO</th>
+            <th class="desc">DESCRICIÓN</th>
+            <th class="unit">PRECIO POR UNIDAD</th>
             <th class="qty">CANTIDAD</th>
-            <th class="total">PRECIO</th>
+            <th class="total">TOTAL</th>
           </tr>
         </thead>
         <tbody> <!-- CÓDIGO JAVA-->
@@ -58,34 +58,35 @@
               LinkedList<contenidoFactura> listaP = con.getProductosFactura();
               for(int i = 0; i < listaP.size();i ++){
                   out.println("<tr>");
-                  out.println("<td >" + i +"<td>");
-                  out.println("<td ><h3" + listaP.get(i).getNombreP()+ "</h3>" + listaP.get(i).getDescripcion()+"</td");
-                  out.println("<td >"+ listaP.get(i).getPrecio()+ "</td>");
-                  out.println("<td >" + listaP.get(i).getCantidad()+ "</td>");
-                  out.println("<td >"+ listaP.get(i).getPrecio()+ "</td>");
+                  out.println("<td class='no'>"+(i+1)+"</td>");
+                  out.println("<td class='desc'><h3>"+listaP.get(i).getNombreP()+"</h3>"+listaP.get(i).getDescripcion()+"</td>");
+                  out.println("<td class='unit'>"+"₡"+listaP.get(i).getPrecio()+"</td>");
+                  out.println("<td class='qty'>"+listaP.get(i).getCantidad()+"</td>");
+                  out.println("<td class='total'>"+"₡"+listaP.get(i).getTotalC()+"</td>");
                   out.println("</tr>");
-                  
-                 
-              }
-        
-        
+                  }
             %>
+         
         </tbody>
         <tfoot>
           <tr>
             <td colspan="2"></td>
-            <td colspan="2">SUBTOTAL</td>
-            <td>$5,200.00</td>
           </tr>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">DESCUENTO %</td>
-            <td>$1,300.00</td>
+            <%
+              oracleConn ora3 = new oracleConn();
+              out.println("<td>" + ora3.totalDescuento()+"</td>");
+            %>
           </tr>
           <tr>
             <td colspan="2"></td>
             <td colspan="2">TOTAL A PAGAR</td>
-            <td>$6,500.00</td>
+            <%
+              oracleConn ora2 = new oracleConn();
+              out.println("<td> ₡" + ora2.totalPagar()+"</td>");
+            %>
           </tr>
         </tfoot>
       </table>
