@@ -14,3 +14,4 @@ drop table telefono;
 drop table total_puntoventa;
 drop table venta;
 drop table pivot;
+drop table usuario;
