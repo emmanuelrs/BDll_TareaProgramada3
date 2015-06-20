@@ -20,8 +20,8 @@ COMMENT ON TABLE TELEFONO IS 'TABLA ENCARGADA PARA ALMACENAR LOS NÚMEROS DE TELÉ
 
 ---
 CREATE TABLE PERSONA(
-       ID_PERSONA NUMBER(10)
-            CONSTRAINT PRS_ID_PERSONA_NN NOT NULL,
+       cedula NUMBER(15)
+            CONSTRAINT PRS_cedula_NN NOT NULL,
        ID_DIRECCION NUMBER(10)
             CONSTRAINT PRS_ID_DIRECCION_NN NOT NULL,
        ID_TELEFONO NUMBER(10)
@@ -35,7 +35,7 @@ CREATE TABLE PERSONA(
        TIPO_PERSONA VARCHAR(100)
             CONSTRAINT TIPO_PERSONA_NN NOT NULL,
        CONSTRAINT PK_PERSONA
-                  PRIMARY KEY(ID_PERSONA)
+                  PRIMARY KEY(cedula)
                   USING INDEX 
                   TABLESPACE GE_IDX PCTFREE 20
                   STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
@@ -119,6 +119,7 @@ COMMENT ON TABLE CONTROL_DE_VENTA IS 'TABLA ENCARGADA DE ALMACENAR LAS VENTAS QU
 CREATE TABLE Factura(
        Id_Factura NUMBER(10)
               CONSTRAINT FAC_Id_Factura_NN NOT NULL,
+       persona number(10),
        Id_PuntoDeVenta NUMBER(10)
               CONSTRAINT FAC_Id_PuntoDeVenta_NN NOT NULL,
        FechaCompra Date,
@@ -289,7 +290,8 @@ CREATE TABLE Producto(
        IdMarca number(10),
        IDCategoria number(10),
        Cantidad NUMBER(10),
-       Minimo NUMBER(10),             
+       Minimo NUMBER(10),  
+       persona number(10),           
 
        CONSTRAINT PK_Pro_ID_Producto
        primary key (Id_Producto)
@@ -371,3 +373,23 @@ STORAGE (INITIAL 6144
         MINEXTENTS 1
         MAXEXTENTS 5
 ); 
+
+CREATE TABLE Usuario(
+       cedula NUMBER(15)
+              CONSTRAINT Usr_cedula_NN NOT NULL,
+       contraseña Varchar2(35),
+       tipo Varchar2(35),
+       Cantidad NUMBER(10),
+       UserName Varchar2(35),            
+       CONSTRAINT PK_usuario
+       primary key (cedula)
+       using index
+       tablespace GE_IDX pctfree 20
+       storage (initial 10k next 10k pctincrease 0)
+)
+TABLESPACE GE_TBL
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+);
