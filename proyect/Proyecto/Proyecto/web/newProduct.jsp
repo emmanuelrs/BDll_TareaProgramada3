@@ -77,6 +77,8 @@
                 <INPUT class="tb1" NAME = "minimo" TYPE = "text" id="minimo"> <br/>           
             <label for="male">Bodega donde se encuentra:</label> <br/>  
                 <INPUT class="tb1" NAME = "NOMBRE_BODEGA" TYPE = "text" id="NOMBRE_BODEGA"> <br/>
+            <label for="male">Cedula del provedor:</label> <br/>  
+                <INPUT class="tb1" NAME = "ced" TYPE = "text" id="ced"> <br/>
             <br/>
             <input class="myButton" type="submit" value="submit"> </form>
 </

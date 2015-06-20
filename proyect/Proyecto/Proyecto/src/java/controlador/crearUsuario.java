@@ -40,15 +40,22 @@ public class crearUsuario extends HttpServlet {
                 String numero = request.getParameter("telefono");
                 String tipo = request.getParameter("tipo");
                 String email = request.getParameter("email");
+                String usr = request.getParameter("userName");
+                String pas = request.getParameter("pass");
+                Integer lgtUSR = usr.length();
+                Integer lgtPASS = pas.length();
                 oracleConn conect;
                 conect = new oracleConn();
-
-        try {
-            conect.crearUsuario(nombreUsuario,cedula,apellido, pais, provincia,canton,direccion,email,numero,tipo);
-        } catch (SQLException ex) {
-            System.out.print("Error");
-            Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
+        if(lgtUSR == 0  & lgtPASS == 0){
+           try {
+                conect.crearUsuario(nombreUsuario,cedula,apellido, pais, provincia,canton,direccion,email,numero,tipo);
+            } catch (SQLException ex) {
+                System.out.print("Error");
+                Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
+            } 
         }
+        
+        
               
                
 

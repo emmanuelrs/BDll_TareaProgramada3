@@ -379,7 +379,6 @@ CREATE TABLE Usuario(
               CONSTRAINT Usr_cedula_NN NOT NULL,
        contraseña Varchar2(35),
        tipo Varchar2(35),
-       Cantidad NUMBER(10),
        UserName Varchar2(35),            
        CONSTRAINT PK_usuario
        primary key (cedula)

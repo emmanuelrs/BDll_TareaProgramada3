@@ -31,6 +31,7 @@ public class newProduct extends HttpServlet {
                 String cantidad = request.getParameter("cantidad");
                 String minimo = request.getParameter("minimo");
                 String bodega = request.getParameter("NOMBRE_BODEGA");
+                String cedu = request.getParameter("ced");
                 
                 producto = producto.toUpperCase();
                 descripcion = descripcion.toUpperCase();
@@ -42,7 +43,7 @@ public class newProduct extends HttpServlet {
                 conect = new oracleConn();
 
         try {
-            conect.insertarProducto(producto, descripcion, precio, marca, categoria, cantidad, minimo, bodega);
+            conect.insertarProducto(producto, descripcion, precio, marca, categoria, cantidad, minimo, bodega, cedu);
         } catch (SQLException ex) {
             System.out.print("Error");
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);

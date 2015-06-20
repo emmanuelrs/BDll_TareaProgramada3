@@ -83,6 +83,12 @@
                 <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>
             <label for="male">Tipo</label> <br/> 
                 <INPUT class ="tb1" NAME = "tipo" TYPE = "text" id="tipo"> <br/>
+                <br/>
+                <label for="male">Si el tipo de Usuario es Vendedor o Administrador favor rellenar los siguientes campos</label> <br/> 
+            <label for="male">UserName</label> <br/> 
+                <INPUT class ="tb1" NAME = "userName" TYPE = "text" id="userName"> <br/>
+            <label for="male">Password</label> <br/> 
+                <INPUT class ="Password" NAME = "pass" TYPE = "text" id="pass"> <br/>
             <input class="myButton" type="submit" value="Crear">
            
         </form>
