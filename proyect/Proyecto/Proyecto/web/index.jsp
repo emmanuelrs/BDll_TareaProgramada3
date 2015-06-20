@@ -171,11 +171,10 @@ body{
 		<div class="login">
 				<input type="text" placeholder="username" name="user"><br>
 				<input type="password" placeholder="password" name="password"><br>
-                                <a href="index2.jsp"><input type="button" value="Login" href="index.jsp"></a>
+                                <a href="index2.jsp"><input type="button" value="Login"></a>
+                                <a href="registrarUser.jsp"><input type="button" value="Registrarse"></a>
 		</div>
 
-  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
-
+<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 </body>
-
 </html>
