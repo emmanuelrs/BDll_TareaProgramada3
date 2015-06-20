@@ -571,4 +571,22 @@ public int verificaLogin(String pUser, String pPassword) throws SQLException{
     conn.close(); 
     return esLogin;
         
-}}
+    }
+public int verificaStock(int pID_PRODUCTO) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn = ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{CALL ? := CANTIDAD_MINIMO(?)}");
+    cs.registerOutParameter(1, Types.INTEGER);
+    cs.setInt(2, pID_PRODUCTO);
+    cs.execute();
+    int valor = cs.getInt(1);
+    cs.close();
+    conn.close(); 
+    return valor;
+        
+}
+
+}
