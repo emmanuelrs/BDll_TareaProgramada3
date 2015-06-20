@@ -186,7 +186,7 @@ public Integer crearFactura(String PuntoDeVenta,String descuento) throws SQLExce
     return id;
 }
 
-public void insertarProducto(String producto,String descripcion,String precio,String marca,String categoria,String cantidad,String minimo, String NOMBRE_BODEGA) throws SQLException{
+public void insertarProducto(String producto,String descripcion,String precio,String marca,String categoria,String cantidad,String minimo, String NOMBRE_BODEGA, Integer cedu) throws SQLException{
     int precio1 = Integer.parseInt(precio);
     int cantidad1 = Integer.parseInt(cantidad);
     int minimo1 = Integer.parseInt(minimo);
@@ -196,7 +196,7 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     conn=ds.getConnection("GestorEmpresarial","gestorE");
     CallableStatement cs;
    //conn = dataSource.getConnection(); 
-    cs = conn.prepareCall("{ CALL insertarProducto(?,?,?,?,?,?,?,?) }");
+    cs = conn.prepareCall("{ CALL insertarProducto(?,?,?,?,?,?,?,?,?) }");
     //populate stored proc parameters
     cs.setString(1, producto);
     cs.setString(2, descripcion);
@@ -206,6 +206,7 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     cs.setInt(6, cantidad1);
     cs.setInt(7, minimo1);
     cs.setString(8, NOMBRE_BODEGA);
+    cs.setInt(9, cedu);
     //cs.registerOutParameter(3, Types.NUMERIC); 
     //execute stored procedure
     cs.execute();
@@ -269,7 +270,7 @@ public void crearUsuario(String pNombre, String pCedula,String pApellido,
     conn = ds.getConnection("GestorEmpresarial","gestorE");
     CallableStatement cs;
    
-    cs = conn.prepareCall("{ CALL insertarPersona(?,?,?,?,?,?,?,?,?,?) }");
+    cs = conn.prepareCall("{ CALL insertarPERSONA(?,?,?,?,?,?,?,?,?,?) }");
     //populate stored proc parameters
     cs.setString(1, pNombre);
     cs.setInt(2, nCedula);
@@ -295,7 +296,7 @@ public void crearUsuario2(Integer cedula, String contra, String tipo, String usr
     conn = ds.getConnection("GestorEmpresarial","gestorE");
     CallableStatement cs;
    
-    cs = conn.prepareCall("{ CALL insertarUsuario(cedula number, contra varchar2, tipo varchar2, usrName varchar2) }");
+    cs = conn.prepareCall("{ CALL insertarUsuario(?,?,?,?) }");
     //populate stored proc parameters
     cs.setInt(1, cedula);
     cs.setString(2, contra);

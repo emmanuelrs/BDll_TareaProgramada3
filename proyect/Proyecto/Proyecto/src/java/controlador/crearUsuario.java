@@ -59,7 +59,7 @@ public class crearUsuario extends HttpServlet {
                 conect.crearUsuario(nombreUsuario,cedula,apellido, pais, provincia,canton,direccion,email,numero,tipo);
                 conect.crearUsuario2(ced, pas, tipo, usr);
             } catch (SQLException ex) {
-                System.out.print("Error");
+                System.out.print("Error2");
                 Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
             } 
                 response.sendRedirect(response.encodeRedirectURL("crearUsuario.jsp"));

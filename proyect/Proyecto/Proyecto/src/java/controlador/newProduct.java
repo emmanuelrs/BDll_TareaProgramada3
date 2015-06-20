@@ -32,23 +32,21 @@ public class newProduct extends HttpServlet {
                 String minimo = request.getParameter("minimo");
                 String bodega = request.getParameter("NOMBRE_BODEGA");
                 String cedu = request.getParameter("ced");
-                
+                int ced = Integer.parseInt(cedu);
                 producto = producto.toUpperCase();
                 descripcion = descripcion.toUpperCase();
                 marca = marca.toUpperCase();
                 categoria = categoria.toUpperCase();
                 bodega = bodega.toUpperCase();
-
                 oracleConn conect;
                 conect = new oracleConn();
 
         try {
-            conect.insertarProducto(producto, descripcion, precio, marca, categoria, cantidad, minimo, bodega, cedu);
+            conect.insertarProducto(producto, descripcion, precio, marca, categoria, cantidad, minimo, bodega, ced);
         } catch (SQLException ex) {
             System.out.print("Error");
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
-
                 response.sendRedirect(response.encodeRedirectURL("inventario.jsp"));
     }
 }
