@@ -28,7 +28,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.jsp">iFacture</a>
+                <a class="navbar-brand page-scroll" href="index2.jsp">iFacture</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -88,7 +88,7 @@
             <label for="male">UserName</label> <br/> 
                 <INPUT class ="tb1" NAME = "userName" TYPE = "text" id="userName"> <br/>
             <label for="male">Password</label> <br/> 
-                <INPUT class ="Password" NAME = "pass" TYPE = "text" id="pass"> <br/>
+                <INPUT class ="tb1" NAME = "pass" TYPE = "password" id="pass"> <br/>
             <input class="myButton" type="submit" value="Crear">
            
         </form>

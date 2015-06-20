@@ -195,7 +195,7 @@ body{
 				<input type="text" id= "username" placeholder="username" name="username"><br>
 				<input type="password" id="password" placeholder="password" name="password"><br>
                                 <input type="submit"value="Login">
-                                <a href="registrarUser.jsp"><input type="button" value="Registrarse"></a></form>
+
 		</div>
 
 <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>

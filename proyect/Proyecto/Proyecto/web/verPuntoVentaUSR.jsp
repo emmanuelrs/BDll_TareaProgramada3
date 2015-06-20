@@ -39,13 +39,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="index2.jsp">iFacture</a>
+                <a class="navbar-brand page-scroll" href="index2USR.jsp">iFacture</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="facturacion.jsp">Facturación</a></li>
-                    <li><a class="page-scroll" href="puntoVenta.jsp">Crear Punto de Venta</a></li>
+                    <li><a class="page-scroll" href="facturacionUSR.jsp">Facturación</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -58,10 +57,9 @@
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div data-spy="affix" data-offset-top="15" data-offset-bottom="45">
             <ul class="nav" id="sidebar-nav">
-              <li><a href="facturacion.jsp">Facturación</a></li>
-              <li><a href="inventario.jsp">Inventario</a></li>
-              <li><a href="reportes.jsp">Reportes</a></li>
-              <li><a href="respaldo.jsp">Respaldo</a></li>
+              <li><a href="facturacionUSR.jsp">Facturación</a></li>
+              <li><a href="inventarioUSR.jsp">Inventario</a></li>
+              <li><a href="reportesUSR.jsp">Reportes</a></li>
             </ul>
           </div>
         </div><!--/sidebar-->

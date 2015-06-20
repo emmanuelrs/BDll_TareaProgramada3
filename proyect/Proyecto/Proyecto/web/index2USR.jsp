@@ -42,11 +42,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="facturacion.jsp">Facturación</a></li>
-                    <li><a class="page-scroll" href="inventario.jsp">Inventario</a></li>
-                    <li><a class="page-scroll" href="reportes.jsp">Reportes</a></li>
-                    <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>
-                    <li><a class="page-scroll" href="crearUsuario.jsp">Crear Usuario</a></li>
+                    <li><a class="page-scroll" href="facturacionUSR.jsp">Facturación</a></li>
+                    <li><a class="page-scroll" href="inventarioUSR.jsp">Inventario</a></li>
+                    <li><a class="page-scroll" href="reportesUSR.jsp">Reportes</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -59,7 +57,7 @@
                 <h1>Sistema de Facturación y Reportes </h1>
                 
                 <p></p>
-                <a href="index2.jsp" class="btn btn-primary btn-xl page-scroll">Inicio</a>
+                <a href="index2USR.jsp" class="btn btn-primary btn-xl page-scroll">Inicio</a>
             </div>
         </div>
     </header>
@@ -71,7 +69,6 @@
                 <a href="facturacion.jsp" class="btn btn-default btn-xl wow tada">Facturación</a>
                 <a href="inventario.jsp" class="btn btn-default btn-xl wow tada">Inventario</a>
                 <a href="reportes.jsp" class="btn btn-default btn-xl wow tada">Reportes</a>
-                <a href="respaldo.jsp" class="btn btn-default btn-xl wow tada">Respaldo</a>
             </div>
         </div>
     </aside>
