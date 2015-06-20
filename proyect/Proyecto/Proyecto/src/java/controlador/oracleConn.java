@@ -515,7 +515,23 @@ public LinkedList<contenidoFactura> getProductosFactura(){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-
+public void agregarUser(Integer pCedula,String pPassword,String pTipo,String pUserName) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{ CALL insertarusuario(?,?,?,?)}");
+    //populate stored proc parameters
+    cs.setInt(1, pCedula);
+    cs.setString(2, pPassword);
+    cs.setString(3, pTipo);
+    cs.setString(4, pUserName);
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close(); 
+}
         
 
 }

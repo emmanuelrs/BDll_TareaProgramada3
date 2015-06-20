@@ -52,15 +52,15 @@
             <br/>
             <h2> REGISTRARSE </h2>
             <br/>
-            <img class="divimg" src="img/productos.png">
-        <form action="newProduct" class="ui form segment"  method="post"> 
+            <img class="divimg" src="img/user.png">
+        <form action="registrarUser" class="ui form segment"  method="post"> 
             <label for="male">CEDULA</label> <br/>
-                <INPUT class="tb1" NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class="tb1" NAME = "cedula" TYPE = "text" id="cedula" > <br/>
             <label for="male">NOMBRE DE USUARIO</label> <br/>
-                <INPUT class="tb1" NAME = "descripcion" TYPE = "text" id="descripcion" > <br/>
+                <INPUT class="tb1" NAME = "userName" TYPE = "text" id="userName" > <br/>
             <label for="male">CONTRASEÑA</label> <br/>                   
-                <INPUT class="tb1" NAME = "precio" TYPE = "text" id="precio"> <br/>
+                <INPUT class="tb1" NAME = "contraseña" TYPE = "password" id="contraseña"> <br/>
             <label for="male">TIPO</label> <br/> 
-                <INPUT class="tb1" NAME = "marca" TYPE = "password" id="marca"> <br/>
+                <INPUT class="tb1" NAME = "tipo" TYPE = "text" id="tipo"> <br/>
             <input class="myButton" type="submit" value="submit"> </form>
 </html>
