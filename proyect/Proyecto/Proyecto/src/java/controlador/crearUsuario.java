@@ -44,6 +44,7 @@ public class crearUsuario extends HttpServlet {
                 String pas = request.getParameter("pass");
                 Integer lgtUSR = usr.length();
                 Integer lgtPASS = pas.length();
+                int ced = Integer.parseInt(cedula);
                 oracleConn conect;
                 conect = new oracleConn();
         if(lgtUSR == 0  & lgtPASS == 0){
@@ -54,11 +55,13 @@ public class crearUsuario extends HttpServlet {
                 Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
             } 
         }
-        
-        
-              
-               
-
+        try {
+                conect.crearUsuario(nombreUsuario,cedula,apellido, pais, provincia,canton,direccion,email,numero,tipo);
+                conect.crearUsuario2(ced, pas, tipo, usr);
+            } catch (SQLException ex) {
+                System.out.print("Error");
+                Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
+            } 
                 response.sendRedirect(response.encodeRedirectURL("crearUsuario.jsp"));
     }
 }

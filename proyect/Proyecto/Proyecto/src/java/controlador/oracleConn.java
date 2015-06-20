@@ -288,6 +288,25 @@ public void crearUsuario(String pNombre, String pCedula,String pApellido,
     }
 }
 
+public void crearUsuario2(Integer cedula, String contra, String tipo, String usrName) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
+    conn = ds.getConnection("GestorEmpresarial","gestorE");
+    CallableStatement cs;
+   
+    cs = conn.prepareCall("{ CALL insertarUsuario(cedula number, contra varchar2, tipo varchar2, usrName varchar2) }");
+    //populate stored proc parameters
+    cs.setInt(1, cedula);
+    cs.setString(2, contra);
+    cs.setString(3, tipo);
+    cs.setString(4, usrName);
+    cs.execute();
+    cs.close();
+    conn.close();
+    
+}
+
 public void crearPuntoVenta(String NombrePV, String Pais, String Provincia,
         String Canton, String Direccion, String Numero) throws SQLException{  
     OracleDataSource ds;
