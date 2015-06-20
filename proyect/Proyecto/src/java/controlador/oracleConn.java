@@ -589,4 +589,19 @@ public int verificaStock(int pID_PRODUCTO) throws SQLException{
         
 }
 
+public void reStock(int pID_PRODUCTO, int pCANTIDAD) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{ CALL RESTOCK(?,?)}");
+    //populate stored proc parameters
+    cs.setInt(1, pID_PRODUCTO);
+    cs.setInt(2, pCANTIDAD);
+    cs.execute();
+    cs.close();
+    conn.close(); 
+    }
+
 }

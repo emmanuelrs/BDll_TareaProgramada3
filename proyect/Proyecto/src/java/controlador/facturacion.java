@@ -45,6 +45,8 @@ public class facturacion extends HttpServlet{
                 int stock = conect.verificaStock(pro);
                 if(stock == 1){
                     System.out.println("SI");
+                    conect.reStock(pro, cant);
+                    
                 }
                 else{
                     System.out.println("NO");
@@ -73,6 +75,7 @@ public class facturacion extends HttpServlet{
                 int stock = conect.verificaStock(pro);
                 if(stock == 1){
                     System.out.println("SI");
+                    conect.reStock(pro, cant);
                 }
                 else{
                     System.out.println("NO");
