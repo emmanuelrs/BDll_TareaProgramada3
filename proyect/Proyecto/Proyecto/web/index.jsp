@@ -124,12 +124,31 @@ body{
 	padding: 6px;
 	margin-top: 10px;
 }
+.login input[type=submit]{
+	width: 260px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
 
 .login input[type=button]:hover{
 	opacity: 0.8;
 }
-
+.login input[type=submit]:hover{
+	opacity: 0.8;
+}
 .login input[type=button]:active{
+	opacity: 0.6;
+}
+.login input[type=submit]:active{
 	opacity: 0.6;
 }
 
@@ -144,6 +163,9 @@ body{
 }
 
 .login input[type=button]:focus{
+	outline: none;
+}
+.login input[type=submit]:focus{
 	outline: none;
 }
 
@@ -169,10 +191,11 @@ body{
 		</div>
 		<br>
 		<div class="login">
-				<input type="text" placeholder="username" name="user"><br>
-				<input type="password" placeholder="password" name="password"><br>
-                                <a href="index2.jsp"><input type="button" value="Login"></a>
-                                <a href="registrarUser.jsp"><input type="button" value="Registrarse"></a>
+                    <form action = "index" method ="post">
+				<input type="text" id= "username" placeholder="username" name="username"><br>
+				<input type="password" id="password" placeholder="password" name="password"><br>
+                                <input type="submit"value="Login">
+                                <a href="registrarUser.jsp"><input type="button" value="Registrarse"></a></form>
 		</div>
 
 <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>

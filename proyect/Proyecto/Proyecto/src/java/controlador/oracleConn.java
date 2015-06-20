@@ -532,6 +532,20 @@ public void agregarUser(Integer pCedula,String pPassword,String pTipo,String pUs
     cs.close();
     conn.close(); 
 }
+public int verificaLogin(String pUser, String pPassword) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn = ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{CALL ? := LOGIN(?,?)}");
+    cs.registerOutParameter(1, Types.INTEGER);
+    cs.setString(2, pUser);
+    cs.setString(3, pPassword);
+    cs.execute();
+    int esLogin = cs.getInt(1);
+    cs.close();
+    conn.close(); 
+    return esLogin;
         
-
-}
+}}
