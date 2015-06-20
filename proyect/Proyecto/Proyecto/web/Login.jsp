@@ -87,9 +87,9 @@ body{
 	width: 250px;
 	height: 30px;
 	background: transparent;
-	border: 1px solid black;
+	border: 1px solid rgba(255,255,255,0.6);
 	border-radius: 2px;
-	color: black;
+	color: #fff;
 	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
@@ -100,9 +100,9 @@ body{
 	width: 250px;
 	height: 30px;
 	background: transparent;
-	border: 1px solid black;
+	border: 1px solid rgba(255,255,255,0.6);
 	border-radius: 2px;
-	color: black;
+	color: #fff;
 	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
@@ -140,7 +140,7 @@ body{
 
 .login input[type=password]:focus{
 	outline: none;
-	border: 1px solid black;
+	border: 1px solid rgba(255,255,255,0.9);
 }
 
 .login input[type=button]:focus{
@@ -148,11 +148,11 @@ body{
 }
 
 ::-webkit-input-placeholder{
-   color: black;
+   color: rgba(255,255,255,0.6);
 }
 
 ::-moz-input-placeholder{
-   color: black;
+   color: rgba(255,255,255,0.6);
 }
 </style>
 
@@ -160,7 +160,7 @@ body{
 
 </head>
 
-<body>
+<body background = "img/LOGIN.jpg">
 
   <div class="body"></div>
 		<div class="grad"></div>
@@ -171,7 +171,7 @@ body{
 		<div class="login">
 				<input type="text" placeholder="username" name="user"><br>
 				<input type="password" placeholder="password" name="password"><br>
-                                <a href="index2.jsp"><input type="button" value="Login" href="index.jsp"></a>
+				<input type="button" value="Login">
 		</div>
 
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
