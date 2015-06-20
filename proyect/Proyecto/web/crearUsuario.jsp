@@ -82,8 +82,12 @@
             <label for="male">Número de Teléfono</label> <br/> 
                 <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>
             <label for="male">Tipo</label> <br/> 
-                <INPUT class ="tb1" NAME = "tipo" TYPE = "text" id="tipo"> <br/>
-                <br/>
+                <SELECT class ="tb1" NAME="selCombo" SIZE=1 onChange="this.form);"> 
+                    <OPTION VALUE="ADMINISTRADOR">Administrador</OPTION>
+                    <OPTION VALUE="VENDEDOR">Vendedor</OPTION>
+                    <OPTION VALUE="CLIENTE">Cliente</OPTION>
+                    <OPTION VALUE="PROVEEDOR">Proveedor</OPTION> 
+                </SELECT> <br/>
                 <label for="male">Si el tipo de Usuario es Vendedor o Administrador favor rellenar los siguientes campos</label> <br/> 
             <label for="male">UserName</label> <br/> 
                 <INPUT class ="tb1" NAME = "userName" TYPE = "text" id="userName"> <br/>

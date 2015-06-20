@@ -38,7 +38,7 @@ public class crearUsuario extends HttpServlet {
                 String canton = request.getParameter("canton");
                 String direccion = request.getParameter("direccion");
                 String numero = request.getParameter("telefono");
-                String tipo = request.getParameter("tipo");
+                String tipo = request.getParameter("selCombo");
                 String email = request.getParameter("email");
                 String usr = request.getParameter("userName");
                 String pas = request.getParameter("pass");
