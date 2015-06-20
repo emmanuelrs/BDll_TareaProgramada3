@@ -265,10 +265,15 @@ END;
 create or replace 
 PROCEDURE insertarUsuario(cedula number, contra varchar2, tipo varchar2, usrName varchar2)
 IS
+VARID_CEDULA_VERIFICADA NUMBER(10);
+
 BEGIN
-  INSERT INTO usuario(cedula, contraseña, tipo, username)
-  VALUES(cedula, contra, upper(tipo), usrName);     
-  COMMIT;
+  VARID_CEDULA_VERIFICADA := retornaIDPERSONAXCEDULA(cedula);
+  IF VARID_CEDULA_VERIFICADA = cedula THEN
+    INSERT INTO usuario(cedula, contraseña, tipo, username)
+    VALUES(cedula, contra, upper(tipo), usrName);     
+    COMMIT;
+  END IF;
 END;
 
 
@@ -383,3 +388,23 @@ BEGIN
   RETURN VARID_BODEGA;
 
 END;
+
+create or replace FUNCTION retornaIDPERSONAXCEDULA(pCEDULA NUMBER)
+RETURN NUMBER
+AS
+  VARID_PERSONA NUMBER(10);
+BEGIN
+  VARID_PERSONA := 0;
+  SELECT cedula INTO VARID_PERSONA
+  FROM PERSONA
+  WHERE CEDULA = pCEDULA;
+  RETURN VARID_PERSONA;
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+  VARID_PERSONA := 0;
+  RETURN VARID_PERSONA;
+-- si retorna 0 es porque la persona no esta ingresada ese error lo captan ya en java 
+END;
+
+
+
