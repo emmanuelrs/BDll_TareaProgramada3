@@ -148,12 +148,7 @@ CREATE TABLE ProductoXFactura(
               CONSTRAINT PXF_Id_Factura_NN NOT NULL,
        Id_Producto NUMBER(10)
               CONSTRAINT PXF_Id_Producto_NN NOT NULL,
-       CantidadProductos NUMBER(10),
-       CONSTRAINT PK_PRODUCTOXFACTURA
-       primary key (Id_Factura)
-       using index
-       tablespace GE_IDX pctfree 20
-       storage (initial 10k next 10k pctincrease 0)
+       CantidadProductos NUMBER(10)
 )
 TABLESPACE GE_TBL
 STORAGE (INITIAL 6144
