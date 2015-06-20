@@ -58,7 +58,7 @@ header {
 }
 
 #client .to {
-  color: #000000;
+  color: #57B223;
 }
 
 h2.name {
@@ -83,7 +83,7 @@ h2.name {
 
 #invoice .date {
   font-size: 1.1em;
-  color: #000000;
+  color: #57B223;
 }
 
 table {
@@ -118,7 +118,7 @@ table td h3{
 }
 
 table .no {
-  color: black;
+  color: white;
   font-size: 1.6em;
   background: #57B223;
 }
@@ -136,7 +136,7 @@ table .qty {
 
 table .total {
   background: #57B223;
-  color:black;
+  color:white;
 }
 
 table td.unit,
@@ -163,7 +163,7 @@ table tfoot tr:first-child td {
 }
 
 table tfoot tr:last-child td {
-  color: #000000;
+  color: #57B223;
   font-size: 1.4em;
   border-top: 1px solid #57B223; 
 

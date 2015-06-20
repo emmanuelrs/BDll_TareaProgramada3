@@ -150,7 +150,21 @@ private Integer Precio(Integer idProducto) throws SQLException{
     conn.close(); 
     return precio;
 }
-
+public Integer IdFactura() throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn = ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{CALL ? := ULTIMO_ID_FACTURA}");
+    cs.registerOutParameter(1, Types.INTEGER);
+    cs.execute();
+    int idfactura = cs.getInt(1);
+    cs.close();
+    conn.close(); 
+    return idfactura;
+    
+}
 public Integer crearFactura(String PuntoDeVenta,String descuento) throws SQLException{
     int desc = Integer.parseInt(descuento);
     OracleDataSource ds;
@@ -298,6 +312,40 @@ public Connection ejecutarSQL() throws SQLException{
             conn=ds.getConnection(userid,password);
             return conn;
 }
+public LinkedList<contenidoFactura> getProductosFactura(){
+        LinkedList<contenidoFactura> listaProd = new LinkedList<contenidoFactura>();
+        try{
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
+            conn=ds.getConnection("GestorEmpresarial","gestorE");
+            oracleConn ora1 = new oracleConn();
+            int idFactura = ora1.IdFactura();
+            String idFacturaS = Integer.toString(idFactura);
+            System.out.println(idFacturaS);
+            String sql = "SELECT P.PRODUCTO, C.CANTIDADPRODUCTOS ,P.PRECIOUNITARIO, P.DESCRIPCION FROM PRODUCTO P, PRODUCTOXFACTURA C WHERE P.ID_PRODUCTO = C.ID_PRODUCTO AND C.ID_FACTURA = " + idFacturaS; 
+            Statement ejec = conn.createStatement();
+            System.out.println("Se dano");
+            ResultSet rs = ejec.executeQuery(sql);
+            
+            while (rs.next()){
+                contenidoFactura factura = new contenidoFactura();
+                factura.setNombreP(rs.getNString("PRODUCTO"));
+                factura.setDescripcion(rs.getNString("DESCRIPCION"));
+                factura.setCantidad(rs.getNString("CANTIDADPRODUCTOS"));
+                factura.setPrecio(rs.getNString("PRECIOUNITARIO"));
+                listaProd.add(factura);
+            }
+            rs.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+      return listaProd;
+    }
+    
 
     public LinkedList<inventario> getInventario(){
         LinkedList<inventario> listaInv =new LinkedList<inventario>();

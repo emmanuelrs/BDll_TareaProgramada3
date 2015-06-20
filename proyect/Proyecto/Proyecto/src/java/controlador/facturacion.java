@@ -19,6 +19,7 @@ public class facturacion extends HttpServlet{
     public facturacion(){
         super();
     }
+    int fac = -1;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String IdProducto = request.getParameter("IdProducto");
         String Descuento = request.getParameter("descuento");
@@ -28,7 +29,7 @@ public class facturacion extends HttpServlet{
         int varDes = Descuento.length();
         int varCant = Cantidad.length();
         int varIdPV = IdPV.length();
-        int fac = -1;
+        
         oracleConn conect;
         conect = new oracleConn();
         
@@ -76,5 +77,8 @@ public class facturacion extends HttpServlet{
         } //else if 3
         response.sendRedirect(response.encodeRedirectURL("facturacion.jsp"));
     }
+  public int getFac(){
+      return fac;
+  }  
 
 }

@@ -4,6 +4,11 @@
     Author     : Emmanuel
 --%>
 
+<%@page import="controlador.contenidoFactura"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="controlador.oracleConn"%>
+<%@page import="controlador.facturacion"%>
+<%@page import="controlador.inventario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +35,11 @@
       <div id="details" class="clearfix">
         <div id="invoice">
           <h1>FACTURA</h1> <!-- Código java aqui -->
-          <h1>1</h1>
+          <%
+              oracleConn con = new oracleConn();
+              out.println("<h1>"+"Número"+" "+con.IdFactura() + "</h1>");
+          %>
+          
         </div>
       </div>
       <table border="0" cellspacing="0" cellpadding="0">
@@ -40,31 +49,27 @@
             <th class="desc">DESCRIPCIÓN</th>
             <th class="unit">PRECIO</th>
             <th class="qty">CANTIDAD</th>
-            <th class="total">TOTAL</th>
+            <th class="total">PRECIO</th>
           </tr>
         </thead>
         <tbody> <!-- CÓDIGO JAVA-->
-          <tr>
-            <td class="no">01</td>
-            <td class="desc"><h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">30</td>
-            <td class="total">$1,200.00</td>
-          </tr>
-          <tr>
-            <td class="no">02</td>
-            <td class="desc"><h3>Website Development</h3>Developing a Content Management System-based Website</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">80</td>
-            <td class="total">$3,200.00</td>
-          </tr>
-          <tr>
-            <td class="no">03</td>
-            <td class="desc"><h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
-            <td class="unit">$40.00</td>
-            <td class="qty">20</td>
-            <td class="total">$800.00</td>
-          </tr>
+         <%
+              oracleConn ora1 = new oracleConn();
+              LinkedList<contenidoFactura> listaP = con.getProductosFactura();
+              for(int i = 0; i < listaP.size();i ++){
+                  out.println("<tr>");
+                  out.println("<td >" + i +"<td>");
+                  out.println("<td ><h3" + listaP.get(i).getNombreP()+ "</h3>" + listaP.get(i).getDescripcion()+"</td");
+                  out.println("<td >"+ listaP.get(i).getPrecio()+ "</td>");
+                  out.println("<td >" + listaP.get(i).getCantidad()+ "</td>");
+                  out.println("<td >"+ listaP.get(i).getPrecio()+ "</td>");
+                  out.println("</tr>");
+                  
+                 
+              }
+        
+        
+            %>
         </tbody>
         <tfoot>
           <tr>

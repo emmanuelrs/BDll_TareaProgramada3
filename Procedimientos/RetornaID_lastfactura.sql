@@ -1,0 +1,18 @@
+CREATE OR REPLACE FUNCTION ULTIMO_ID_FACTURA RETURN NUMBER AS
+VAR_ID_FACTURA NUMBER(10);
+BEGIN
+VAR_ID_FACTURA := -1;
+SELECT MAX(ID_FACTURA) INTO VAR_ID_FACTURA FROM FACTURA;
+
+RETURN VAR_ID_FACTURA;
+END;
+
+
+SET serveroutput on;
+declare
+   result number;
+begin
+   -- Call the function
+   result := ULTIMO_ID_FACTURA;
+   DBMS_OUTPUT.put_line(result);
+end;
