@@ -7,17 +7,13 @@ package controlador;
 
 import static controlador.oracleConn.conn;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static javax.management.Query.and;
-import oracle.jdbc.pool.OracleDataSource;
+
 
 /**
  *
@@ -25,7 +21,7 @@ import oracle.jdbc.pool.OracleDataSource;
  */
 
 @WebServlet("/RESTOCK")
-public class RESTOCK {
+public class RESTOCK extends HttpServlet {
     public RESTOCK(){
         super();
     }
@@ -43,9 +39,9 @@ public class RESTOCK {
             conect.reStockManual(idProduct, cantidadP, transaccionP);
             response.sendRedirect(response.encodeRedirectURL("RESTOCK.jsp"));
         }
-        catch(SQLException e){
+        catch(SQLException | IOException e){
          System.out.println(e);
         }
         
-        response.sendRedirect(response.encodeRedirectURL("RESTOCK.jsp"));
+        
 }}
