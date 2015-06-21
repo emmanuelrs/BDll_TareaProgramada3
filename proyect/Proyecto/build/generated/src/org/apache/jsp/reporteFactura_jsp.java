@@ -114,7 +114,7 @@ public final class reporteFactura_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("            <br/>\r\n");
       out.write("            <h2>Facturas</h2>\r\n");
       out.write("            <br/>\r\n");
-      out.write("        <form action=\"compraXcliente\" class=\"ui form segment\"  method=\"post\"> \r\n");
+      out.write("        <form action=\"reporteFactura\" class=\"ui form segment\"  method=\"post\"> \r\n");
       out.write("            <label for=\"male\">ID de la Factura</label> <br/> \r\n");
       out.write("            <INPUT class =\"tb1\" NAME = \"idFactura\" TYPE = \"text\" id=\"idFactura\" required> <br/>\r\n");
       out.write("            <br/>\r\n");

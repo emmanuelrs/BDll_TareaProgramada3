@@ -83,7 +83,7 @@
             <td colspan="2"></td>
             <td colspan="2">TOTAL A PAGAR</td>
             <% 
-              String res = request.getParameter("idfact")!=null?request.getParameter("tab"):"";
+              String res = request.getParameter("idfact")!=null?request.getParameter("idfact"):"";
               int idF = Integer.parseInt(res); 
               oracleConn ora2 = new oracleConn();
               out.println("<td> ₡" + ora2.totalPagarManual(idF)+"</td>");

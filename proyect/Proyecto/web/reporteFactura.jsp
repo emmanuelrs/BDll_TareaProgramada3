@@ -71,7 +71,7 @@
             <br/>
             <h2>Facturas</h2>
             <br/>
-        <form action="compraXcliente" class="ui form segment"  method="post"> 
+        <form action="reporteFactura" class="ui form segment"  method="post"> 
             <label for="male">ID de la Factura</label> <br/> 
             <INPUT class ="tb1" NAME = "idFactura" TYPE = "text" id="idFactura" required> <br/>
             <br/>
