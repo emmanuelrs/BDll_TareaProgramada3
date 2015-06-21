@@ -71,27 +71,9 @@
             <h2> Realizar Venta </h2>
             <br/>
         <form action="reportes" class="ui form segment"  method="post"> 
-            <label for="male">Cedula del Cliente</label> <br/> 
-            <INPUT class ="tb1" NAME = "ced" TYPE = "text" id="ced" required> <br/>
             <br/>
-            <input class="myButton" type="submit" value="Consultar">
+            <input class="myButton" type="submit" value="Compras por Cliente">
         </form>
-        <br/>    
-        <table id="example" class="display" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-            <td>Producto  </td>
-            <td>Descripcion  </td>
-            <td>Precio unitario  </td>
-            <td>Marca  </td>
-            <td>Categoria  </td>
-            <td>Id Factura </td>
-            <td>Cantidad  </td>
-            <td>Total </td>
-            </tr>
-        </thead>
-        <%= request.getParameter("tab")!=null?request.getParameter("tab"):""%>    
-        </table>
-
+        
 </
 </html>

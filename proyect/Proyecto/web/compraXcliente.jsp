@@ -68,12 +68,32 @@
         </div><!--/sidebar-->
                <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
             <br/>
-            <h2> Realizar Venta </h2>
+            <h2> Productos comprados por cliente </h2>
             <br/>
-        <form action="reportes" class="ui form segment"  method="post"> 
+        <form action="compraXcliente" class="ui form segment"  method="post"> 
+            <label for="male">Cedula del Cliente</label> <br/> 
+            <INPUT class ="tb1" NAME = "ced" TYPE = "text" id="ced" required> <br/>
             <br/>
-            <input class="myButton" type="submit" value="Compras por Cliente">
+            <input class="myButton" type="submit" value="Consultar">
         </form>
-        
+        <br/> 
+        <h3><%= request.getParameter("nom")!=null?request.getParameter("nom"):""%> </h3>
+        <br/> 
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+            <td>Producto  </td>
+            <td>Descripcion  </td>
+            <td>Precio unitario  </td>
+            <td>Marca  </td>
+            <td>Categoria  </td>
+            <td>Id Factura </td>
+            <td>Cantidad  </td>
+            <td>Total </td>
+            </tr>
+        </thead>
+        <%= request.getParameter("tab")!=null?request.getParameter("tab"):""%>    
+        </table>
+
 </
 </html>

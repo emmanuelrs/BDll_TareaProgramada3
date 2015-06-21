@@ -59,7 +59,15 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <meta name=\"generator\" content=\"Bootply\" />\r\n");
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\r\n");
       out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
-      out.write("    <link href=\"css/styles.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link href=\"css/FacturacionCSS.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link rel=\"stylesheet\" type=\"text/css\" href=\"datables/media/css/jquery.dataTables.css\">\r\n");
+      out.write("    \r\n");
+      out.write("    <script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.js\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script>\r\n");
+      out.write("            $(document).ready(function() {\r\n");
+      out.write("            $('#example').DataTable();} );\r\n");
+      out.write("        </script>\r\n");
       out.write("</head>\r\n");
       out.write("<body id=\"page-top\">\r\n");
       out.write("    <nav id=\"mainNav\" class=\"navbar navbar-default navbar-fixed-top\">\r\n");
@@ -104,50 +112,11 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <br/>\r\n");
       out.write("            <h2> Realizar Venta </h2>\r\n");
       out.write("            <br/>\r\n");
-      out.write("            <img class=\"divimg\" src=\"img/user.png\">\r\n");
       out.write("        <form action=\"reportes\" class=\"ui form segment\"  method=\"post\"> \r\n");
-      out.write("            <label for=\"male\">Cedula del Cliente</label> <br/> \r\n");
-      out.write("            <INPUT class =\"tb1\" NAME = \"ced\" TYPE = \"text\" id=\"ced\" required> <br/>\r\n");
-      out.write("            <input class=\"myButton\" type=\"submit\" value=\"Consultar\">\r\n");
+      out.write("            <br/>\r\n");
+      out.write("            <input class=\"myButton\" type=\"submit\" value=\"Compras por Cliente\">\r\n");
       out.write("        </form>\r\n");
-      out.write("            \r\n");
-      out.write("        <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\">\r\n");
-      out.write("        <thead>\r\n");
-      out.write("            <tr>\r\n");
-      out.write("            <td>Producto  </td>\r\n");
-      out.write("            <td>Descripcion  </td>\r\n");
-      out.write("            <td>Precio unitario  </td>\r\n");
-      out.write("            <td>Marca  </td>\r\n");
-      out.write("            <td>Categoria  </td>\r\n");
-      out.write("            <td>Id Factura </td>\r\n");
-      out.write("            <td>Cantidad  </td>\r\n");
-      out.write("            <td>Total </td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("        </thead>\r\n");
-      out.write("        <tbody>\r\n");
-      out.write("        ");
-
-        oracleConn con = new oracleConn();
-        LinkedList<ProductXPersona> listaPXP = con.getProductXPersona(304700200);
-        for (int i=0;i<listaPXP.size();i++)
-        {
-        out.println("<tr>");
-        out.println("<td>"+listaPXP.get(i).getPRODUCTO()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getDESCRIPCION()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getPRECIOUNITARIO()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getMARCA()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getCATEGORIA()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getID_FACTURA()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getCANTIDAD()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getTOTAL()+"</td>");
-        out.println("</tr>");
-        }
-        
-      out.write("\r\n");
       out.write("        \r\n");
-      out.write("        </tbody>\r\n");
-      out.write("        </table>\r\n");
-      out.write("\r\n");
       out.write("</\r\n");
       out.write("</html>");
     } catch (Throwable t) {

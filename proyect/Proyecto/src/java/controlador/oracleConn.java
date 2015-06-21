@@ -767,4 +767,29 @@ public LinkedList<ProductXPersona> getProductXPersona(int ced){
       return listaPXP;
     }
 
+   public String getCliente(int cedula){
+       String Client = "";
+        try{
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String sql = "select cedula, nombre_Persona, apellido_persona from Persona where cedula =" + cedula;
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+                Client = Client + rs.getInt("cedula") + " : ";
+                Client = Client + rs.getNString("nombre_Persona") + " ";
+                Client = Client + rs.getNString("apellido_persona");
+            }
+            rs.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+      return Client;
+    }
+
 }
