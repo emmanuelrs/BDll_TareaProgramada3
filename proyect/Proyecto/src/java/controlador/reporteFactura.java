@@ -19,15 +19,8 @@ public class reporteFactura extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");  
                 String idFact = request.getParameter("idFactura");
-                String respuesta = ""; 
-                respuesta = respuesta + "oracleConn ora2 = new oracleConn();";
-              
-                respuesta = respuesta + "<td> ₡" + "ora2.totalPagarManual("+idFact+")"+"</td>";
-           
-                RequestDispatcher a = request.getRequestDispatcher("iFacturaManual.jsp?idfact=" + respuesta);
+                RequestDispatcher a = request.getRequestDispatcher("iFacturaManual.jsp?idfact=" + idFact);
 		a.forward(request, response);
-                
-
     }
     
 }

@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <head>
+
     <meta charset="utf-8">
     <title>iFacture</title>
     <link rel="stylesheet" href="css/Facturastyle.css" media="all" />
@@ -73,6 +73,7 @@
           <tr>
             <td colspan="2"></td>
             <td colspan="2">DESCUENTO %</td>
+            
             <%
               oracleConn ora3 = new oracleConn();
               out.println("<td>" + ora3.totalDescuento()+"</td>");
@@ -81,7 +82,12 @@
           <tr>
             <td colspan="2"></td>
             <td colspan="2">TOTAL A PAGAR</td>
-            <%= request.getParameter("idfact")!=null?request.getParameter("tab"):""%>
+            <% 
+              String res = request.getParameter("idfact")!=null?request.getParameter("tab"):"";
+              int idF = Integer.parseInt(res); 
+              oracleConn ora2 = new oracleConn();
+              out.println("<td> ₡" + ora2.totalPagarManual(idF)+"</td>");
+            %>
            
           </tr>
         </tfoot>
