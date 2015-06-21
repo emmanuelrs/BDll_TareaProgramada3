@@ -766,6 +766,38 @@ public LinkedList<ProductXPersona> getProductXPersona(int ced){
         }
       return listaPXP;
     }
+public LinkedList<ventas> ventasGeneralesXPV(){
+        LinkedList<ventas> listaV = new LinkedList<ventas>();
+        try{
+            oracleConn ora1 = new oracleConn();
+            int idFactura = ora1.IdFactura();
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String idFacturaS = Integer.toString(idFactura);
+            String sql = "SELECT F.ID_FACTURA,P.NOMBRE_PERSONA,P.APELLIDO_PERSONA,PD.NOMBREPUNTODEVENTA,F.DESCUENTO,F.TOTAL FROM FACTURA F, PERSONA P, PUNTODEVENTA PD WHERE F.PERSONA = P.CEDULA AND F.ID_PUNTODEVENTA = PD.ID_PUNTODEVENTA";
+            Statement ejec = conn.createStatement();     
+            ResultSet rs = ejec.executeQuery(sql);
+            while (rs.next()){
+                ventas venta = new ventas();
+                venta.setFactura(rs.getString("ID_FACTURA"));
+                venta.setNombre(rs.getNString("NOMBRE_PERSONA"));
+                venta.setApellido(rs.getNString("APELLIDO_PERSONA"));
+                venta.setPuntoDeVenta(rs.getNString("NOMBREPUNTODEVENTA"));
+                venta.setDescuento(rs.getNString("DESCUENTO"));
+                venta.setTotal(rs.getNString("TOTAL"));
+                listaV.add(venta);
+            }
+            rs.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+      return listaV;
+    }
 
    public String getCliente(int cedula){
        String Client = "";
