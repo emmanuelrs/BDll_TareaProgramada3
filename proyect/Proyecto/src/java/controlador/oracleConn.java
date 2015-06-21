@@ -844,5 +844,60 @@ public LinkedList<ventas> ventasGeneralesXPV(){
         }
         return total;
     }
+   
+   public LinkedList<contenidoFactura> getProductosFacturaManual(int id_factura){
+        LinkedList<contenidoFactura> listaProd = new LinkedList<contenidoFactura>();
+        try{
+            
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String idFacturaS = Integer.toString(id_factura);
+            String sql = "SELECT P.PRODUCTO, C.CANTIDADPRODUCTOS ,P.PRECIOUNITARIO, P.DESCRIPCION FROM PRODUCTO P, PRODUCTOXFACTURA C WHERE P.ID_PRODUCTO = C.ID_PRODUCTO AND C.ID_FACTURA = " + idFacturaS; 
+            Statement ejec = conn.createStatement();     
+            ResultSet rs = ejec.executeQuery(sql);
+            
+            while (rs.next()){
+                contenidoFactura factura = new contenidoFactura();
+                factura.setNombreP(rs.getNString("PRODUCTO"));
+                factura.setDescripcion(rs.getNString("DESCRIPCION"));
+                factura.setCantidad(rs.getNString("CANTIDADPRODUCTOS"));
+                factura.setPrecio(rs.getNString("PRECIOUNITARIO"));
+                factura.setTotalC();
+                listaProd.add(factura);
+                System.out.println(rs.getNString("PRODUCTO"));
+                System.out.println(rs.getNString("DESCRIPCION"));
+                System.out.println(rs.getNString("CANTIDADPRODUCTOS"));
+                System.out.println(rs.getNString("PRECIOUNITARIO"));
+            }
+            rs.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+      return listaProd;
+    }
+    public int totalDescuentoManual(int id_factura){
+        int descuento = 0;
+        try{
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String idFacturaS = Integer.toString(id_factura);
+            String sql ="SELECT DESCUENTO FROM FACTURA WHERE ID_FACTURA = "+idFacturaS;
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+            descuento = Integer.parseInt(rs.getNString("DESCUENTO"));}
+            
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return descuento;
 
-}
+}}

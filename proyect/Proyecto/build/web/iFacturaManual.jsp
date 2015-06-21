@@ -33,11 +33,11 @@
       <div id="details" class="clearfix">
         <div id="invoice">
           <h1>FACTURA</h1> <!-- Código java aqui -->
-          <%
-              oracleConn con = new oracleConn();
-              out.println("<h1>"+"Número"+" "+con.IdFactura() + "</h1>");
-          %>
-          
+          <% 
+              String res1 = request.getParameter("idfact")!=null?request.getParameter("idfact"):"";
+              int idF1 = Integer.parseInt(res1); 
+              out.println("<h1> Número " + idF1+"</h1>");
+            %>  
         </div>
       </div>
       <table border="0" cellspacing="0" cellpadding="0">
@@ -52,8 +52,10 @@
         </thead>
         <tbody> <!-- CÓDIGO JAVA-->
          <%
+              String res2 = request.getParameter("idfact")!=null?request.getParameter("idfact"):"";
+              int idF2 = Integer.parseInt(res2); 
               oracleConn ora1 = new oracleConn();
-              LinkedList<contenidoFactura> listaP = con.getProductosFactura();
+              LinkedList<contenidoFactura> listaP = ora1.getProductosFacturaManual(idF2);
               for(int i = 0; i < listaP.size();i ++){
                   out.println("<tr>");
                   out.println("<td class='no'>"+(i+1)+"</td>");
@@ -75,8 +77,10 @@
             <td colspan="2">DESCUENTO %</td>
             
             <%
+              String res6 = request.getParameter("idfact")!=null?request.getParameter("idfact"):"";
+              int idF6 = Integer.parseInt(res6); 
               oracleConn ora3 = new oracleConn();
-              out.println("<td>" + ora3.totalDescuento()+"</td>");
+              out.println("<td>" + ora3.totalDescuentoManual(idF6)+"</td>");
             %>
           </tr>
           <tr>
