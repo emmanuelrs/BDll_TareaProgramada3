@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/proyect/Proyecto/web/iFacturaManual.jsp</file>
-            <file>file:/C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/proyect/Proyecto/src/java/controlador/reporteFactura.java</file>
-            <file>file:/C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/proyect/Proyecto/web/reporteFactura.jsp</file>
-            <file>file:/C:/Users/Emmanuel/Documents/GitHub/BDll_TareaProgramada3/proyect/Proyecto/src/java/controlador/oracleConn.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/web/compraXcliente.jsp</file>
+            <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/web/facturacion.jsp</file>
+            <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/web/iFacturaManual.jsp</file>
+            <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/src/java/controlador/compraXcliente.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/bases%20tarea%203/BDll_TareaProgramada3/proyect/Proyecto/src/java/controlador/oracleConn.java</file>
         </group>
     </open-files>
 </project-private>

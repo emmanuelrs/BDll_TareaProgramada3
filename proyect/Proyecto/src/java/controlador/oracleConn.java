@@ -820,6 +820,7 @@ public LinkedList<ventas> ventasGeneralesXPV(){
         catch (Exception e)
         {
          e.printStackTrace();
+         Client = Integer.toString(cedula);
         }
       return Client;
     }

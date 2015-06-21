@@ -77,8 +77,20 @@
             <input class="myButton" type="submit" value="Consultar">
         </form>
         <br/> 
-        <h3><%= request.getParameter("nom")!=null?request.getParameter("nom"):""%> </h3>
-        <br/> 
+        <label for="male">
+             <%
+              try{
+              String res = request.getParameter("tab")!=null?request.getParameter("tab"):"";
+              String[] tab = res.split(";");
+              String table = tab[1];
+              out.println(table); 
+              }
+              catch (Exception e){
+                  out.println(":-(");                  
+              }
+            %>
+        </label> <br/> 
+        <br/>
         <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -92,6 +104,13 @@
             <td>Total </td>
             </tr>
         </thead>
-        <%= request.getParameter("tab")!=null?request.getParameter("tab"):""%>    
+        <% 
+              String res = request.getParameter("tab")!=null?request.getParameter("tab"):"";
+              String[] tab = res.split(";");
+              String table = tab[0];
+             out.println(table);
+            %>
+         
         </table>
+    </
 </html>

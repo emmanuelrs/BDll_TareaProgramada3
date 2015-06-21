@@ -23,7 +23,7 @@ public class compraXcliente extends HttpServlet {
                 int cedu = Integer.parseInt(cedula);
                 String tabla = "";
                 oracleConn con = new oracleConn();
-                String datos = "";
+                String datos = " ";
                 datos = con.getCliente(cedu);
                 LinkedList<ProductXPersona> listaPXP = con.getProductXPersona(cedu);
                 for (int i=0;i<listaPXP.size();i++)
@@ -41,11 +41,11 @@ public class compraXcliente extends HttpServlet {
                 linea = linea + "</tr>";
                 tabla = tabla + linea;
                 }
+                datos = con.getCliente(cedu);
+                tabla = tabla + ";" + datos;
+                System.out.print("datos -->" +datos);
                 RequestDispatcher a = request.getRequestDispatcher("compraXcliente.jsp?tab=" + tabla);
 		a.forward(request, response);
-                RequestDispatcher b = request.getRequestDispatcher("compraXcliente.jsp?nom=" + datos);
-		b.forward(request, response);
-
     }
     
 }
