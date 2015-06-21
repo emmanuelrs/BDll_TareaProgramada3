@@ -589,6 +589,34 @@ public int verificaStock(int pID_PRODUCTO) throws SQLException{
         
 }
 
+   public static LinkedList<Persona> getPersona(){
+        LinkedList<Persona> listaPersona = new LinkedList<Persona>();
+        try{
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String sql = "select cedula, nombre_Persona, apellido_persona from Persona where tipo_persona = 'PROVEEDOR'";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+                Persona Per = new Persona();
+                Per.setCed(rs.getInt("cedula"));
+                Per.setNombre(rs.getNString("nombre_Persona"));
+                Per.setApellido(rs.getNString("apellido_persona"));
+                listaPersona.add(Per);
+            }
+            rs.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+      return listaPersona;
+    }
+      
+
 public void reStock(int pID_PRODUCTO, int pCANTIDAD) throws SQLException{
     OracleDataSource ds;
     ds = new OracleDataSource();

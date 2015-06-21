@@ -5,6 +5,11 @@
 --%>
 
 
+<%@page import="controlador.Persona"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="controlador.bodega"%>
+<%@page import="controlador.oracleConn"%>
+<%@page import="controlador.oracleConn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,10 +81,26 @@
             <label for="male">Minimo para Reordenar:</label> <br/>  
                 <INPUT class="tb1" NAME = "minimo" TYPE = "text" id="minimo"> <br/>           
             <label for="male">Bodega donde se encuentra:</label> <br/>  
-                <INPUT class="tb1" NAME = "NOMBRE_BODEGA" TYPE = "text" id="NOMBRE_BODEGA"> <br/>
+                <SELECT class ="tb1" NAME="NOMBRE_BODEGA" SIZE=1 onChange="this.form);">
+                    <% LinkedList<bodega> lista = oracleConn.getBodega();
+                    for (int i=0;i<lista.size();i++){
+                    out.println("<option value =" + lista.get(i).getNombre()+ ">" + lista.get(i).getNombre() + "</option>");
+                    }
+                    %>
+                </select> <br/>
             <label for="male">Cedula del provedor:</label> <br/>  
-                <INPUT class="tb1" NAME = "ced" TYPE = "text" id="ced"> <br/>
+                <SELECT class ="tb1" NAME="ced" SIZE=1 onChange="this.form);">
+                    <% LinkedList<Persona> listaP = oracleConn.getPersona();
+                    for (int i=0;i<listaP.size();i++){
+                    out.println("<option value =" + listaP.get(i).getCed()+ ">" + listaP.get(i).getNombre() + " " + listaP.get(i).getApellido() + "</option>");
+                    }
+                    %>
+                </select> <br/>
             <br/>
             <input class="myButton" type="submit" value="submit"> </form>
 </
 </html>
+
+
+
+
