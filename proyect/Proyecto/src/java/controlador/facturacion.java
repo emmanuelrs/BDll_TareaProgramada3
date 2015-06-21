@@ -26,11 +26,12 @@ public class facturacion extends HttpServlet{
         String Cantidad = request.getParameter("Cantidad");
         String IdPV = request.getParameter("IdPuntoVenta");        
         String select[] = request.getParameterValues("id");
+        String cedu = request.getParameter("Cedula"); 
         int varId = IdProducto.length();
         int varDes = Descuento.length();
         int varCant = Cantidad.length();
         int varIdPV = IdPV.length();
-        
+        System.out.println(cedu);
         oracleConn conect;
         conect = new oracleConn();
         
@@ -60,7 +61,7 @@ public class facturacion extends HttpServlet{
         } //if varDes
         else if (varId == 0 & varCant == 0 & select != null) {
             try {
-                fac = conect.crearFactura(IdPV,Descuento);
+                fac = conect.crearFactura(IdPV,Descuento, cedu);
             } catch (SQLException ex) {
                 Logger.getLogger(facturacion.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -86,7 +87,7 @@ public class facturacion extends HttpServlet{
                 Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                fac = conect.crearFactura(IdPV,Descuento);
+                fac = conect.crearFactura(IdPV,Descuento,cedu);
             } catch (SQLException ex) {
                 Logger.getLogger(facturacion.class.getName()).log(Level.SEVERE, null, ex);
             }

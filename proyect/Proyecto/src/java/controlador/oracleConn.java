@@ -207,17 +207,19 @@ public Integer IdFactura() throws SQLException{
     return idfactura;
     
 }
-public Integer crearFactura(String PuntoDeVenta,String descuento) throws SQLException{
+public Integer crearFactura(String PuntoDeVenta,String descuento, String cedula) throws SQLException{
     int desc = Integer.parseInt(descuento);
+    int ced = Integer.parseInt(cedula);
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
     conn=ds.getConnection(userid,password);
     CallableStatement cs;
-    cs = conn.prepareCall("{CALL ? := insertarFactura(?,?)}");
+    cs = conn.prepareCall("{CALL ? := insertarFactura(?,?,?)}");
     cs.registerOutParameter(1, Types.INTEGER);
     cs.setString(2, PuntoDeVenta);
     cs.setInt(3, desc);
+    cs.setInt(4, ced);
     cs.execute();
     int id = cs.getInt(1);
     cs.close();
