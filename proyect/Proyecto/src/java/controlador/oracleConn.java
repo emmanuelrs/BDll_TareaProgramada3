@@ -604,4 +604,21 @@ public void reStock(int pID_PRODUCTO, int pCANTIDAD) throws SQLException{
     conn.close(); 
     }
 
+public void reStockManual(int pID_PRODUCTO,int pCANTIDAD, String pTransaccion) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{ CALL RESTOCK_MANUAL(?,?,?)}");
+    //populate stored proc parameters
+    cs.setInt(1, pID_PRODUCTO);
+    cs.setInt(2, pCANTIDAD);
+    cs.setString(3,pTransaccion);
+    cs.execute();
+    cs.close();
+    conn.close(); 
+    
+}
+
 }
