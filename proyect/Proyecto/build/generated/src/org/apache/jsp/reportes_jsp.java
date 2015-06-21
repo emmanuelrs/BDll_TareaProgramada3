@@ -3,6 +3,12 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+<<<<<<< HEAD
+=======
+import java.util.LinkedList;
+import controlador.ProductXPersona;
+import controlador.oracleConn;
+>>>>>>> origin/master
 
 public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -44,6 +50,12 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+<<<<<<< HEAD
+=======
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+>>>>>>> origin/master
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
       out.write("<head>\r\n");
@@ -94,6 +106,57 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </ul>\r\n");
       out.write("          </div>\r\n");
       out.write("        </div><!--/sidebar-->\r\n");
+<<<<<<< HEAD
+=======
+      out.write("               <div class=\"col-xs-12 col-sm-9\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\r\n");
+      out.write("            <br/>\r\n");
+      out.write("            <h2> Realizar Venta </h2>\r\n");
+      out.write("            <br/>\r\n");
+      out.write("            <img class=\"divimg\" src=\"img/user.png\">\r\n");
+      out.write("        <form action=\"reportes\" class=\"ui form segment\"  method=\"post\"> \r\n");
+      out.write("            <label for=\"male\">Cedula del Cliente</label> <br/> \r\n");
+      out.write("            <INPUT class =\"tb1\" NAME = \"ced\" TYPE = \"text\" id=\"ced\" required> <br/>\r\n");
+      out.write("            <input class=\"myButton\" type=\"submit\" value=\"Consultar\">\r\n");
+      out.write("        </form>\r\n");
+      out.write("            \r\n");
+      out.write("        <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\">\r\n");
+      out.write("        <thead>\r\n");
+      out.write("            <tr>\r\n");
+      out.write("            <td>Producto  </td>\r\n");
+      out.write("            <td>Descripcion  </td>\r\n");
+      out.write("            <td>Precio unitario  </td>\r\n");
+      out.write("            <td>Marca  </td>\r\n");
+      out.write("            <td>Categoria  </td>\r\n");
+      out.write("            <td>Id Factura </td>\r\n");
+      out.write("            <td>Cantidad  </td>\r\n");
+      out.write("            <td>Total </td>\r\n");
+      out.write("            </tr>\r\n");
+      out.write("        </thead>\r\n");
+      out.write("        <tbody>\r\n");
+      out.write("        ");
+
+        oracleConn con = new oracleConn();
+        LinkedList<ProductXPersona> listaPXP = con.getProductXPersona(304700200);
+        for (int i=0;i<listaPXP.size();i++)
+        {
+        out.println("<tr>");
+        out.println("<td>"+listaPXP.get(i).getPRODUCTO()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getDESCRIPCION()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getPRECIOUNITARIO()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getMARCA()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getCATEGORIA()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getID_FACTURA()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getCANTIDAD()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getTOTAL()+"</td>");
+        out.println("</tr>");
+        }
+        
+      out.write("\r\n");
+      out.write("        \r\n");
+      out.write("        </tbody>\r\n");
+      out.write("        </table>\r\n");
+      out.write("\r\n");
+>>>>>>> origin/master
       out.write("</\r\n");
       out.write("</html>");
     } catch (Throwable t) {

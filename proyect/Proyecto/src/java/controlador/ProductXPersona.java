@@ -3,14 +3,14 @@ package controlador;
 
 public class ProductXPersona {
 
-String PRODUCTO;
-String DESCRIPCION;
-String PRECIOUNITARIO;
-String MARCA;
-String CATEGORIA;
-String ID_FACTURA;
-String CANTIDAD;
-String TOTAL;
+String PRODUCTO = "";
+String DESCRIPCION = "";
+String PRECIOUNITARIO = "";
+String MARCA = "";
+String CATEGORIA = "";
+String ID_FACTURA = "";
+String CANTIDAD = "";
+String TOTAL = "";
 
     public ProductXPersona() {
     }
@@ -75,8 +75,11 @@ String TOTAL;
         return TOTAL;
     }
 
-    public void setTOTAL(String TOTAL) {
-        this.TOTAL = TOTAL;
+    public void setTOTAL() {
+        int entero = Integer.parseInt(CANTIDAD);
+        int entero1 = Integer.parseInt(PRECIOUNITARIO);
+        int entero2 = entero * entero1;
+        this.TOTAL = Integer.toString(entero2);
     }
     
 

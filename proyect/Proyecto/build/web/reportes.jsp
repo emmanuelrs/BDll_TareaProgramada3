@@ -4,6 +4,9 @@
     Author     : LUIS
 --%>
 
+<%@page import="java.util.LinkedList"%>
+<%@page import="controlador.ProductXPersona"%>
+<%@page import="controlador.oracleConn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +17,15 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/FacturacionCSS.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
+    
+    <script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#example').DataTable();} );
+        </script>
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -55,5 +66,32 @@
             </ul>
           </div>
         </div><!--/sidebar-->
+               <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+            <br/>
+            <h2> Realizar Venta </h2>
+            <br/>
+        <form action="reportes" class="ui form segment"  method="post"> 
+            <label for="male">Cedula del Cliente</label> <br/> 
+            <INPUT class ="tb1" NAME = "ced" TYPE = "text" id="ced" required> <br/>
+            <br/>
+            <input class="myButton" type="submit" value="Consultar">
+        </form>
+        <br/>    
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+            <td>Producto  </td>
+            <td>Descripcion  </td>
+            <td>Precio unitario  </td>
+            <td>Marca  </td>
+            <td>Categoria  </td>
+            <td>Id Factura </td>
+            <td>Cantidad  </td>
+            <td>Total </td>
+            </tr>
+        </thead>
+        <%= request.getParameter("tab")!=null?request.getParameter("tab"):""%>    
+        </table>
+
 </
 </html>
