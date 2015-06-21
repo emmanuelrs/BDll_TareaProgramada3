@@ -1,16 +1,17 @@
 <%-- 
-    Document   : reportes
-    Created on : 16-jun-2015, 21:59:15
-    Author     : LUIS
+    Document   : reporteFactura
+    Created on : Jun 21, 2015, 3:38:00 PM
+    Author     : Emmanuel
 --%>
 
+<%@page import="controlador.ventas"%>
 <%@page import="java.util.LinkedList"%>
-<%@page import="controlador.ProductXPersona"%>
+<%@page import="java.util.LinkedList"%>
 <%@page import="controlador.oracleConn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+    <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>iFacture</title>
@@ -19,6 +20,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/FacturacionCSS.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
+    
+    <script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#example').DataTable();} );
+        </script>
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -61,12 +69,63 @@
         </div><!--/sidebar-->
                <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
             <br/>
-            <h2>REPORTES</h2>
+            <h2>Facturas</h2>
             <br/>
+        <form action="compraXcliente" class="ui form segment"  method="post"> 
+            <label for="male">ID de la Factura</label> <br/> 
+            <INPUT class ="tb1" NAME = "idFactura" TYPE = "text" id="idFactura" required> <br/>
             <br/>
-            <a href="compraXcliente.jsp"><input class="myButton" type="submit" value="Compras por Cliente"></a>
-            <a href="ventasGenerales.jsp"><input class="myButton" type="submit" value="Ventas Generales y por Punto de Venta"></a> 
-            <a href="inventario.jsp"><input class="myButton" type="submit" value="Inventario Actual"></a>
-            <a href="infoProvedores.jsp"><input class="myButton" type="submit" value="Proveedores"></a>
-            <a href="reporteFactura.jsp"><input class="myButton" type="submit" value="Facturas"></a>
+            <input class="myButton" type="submit" value="Ver detalles de la Factura">
+        </form>
+        <br/> 
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+            <td>FACTURA</td>
+            <td>NOMBRE</td>
+            <td>APELLIDO</td>
+            <td>PUNTO DE VENTA</td>
+            <td>DESCUENTO</td>
+            <td>TOTAL</td>
+            </tr>
+        </thead>
+        <tbody>
+     
+        <%
+        oracleConn con = new oracleConn();
+        LinkedList<ventas> lista = con.ventasGeneralesXPV();
+        for (int i=0;i<lista.size();i++)
+        {
+        out.println("<tr>");
+        out.println("<td>"+lista.get(i).getFactura()+"</td>");
+        out.println("<td>"+lista.get(i).getNombre()+"</td>");
+        out.println("<td>"+lista.get(i).getApellido()+"</td>");
+        out.println("<td>"+lista.get(i).getPuntoDeVenta()+"</td>");
+        out.println("<td>"+lista.get(i).getDescuento()+"</td>");
+        out.println("<td>"+lista.get(i).getTotal()+"</td>");
+        
+        out.println("</tr>");
+        }
+        %>
+        </tbody>
+        </table>
+        <h3><%//= request.getParameter("nom")!=null?request.getParameter("nom"):""%> </h3>
+        <br/> 
+        <!--<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+            <td>Producto  </td>
+            <td>Descripcion  </td>
+            <td>Precio unitario  </td>
+            <td>Marca  </td>
+            <td>Categoria  </td>
+            <td>Id Factura </td>
+            <td>Cantidad  </td>
+            <td>Total </td>
+            </tr>
+        </thead>
+        <%//= request.getParameter("tab")!=null?request.getParameter("tab"):""%>    
+        </table>-->
+        
+        
 </html>

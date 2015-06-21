@@ -823,5 +823,26 @@ public LinkedList<ventas> ventasGeneralesXPV(){
         }
       return Client;
     }
+   
+   public int totalPagarManual(int id_factura){
+        int total = -1;
+        try{
+
+        OracleDataSource ds;
+        ds = new OracleDataSource();
+        ds.setURL(jdbcUrl);
+        conn=ds.getConnection(userid,password);
+        String idFacturaS = Integer.toString(id_factura);
+        String sql ="SELECT TOTAL FROM FACTURA WHERE ID_FACTURA = "+idFacturaS;
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()){
+        total = Integer.parseInt(rs.getNString("TOTAL"));}
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return total;
+    }
 
 }

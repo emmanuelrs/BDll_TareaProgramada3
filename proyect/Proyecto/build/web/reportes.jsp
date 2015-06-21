@@ -68,4 +68,5 @@
             <a href="ventasGenerales.jsp"><input class="myButton" type="submit" value="Ventas Generales y por Punto de Venta"></a> 
             <a href="inventario.jsp"><input class="myButton" type="submit" value="Inventario Actual"></a>
             <a href="infoProvedores.jsp"><input class="myButton" type="submit" value="Proveedores"></a>
+            <a href="reporteFactura.jsp"><input class="myButton" type="submit" value="Facturas"></a>
 </html>

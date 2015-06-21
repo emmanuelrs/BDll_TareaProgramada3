@@ -94,6 +94,4 @@
         </thead>
         <%= request.getParameter("tab")!=null?request.getParameter("tab"):""%>    
         </table>
-
-</
 </html>
