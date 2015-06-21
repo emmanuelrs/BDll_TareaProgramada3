@@ -691,4 +691,38 @@ public void reStockManual(int pID_PRODUCTO,int pCANTIDAD, String pTransaccion) t
     
 }
 
+public LinkedList<Persona> getProvedores(){
+        LinkedList<Persona> listaProd = new LinkedList<Persona>();
+        try{
+            oracleConn ora1 = new oracleConn();
+            int idFactura = ora1.IdFactura();
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String idFacturaS = Integer.toString(idFactura);
+            String sql = "SELECT P.NOMBRE_PERSONA,P.APELLIDO_PERSONA,T.NUMTELEFONO,P.EMAIL_PERSONA, D.DIRECCION_EXACTA FROM PERSONA P, DIRECCION D, TELEFONO T WHERE P.ID_DIRECCION = D.ID_DIRECCION AND P.ID_TELEFONO = T.ID_TELEFONO AND P.TIPO_PERSONA = 'PROVEEDOR'"; 
+            Statement ejec = conn.createStatement();     
+            ResultSet rs = ejec.executeQuery(sql);
+            
+            while (rs.next()){
+                Persona persona = new Persona();
+                persona.setNombre(rs.getNString("NOMBRE_PERSONA"));
+                persona.setApellido(rs.getNString("APELLIDO_PERSONA"));
+                persona.setTelefono(rs.getNString("NUMTELEFONO"));
+                persona.setEmail(rs.getNString("EMAIL_PERSONA"));
+                persona.setDireccion(rs.getNString("DIRECCION_EXACTA"));
+                listaProd.add(persona);
+                
+            }
+            rs.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+      return listaProd;
+    }
+
 }

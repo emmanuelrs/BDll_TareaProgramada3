@@ -47,6 +47,7 @@
                     <li><a class="page-scroll" href="reportes.jsp">Reportes</a></li>
                     <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>
                     <li><a class="page-scroll" href="crearUsuario.jsp">Crear Usuario</a></li>
+                    <li><a class="page-scroll" href="infoProvedores.jsp">Provedores</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -72,6 +73,7 @@
                 <a href="inventario.jsp" class="btn btn-default btn-xl wow tada">Inventario</a>
                 <a href="reportes.jsp" class="btn btn-default btn-xl wow tada">Reportes</a>
                 <a href="respaldo.jsp" class="btn btn-default btn-xl wow tada">Respaldo</a>
+                <a href="infoProvedores.jsp" class="btn btn-default btn-xl wow tada">Proveedores</a>
             </div>
         </div>
     </aside>

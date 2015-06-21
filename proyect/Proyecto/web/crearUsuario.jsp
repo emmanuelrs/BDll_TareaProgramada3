@@ -57,11 +57,12 @@
           </div>
         
         </div><!--/sidebar-->
+        <img class="divimg" src="img/user.png">
         <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
             <br/>
             <h2> Agregar un nuevo Proveedor/Cliente </h2>
             <br/>
-            <img class="divimg" src="img/user.png">
+            
         <form action="crearUsuario" class="ui form segment"  method="post"> 
             <label for="male">Nombre</label> <br/>
                 <INPUT class ="tb1"  NAME = "nombre" TYPE = "text" id="nombre" required> <br/>

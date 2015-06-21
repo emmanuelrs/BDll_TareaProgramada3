@@ -45,6 +45,8 @@
                     <li><a class="page-scroll" href="facturacionUSR.jsp">Facturación</a></li>
                     <li><a class="page-scroll" href="inventarioUSR.jsp">Inventario</a></li>
                     <li><a class="page-scroll" href="reportesUSR.jsp">Reportes</a></li>
+                    <li><a class="page-scroll" href="infoProvedores.jsp">Provedores</a></li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -69,6 +71,7 @@
                 <a href="facturacion.jsp" class="btn btn-default btn-xl wow tada">Facturación</a>
                 <a href="inventario.jsp" class="btn btn-default btn-xl wow tada">Inventario</a>
                 <a href="reportes.jsp" class="btn btn-default btn-xl wow tada">Reportes</a>
+                <a href="infoProvedores.jsp" class="btn btn-default btn-xl wow tada">Proveedores</a>
             </div>
         </div>
     </aside>
