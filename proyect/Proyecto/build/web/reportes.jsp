@@ -19,13 +19,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/FacturacionCSS.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
-    
-    <script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
-	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
-        <script>
-            $(document).ready(function() {
-            $('#example').DataTable();} );
-        </script>
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -68,12 +61,10 @@
         </div><!--/sidebar-->
                <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
             <br/>
-            <h2> Realizar Venta </h2>
+            <h2>REPORTES</h2>
             <br/>
-        <form action="reportes" class="ui form segment"  method="post"> 
             <br/>
-            <input class="myButton" type="submit" value="Compras por Cliente">
-        </form>
-        
-</
+            <a href="compraXcliente.jsp"><input class="myButton" type="submit" value="Compras por Cliente"></a>
+            <a href="ventasGenerales.jsp"><input class="myButton" type="submit" value="Ventas Generales y por Punto de Venta"></a> 
+            <a href="inventario.jsp"><input class="myButton" type="submit" value="Inventario Actual"></a>
 </html>

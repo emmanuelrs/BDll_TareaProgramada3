@@ -64,7 +64,7 @@
             </ul>
           </div>
         </div><!--/sidebar-->
-        
+        <h1>Inventario</h1>
         <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>

@@ -3,12 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-<<<<<<< HEAD
-=======
 import java.util.LinkedList;
 import controlador.ProductXPersona;
 import controlador.oracleConn;
->>>>>>> origin/master
 
 public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -50,12 +47,9 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-<<<<<<< HEAD
-=======
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
->>>>>>> origin/master
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
       out.write("<head>\r\n");
@@ -67,13 +61,6 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
       out.write("    <link href=\"css/FacturacionCSS.css\" rel=\"stylesheet\">\r\n");
       out.write("    <link rel=\"stylesheet\" type=\"text/css\" href=\"datables/media/css/jquery.dataTables.css\">\r\n");
-      out.write("    \r\n");
-      out.write("    <script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.js\"></script>\r\n");
-      out.write("\t<script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.dataTables.js\"></script>\r\n");
-      out.write("        <script>\r\n");
-      out.write("            $(document).ready(function() {\r\n");
-      out.write("            $('#example').DataTable();} );\r\n");
-      out.write("        </script>\r\n");
       out.write("</head>\r\n");
       out.write("<body id=\"page-top\">\r\n");
       out.write("    <nav id=\"mainNav\" class=\"navbar navbar-default navbar-fixed-top\">\r\n");
@@ -114,25 +101,14 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </ul>\r\n");
       out.write("          </div>\r\n");
       out.write("        </div><!--/sidebar-->\r\n");
-<<<<<<< HEAD
-=======
       out.write("               <div class=\"col-xs-12 col-sm-9\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\r\n");
       out.write("            <br/>\r\n");
-      out.write("            <h2> Realizar Venta </h2>\r\n");
+      out.write("            <h2>REPORTES</h2>\r\n");
       out.write("            <br/>\r\n");
-      out.write("        <form action=\"reportes\" class=\"ui form segment\"  method=\"post\"> \r\n");
       out.write("            <br/>\r\n");
-      out.write("            <input class=\"myButton\" type=\"submit\" value=\"Compras por Cliente\">\r\n");
-      out.write("        </form>\r\n");
-      out.write("        \r\n");
-<<<<<<< HEAD
-=======
-      out.write("        </tbody>\r\n");
-      out.write("        </table>\r\n");
-      out.write("\r\n");
->>>>>>> origin/master
->>>>>>> 1170ddc552d60bca815965d8f6cb41db517189c5
-      out.write("</\r\n");
+      out.write("            <a href=\"compraXcliente.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Compras por Cliente\"></a>\r\n");
+      out.write("            <a href=\"ventasGenerales.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Ventas Generales y por Punto de Venta\"></a> \r\n");
+      out.write("            <a href=\"inventario.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Inventario Actual\"></a>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
