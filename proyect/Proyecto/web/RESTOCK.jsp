@@ -75,9 +75,9 @@
             <img class="divimg" src="img/restock.jpg">
         <form action="RESTOCK" class="ui form segment"  method="post"> 
             <label for="male">ID PRODUCTO</label> <br/>
-                <INPUT class ="tb1"  NAME = "producto" TYPE = "text" id="producto"> <br/>
+                <INPUT class ="tb1"  NAME = "producto" TYPE = "text" id="producto" required> <br/>
             <label for="male">CANTIDAD</label> <br/>
-            <INPUT class ="tb1" NAME = "cantidad" TYPE = "text" id="cantidad" > <br/>
+            <INPUT class ="tb1" NAME = "cantidad" TYPE = "text" id="cantidad" required> <br/>
             <label for="male">Tipo Transacción</label> <br/> 
                 <SELECT class ="tb1" NAME="selCombo" SIZE=1 onChange="this.form);"> 
                     <OPTION VALUE="CREDITO">CRÉDITO</OPTION>

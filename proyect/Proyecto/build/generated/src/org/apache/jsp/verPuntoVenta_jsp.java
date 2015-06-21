@@ -3,11 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import controlador.PuntoDeVenta;
 import java.util.LinkedList;
-import controlador.inventario;
 import controlador.oracleConn;
 
-public final class RESTOCK_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class verPuntoVenta_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -51,19 +51,19 @@ public final class RESTOCK_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write("    <head>\r\n");
-      out.write("\r\n");
+      out.write("<html lang=\"en\">\r\n");
+      out.write("<head>\r\n");
       out.write("    <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("    <meta charset=\"utf-8\">\r\n");
       out.write("    <title>iFacture</title>\r\n");
       out.write("    <meta name=\"generator\" content=\"Bootply\" />\r\n");
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\r\n");
       out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
-      out.write("    <link href=\"css/restockCSS.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link href=\"css/crearUserCSS.css\" rel=\"stylesheet\">\r\n");
       out.write("    <link rel=\"stylesheet\" type=\"text/css\" href=\"datables/media/css/jquery.dataTables.css\">\r\n");
-      out.write("        \r\n");
-      out.write("\t<script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.js\"></script>\r\n");
+      out.write("    \r\n");
+      out.write("    \t<script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script>\r\n");
       out.write("            $(document).ready(function() {\r\n");
@@ -87,9 +87,7 @@ public final class RESTOCK_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n");
       out.write("                <ul class=\"nav navbar-nav navbar-right\">\r\n");
       out.write("                    <li><a class=\"page-scroll\" href=\"facturacion.jsp\">Facturación</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"inventario.jsp\">Inventario</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"reportes.jsp\">Reportes</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"respaldo.jsp\">Respaldo</a></li>\r\n");
+      out.write("                    <li><a class=\"page-scroll\" href=\"puntoVenta.jsp\">Crear Punto de Venta</a></li>\r\n");
       out.write("                </ul>\r\n");
       out.write("            </div>\r\n");
       out.write("            <!-- /.navbar-collapse -->\r\n");
@@ -108,64 +106,45 @@ public final class RESTOCK_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              <li><a href=\"respaldo.jsp\">Respaldo</a></li>\r\n");
       out.write("            </ul>\r\n");
       out.write("          </div>\r\n");
-      out.write("        \r\n");
       out.write("        </div><!--/sidebar-->\r\n");
-      out.write("        <div class=\"col-xs-12 col-sm-9\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\r\n");
+      out.write("        <div class=\"col-xs-12 col-sm-18\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\r\n");
       out.write("            <br/>\r\n");
-      out.write("            <h2> RESTOCK!</h2>\r\n");
+      out.write("            <h2> Puntos de Venta </h2>\r\n");
       out.write("            <br/>\r\n");
-      out.write("            <img class=\"divimg\" src=\"img/restock.jpg\">\r\n");
-      out.write("        <form action=\"RESTOCK\" class=\"ui form segment\"  method=\"post\"> \r\n");
-      out.write("            <label for=\"male\">ID PRODUCTO</label> <br/>\r\n");
-      out.write("                <INPUT class =\"tb1\"  NAME = \"producto\" TYPE = \"text\" id=\"producto\" required> <br/>\r\n");
-      out.write("            <label for=\"male\">CANTIDAD</label> <br/>\r\n");
-      out.write("            <INPUT class =\"tb1\" NAME = \"cantidad\" TYPE = \"text\" id=\"cantidad\" required> <br/>\r\n");
-      out.write("            <label for=\"male\">Tipo Transacción</label> <br/> \r\n");
-      out.write("                <SELECT class =\"tb1\" NAME=\"selCombo\" SIZE=1 onChange=\"this.form);\"> \r\n");
-      out.write("                    <OPTION VALUE=\"CREDITO\">CRÉDITO</OPTION>\r\n");
-      out.write("                    <OPTION VALUE=\"DEBITO\">DÉBITO</OPTION>\r\n");
-      out.write("                </SELECT> <br/>\r\n");
-      out.write("            <input class=\"myButton\" type=\"submit\" value=\"RE-STOCK\">\r\n");
-      out.write("           \r\n");
-      out.write("        </form>\r\n");
-      out.write("              <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\">\r\n");
+      out.write("        <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\">\r\n");
       out.write("        <thead>\r\n");
       out.write("            <tr>\r\n");
-      out.write("            <td>id  </td>\r\n");
-      out.write("            <td>Producto  </td>\r\n");
-      out.write("            <td>Descripcion  </td>\r\n");
-      out.write("            <td>Precio  </td>\r\n");
-      out.write("            <td>Marca  </td>\r\n");
-      out.write("            <td>Categoria  </td>\r\n");
-      out.write("            <td>Cantidad  </td>\r\n");
-      out.write("            <td>Minimo  </td>\r\n");
-      out.write("            <td>Bodega  </td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("            </tr>\r\n");
+      out.write("        <td>Id  </td>\r\n");
+      out.write("        <td>Nombre  </td>\r\n");
+      out.write("        <td>Pais  </td>\r\n");
+      out.write("        <td>Provincia  </td>\r\n");
+      out.write("        <td>Canton  </td>\r\n");
+      out.write("        <td>Direccion exacta  </td>\r\n");
+      out.write("        <td>Telefono  </td>\r\n");
+      out.write("        </tr>\r\n");
       out.write("        </thead>\r\n");
       out.write("        <tbody>\r\n");
-      out.write("     \r\n");
+      out.write("        \r\n");
       out.write("        ");
 
-        oracleConn con = new oracleConn();
-        LinkedList<inventario> lista = con.getInventario();
+        LinkedList<PuntoDeVenta> lista = oracleConn.getPuntoVenta();
         for (int i=0;i<lista.size();i++)
         {
         out.println("<tr>");
         out.println("<td>"+lista.get(i).getId()+"</td>");
-        out.println("<td>"+lista.get(i).getProducto()+"</td>");
-        out.println("<td>"+lista.get(i).getDescripcion()+"</td>");
-        out.println("<td>"+lista.get(i).getPrecio()+"</td>");
-        out.println("<td>"+lista.get(i).getMarca()+"</td>");
-        out.println("<td>"+lista.get(i).getCategoria()+"</td>");
-        out.println("<td>"+lista.get(i).getCantidad()+"</td>");
-        out.println("<td>"+lista.get(i).getMinimo()+"</td>");
-        out.println("<td>"+lista.get(i).getBodega()+"</td>");
+        out.println("<td>"+lista.get(i).getNombre()+"</td>");
+        out.println("<td>"+lista.get(i).getPais()+"</td>");
+        out.println("<td>"+lista.get(i).getProvincia()+"</td>");
+        out.println("<td>"+lista.get(i).getCanton()+"</td>");
+        out.println("<td>"+lista.get(i).getDireccion()+"</td>");
+        out.println("<td>"+lista.get(i).getTelefono()+"</td>");
         out.println("</tr>");
         }
         
       out.write("\r\n");
-      out.write("        </tbody>\r\n");
+      out.write("</table>\r\n");
+      out.write("        </div>\r\n");
+      out.write("</\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

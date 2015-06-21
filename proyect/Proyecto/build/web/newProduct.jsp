@@ -67,19 +67,19 @@
             <img class="divimg" src="img/productos.png">
         <form action="newProduct" class="ui form segment"  method="post"> 
             <label for="male">Nombre del producto: </label> <br/>
-                <INPUT class="tb1" NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class="tb1" NAME = "nombre" TYPE = "text" id="nombre" required> <br/>
             <label for="male">Descripcion del producto: </label> <br/>
-                <INPUT class="tb1" NAME = "descripcion" TYPE = "text" id="descripcion" > <br/>
+                <INPUT class="tb1" NAME = "descripcion" TYPE = "text" id="descripcion" required> <br/>
             <label for="male">Precio: </label> <br/>                   
-                <INPUT class="tb1" NAME = "precio" TYPE = "text" id="precio"> <br/>
+                <INPUT class="tb1" NAME = "precio" TYPE = "text" id="precio" required> <br/>
             <label for="male">Marca: </label> <br/> 
-                <INPUT class="tb1" NAME = "marca" TYPE = "text" id="marca"> <br/>
+                <INPUT class="tb1" NAME = "marca" TYPE = "text" id="marca" required> <br/>
             <label for="male">Tipo de producto: </label> <br/> 
-                <INPUT class="tb1" NAME = "categoria" TYPE = "text" id="categoria"> <br/>
+                <INPUT class="tb1" NAME = "categoria" TYPE = "text" id="categoria" required> <br/>
             <label for="male">Total de Unidades: </label> <br/> 
-                <INPUT class="tb1" NAME = "cantidad" TYPE = "text" id="cantidad"> <br/>
+                <INPUT class="tb1" NAME = "cantidad" TYPE = "text" id="cantidad" required> <br/>
             <label for="male">Minimo para Reordenar:</label> <br/>  
-                <INPUT class="tb1" NAME = "minimo" TYPE = "text" id="minimo"> <br/>           
+                <INPUT class="tb1" NAME = "minimo" TYPE = "text" id="minimo" required> <br/>           
             <label for="male">Bodega donde se encuentra:</label> <br/>  
                 <SELECT class ="tb1" NAME="NOMBRE_BODEGA" SIZE=1 onChange="this.form);">
                     <% LinkedList<bodega> lista = oracleConn.getBodega();

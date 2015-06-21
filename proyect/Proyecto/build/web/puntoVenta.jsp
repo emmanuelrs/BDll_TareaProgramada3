@@ -67,17 +67,17 @@
             <br/>
         <form action="crearPuntoVenta" class="ui form segment"  method="post"> 
             <label for="male">Nombre del punto de veta: </label> <br/>
-                <INPUT class="tb1" NAME = "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class="tb1" NAME = "nombre" TYPE = "text" id="nombre" required> <br/>
             <label for="male">Pais: </label> <br/>
-                <INPUT class="tb1" NAME = "pais" TYPE = "text" id="pais" > <br/>
+                <INPUT class="tb1" NAME = "pais" TYPE = "text" id="pais" required> <br/>
             <label for="male">Provincia: </label> <br/>                   
-                <INPUT class="tb1" NAME = "provincia" TYPE = "text" id="provincia"> <br/>
+                <INPUT class="tb1" NAME = "provincia" TYPE = "text" id="provincia" required> <br/>
             <label for="male">Canton: </label> <br/> 
-                <INPUT class="tb1" NAME = "Canton" TYPE = "text" id="Canton"> <br/>
+                <INPUT class="tb1" NAME = "Canton" TYPE = "text" id="Canton" required> <br/>
             <label for="male">Direccion exacta: </label> <br/> 
-                <INPUT class="tb1" NAME = "direccion" TYPE = "text" id="direccion"> <br/>
+                <INPUT class="tb1" NAME = "direccion" TYPE = "text" id="direccion" required> <br/>
             <label for="male">Numero Telefono: </label> <br/> 
-                <INPUT class="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>
+                <INPUT class="tb1" NAME = "telefono" TYPE = "text" id="telefono" required> <br/>
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
         </div>

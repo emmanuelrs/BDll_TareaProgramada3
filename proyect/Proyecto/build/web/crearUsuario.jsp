@@ -64,23 +64,23 @@
             <img class="divimg" src="img/user.png">
         <form action="crearUsuario" class="ui form segment"  method="post"> 
             <label for="male">Nombre</label> <br/>
-                <INPUT class ="tb1"  NAME = "nombre" TYPE = "text" id="nombre"> <br/>
+                <INPUT class ="tb1"  NAME = "nombre" TYPE = "text" id="nombre" required> <br/>
             <label for="male">Apellido</label> <br/>
-                <INPUT class ="tb1" NAME = "apellido" TYPE = "text" id="apellido" > <br/>
+                <INPUT class ="tb1" NAME = "apellido" TYPE = "text" id="apellido" required> <br/>
             <label for="male">Cédula</label> <br/>
-                <INPUT class ="tb1" NAME = "cedula" TYPE = "text" id="cedula" > <br/>
+                <INPUT class ="tb1" NAME = "cedula" TYPE = "text" id="cedula" required> <br/>
             <label for="male">País</label> <br/>
-                <INPUT class ="tb1" NAME = "pais" TYPE = "text" id="pais" > <br/>
+                <INPUT class ="tb1" NAME = "pais" TYPE = "text" id="pais" required > <br/>
             <label for="male">Provincia</label> <br/>                   
-                <INPUT class ="tb1" NAME = "provincia" TYPE = "text" id="provincia"> <br/>
+                <INPUT class ="tb1" NAME = "provincia" TYPE = "text" id="provincia" required> <br/>
             <label for="male">Canton</label> <br/> 
-                <INPUT class ="tb1" NAME = "canton" TYPE = "text" id="canton"> <br/>
+                <INPUT class ="tb1" NAME = "canton" TYPE = "text" id="canton" required> <br/>
             <label for="male">Dirección Exacta</label> <br/> 
-                <INPUT class ="tb1" NAME = "direccion" TYPE = "text" id="direccion"> <br/>
+                <INPUT class ="tb1" NAME = "direccion" TYPE = "text" id="direccion" required> <br/>
             <label for="male">Email</label> <br/>
-                <INPUT class ="tb1"  NAME = "email" TYPE = "text" id="email" > <br/>
+                <INPUT class ="tb1"  NAME = "email" TYPE = "text" id="email" required> <br/>
             <label for="male">Número de Teléfono</label> <br/> 
-                <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono"> <br/>
+                <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono" required> <br/>
             <label for="male">Tipo</label> <br/> 
                 <SELECT class ="tb1" NAME="selCombo" SIZE=1 onChange="this.form);"> 
                     <OPTION VALUE="ADMINISTRADOR">Administrador</OPTION>

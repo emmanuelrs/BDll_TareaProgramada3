@@ -63,17 +63,17 @@
             <img class="divimg" src="img/bodega.jpg">
         <form action="crearBodega" class="ui form segment"  method="post"> 
             <label for="male">Nombre de la Bodega: </label> <br/>
-                <INPUT class ="tb2"  NAME= "nombre" TYPE = "text" id="nombre" > <br/>
+                <INPUT class ="tb2"  NAME= "nombre" TYPE = "text" id="nombre" required> <br/>
             <label for="male">País </label> <br/>
-                <INPUT class="tb2" NAME = "pais" TYPE = "text" id="pais" > <br/>
+                <INPUT class="tb2" NAME = "pais" TYPE = "text" id="pais" required> <br/>
             <label for="male">Provincia </label> <br/>                   
-                <INPUT class="tb2" NAME = "provincia" TYPE = "text" id="provincia"> <br/>
+                <INPUT class="tb2" NAME = "provincia" TYPE = "text" id="provincia" required> <br/>
             <label for="male">Canton </label> <br/> 
-                <INPUT class ="tb2" NAME = "canton" TYPE = "text" id="canton"> <br/>
+                <INPUT class ="tb2" NAME = "canton" TYPE = "text" id="canton" required> <br/>
             <label for="male">Dirección Exacta</label> <br/> 
-                <INPUT class="tb2" NAME = "direccion" TYPE = "text" id="direccion"> <br/>
+                <INPUT class="tb2" NAME = "direccion" TYPE = "text" id="direccion" required> <br/>
             <label for="male">Número de Teléfono</label> <br/> 
-                <INPUT class="tb2" NAME = "telefono" TYPE = "text" id="telefono"> <br/>          
+                <INPUT class="tb2" NAME = "telefono" TYPE = "text" id="telefono" required> <br/>          
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
 </html>
