@@ -1,18 +1,24 @@
 SET serveroutput on;
 DECLARE
 BEGIN
-   insertarVenta('LA PULPE', 1800, 32);
-   
+  insertarBODEGA('NORTON','COSTA RICA','CARTAGO','EL GUARCO','ZONA FRANCA CARTAGO, EL GUARCO', '25500001');
+  insertarBODEGA('CARINAE','COSTA RICA','SAN JOSE','MORA','Avenida Central y entre las calles Central y 2','25250001');
+  insertarBODEGA('LAGARDE','COSTA RICA','ALAJUELA','ATENAS','PARQUE CENTRAL 200MTS NORTE', '25300002');
+  insertarBODEGA('ALTAVISTA','COSTA RICA','HEREDIA','HEREDIA','MALL PASEO DE LAS FLORES 250MTS ESTE', '25601240');
+  insertarPERSONA('EMMANUEL',2221331,'ROSALES','COSTA RICA','ALAJUELA','ATENAS','CALLE SALAS PRIMER ENTRADA','emmars@mail.com','89641235','ADMINISTRADOR');
+  insertarPERSONA('LUIS',3470200,'SERRANO','COSTA RICA','CARTAGO','PARAISO','COSTADO ESTE DE LA PLAZA DE DEPORTES','lserrano@maio.com', '83207006', 'VENDEDOR');
+  insertarPERSONA('CARLOS',3120450,'ARAYA','COSTA RICA','CARTAGO','PARAISO', '200MTS NORTE DEL ESTADIO', 'charlie@mail.com', '82145612', 'CLIENTE');
+  insertarPERSONA('DANIEL',11547862,'SANCHEZ','COSTA RICA','CARTAGO','CARTAGO','200MTS SUR DEL HOSPITAL MAX PERALTA','dan002@mail.com','84567123', 'CLIENTE');
+  insertarPERSONA('MARCO',4789651,'CARANZA','COSTA RICA','HEREDIA','BARVA','DEL PARQUE 500MTS ESTE','maca@mail.com', '61236547', 'PROVEEDOR');
+  insertarPERSONA('CRISTIAM',11564785,'FLORES','COSTA RICA','SAN JOSE','GOICOECHEA','CORONADO','CFLORES@MAIL.COM','7245681','PROVEEDOR');
+  insertarUsuario(2221331,'emma01','ADMINISTRADOR','emmanuelrs');
+  insertarUsuario(3470200,'123queso','VENDEDOR','lserrano');
+  insertarPuntoDeVenta('LA_COPE','COSTA RICA','ALAJUELA','ATENAS','CENTRO DE ATENAS','22487912');
+  insertarPuntoDeVenta('LA_PULPE','COSTA RICA','CARTAGO','CARTAGO','COSTADO ESTE DEL PARQUE CENTRAL','25500002');
+  
+  COMMIT;
 END;
 
-select * from categoria
 
 
-SET serveroutput on;
-declare
-   result number;
-begin
-   -- Call the function
-   result := buscarBODEGA('LUIS SE LA COME TODA');
-   DBMS_OUTPUT.put_line(result);
-end;
+insertarProducto(pproducto varchar2,pdescripcion varchar2,pprecio number,pmarca varchar2,pcategoria varchar2,pcantidad number,pminimo number, pNOMBRE_BODEGA VARCHAR2, cedula number)
