@@ -1,0 +1,24 @@
+CONNECT TARGET “c##admin/admin as sysbackup”
+
+SHUTDOWN IMMEDIATE; 
+STARTUP FORCE DBA; 
+SHUTDOWN IMMEDIATE; 
+STARTUP MOUNT; 
+
+
+BACKUP DATABASE PLUS ARCHIVELOG;   respalda los redo logs
+
+BACKUP AS COPY DATABASE;     respalda los data files
+
+ALTER DATABASE OPEN;   abre la base
+
+RESTORE DATABASE;
+RECOVER DATABASE;
+
+
+=========================================
+BACKUP PLUGGABLE DATABASE GestorEmpresa;
+BACKUP AS COPY PLUGGABLE DATABASE GestorEmpresa;
+
+RESTORE PLUGGABLE DATABASE GestorEmpresa;
+RECOVER PLUGGABLE DATABASE GestorEmpresa;
