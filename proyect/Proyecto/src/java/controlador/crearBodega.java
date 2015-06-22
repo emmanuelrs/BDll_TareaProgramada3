@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import oracle.jdbc.pool.OracleDataSource;
 
 @WebServlet("/crearBodega")
 public class crearBodega extends HttpServlet{
@@ -35,7 +34,6 @@ public class crearBodega extends HttpServlet{
             Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
         response.sendRedirect(response.encodeRedirectURL("bodega.jsp"));
-    }
-     
+    }     
 }
     

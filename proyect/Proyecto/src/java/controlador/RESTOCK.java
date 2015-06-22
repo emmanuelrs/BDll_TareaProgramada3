@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controlador;
 
-import static controlador.oracleConn.conn;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
-/**
- *
- * @author Emmanuel
- */
 
 @WebServlet("/RESTOCK")
 public class RESTOCK extends HttpServlet {
@@ -42,6 +31,5 @@ public class RESTOCK extends HttpServlet {
         catch(SQLException | IOException e){
          System.out.println(e);
         }
-        
-        
-}}
+    }
+}

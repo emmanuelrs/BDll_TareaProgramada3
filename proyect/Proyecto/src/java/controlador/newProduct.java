@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import oracle.jdbc.pool.OracleDataSource;
-
 
 @WebServlet("/newProduct")
 public class newProduct extends HttpServlet {

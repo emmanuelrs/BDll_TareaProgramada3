@@ -1,6 +1,5 @@
 package controlador;
 
-
 import java.util.*;
 
 public class listaProductos {

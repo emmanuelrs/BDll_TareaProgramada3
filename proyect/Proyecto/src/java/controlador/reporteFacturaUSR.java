@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/reporteFactura")
-public class reporteFactura extends HttpServlet {
-    public reporteFactura(){
+@WebServlet("/reporteFacturaUSR")
+public class reporteFacturaUSR extends HttpServlet {
+    public reporteFacturaUSR(){
         super();
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,5 +17,5 @@ public class reporteFactura extends HttpServlet {
                 String idFact = request.getParameter("idFactura");
                 RequestDispatcher a = request.getRequestDispatcher("iFacturaManual.jsp?idfact=" + idFact);
 		a.forward(request, response);
-    }   
+    } 
 }

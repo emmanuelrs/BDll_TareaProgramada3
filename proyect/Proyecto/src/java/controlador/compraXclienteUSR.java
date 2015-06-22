@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/compraXcliente")
-public class compraXcliente extends HttpServlet {
-    public compraXcliente(){
+@WebServlet("/compraXclienteUSR")
+public class compraXclienteUSR extends HttpServlet {
+    public compraXclienteUSR(){
         super();
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,8 +41,7 @@ public class compraXcliente extends HttpServlet {
                 datos = con.getCliente(cedu);
                 tabla = tabla + ";" + datos;
                 System.out.print("datos -->" +datos);
-                RequestDispatcher a = request.getRequestDispatcher("compraXcliente.jsp?tab=" + tabla);
+                RequestDispatcher a = request.getRequestDispatcher("compraXclienteUSR.jsp?tab=" + tabla);
 		a.forward(request, response);
-    }
-    
+    }  
 }

@@ -2,9 +2,6 @@ package controlador;
 import java.sql.*;
 import oracle.jdbc.pool.OracleDataSource;
 import java.util.LinkedList;
-import java.util.Locale;
-import oracle.net.aso.e;
-import static oracle.sql.NUMBER.e;
 
 public class oracleConn {
     static String jdbcUrl = "jdbc:oracle:thin:@localhost:1521/GestorEmpresa";

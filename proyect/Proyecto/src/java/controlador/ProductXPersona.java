@@ -81,9 +81,5 @@ String TOTAL = "";
         int entero2 = entero * entero1;
         this.TOTAL = Integer.toString(entero2);
     }
-    
-
-
-
-    
+  
 }

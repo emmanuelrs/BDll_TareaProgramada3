@@ -10,9 +10,9 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet("/facturacion")
-public class facturacion extends HttpServlet{ 
-    public facturacion(){
+@WebServlet("/facturacionUSR")
+public class facturacionUSR extends HttpServlet{ 
+    public facturacionUSR(){
         super();
     }
     int fac = -1;
@@ -60,7 +60,7 @@ public class facturacion extends HttpServlet{
             try {
                 fac = conect.crearFactura(IdPV,Descuento, cedu);
             } catch (SQLException ex) {
-                Logger.getLogger(facturacion.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(facturacionUSR.class.getName()).log(Level.SEVERE, null, ex);
             }
             conect.getPivot(fac, IdPV);
         }// else if 
@@ -86,14 +86,14 @@ public class facturacion extends HttpServlet{
             try {
                 fac = conect.crearFactura(IdPV,Descuento,cedu);
             } catch (SQLException ex) {
-                Logger.getLogger(facturacion.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(facturacionUSR.class.getName()).log(Level.SEVERE, null, ex);
             }
             conect.getPivot(fac, IdPV);
         }//else if 2
         if(select == null & varId == 0 & varCant == 0){
             conect.resetPivot();
         } //else if 3
-        response.sendRedirect(response.encodeRedirectURL("facturacion.jsp"));
+        response.sendRedirect(response.encodeRedirectURL("facturacionUSR.jsp"));
     }
   public int getFac(){
       return fac;

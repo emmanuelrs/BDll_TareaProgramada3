@@ -45,9 +45,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
                 else{
                     System.out.println("NO");
                     response.sendRedirect(response.encodeRedirectURL("index.jsp"));
-                    }
-                
-          
+                    } 
     }
     
 }

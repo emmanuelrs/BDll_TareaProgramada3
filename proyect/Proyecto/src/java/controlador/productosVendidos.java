@@ -16,5 +16,4 @@ public class productosVendidos {
     public Integer getCantidad() {
         return cantidad;
     }
-
 }
