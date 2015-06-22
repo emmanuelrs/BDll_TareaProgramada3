@@ -94,6 +94,8 @@
                     <OPTION VALUE="90">90%</OPTION>
                     <OPTION VALUE="100">100%</OPTION>
                 </SELECT> <br/>
+                <label for="male">Id Producto</label> <br/> 
+                <INPUT class ="tb1" NAME = "Cedula" TYPE = "text" id="Cedula"> <br/>
                 <input type="checkbox" name="id" value="id"> Confirmar Venta<BR>
             <input class="myButton" type="submit" value="Vender"><input class="myButton" type="submit" value="Cancelar Venta">
         </form>
