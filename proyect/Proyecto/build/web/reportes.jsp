@@ -70,13 +70,13 @@
             <br/>
             <h2> Realizar Venta </h2>
             <br/>
-            <img class="divimg" src="img/user.png">
         <form action="reportes" class="ui form segment"  method="post"> 
             <label for="male">Cedula del Cliente</label> <br/> 
             <INPUT class ="tb1" NAME = "ced" TYPE = "text" id="ced" required> <br/>
+            <br/>
             <input class="myButton" type="submit" value="Consultar">
         </form>
-            
+        <br/>    
         <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -90,26 +90,7 @@
             <td>Total </td>
             </tr>
         </thead>
-        <tbody>
-        <%
-        oracleConn con = new oracleConn();
-        LinkedList<ProductXPersona> listaPXP = con.getProductXPersona(304700200);
-        for (int i=0;i<listaPXP.size();i++)
-        {
-        out.println("<tr>");
-        out.println("<td>"+listaPXP.get(i).getPRODUCTO()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getDESCRIPCION()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getPRECIOUNITARIO()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getMARCA()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getCATEGORIA()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getID_FACTURA()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getCANTIDAD()+"</td>");
-        out.println("<td>"+listaPXP.get(i).getTOTAL()+"</td>");
-        out.println("</tr>");
-        }
-        %>
-        
-        </tbody>
+        <%= request.getParameter("tab")!=null?request.getParameter("tab"):""%>    
         </table>
 
 </
