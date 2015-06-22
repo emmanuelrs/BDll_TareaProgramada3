@@ -143,6 +143,8 @@ public final class facturacion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <OPTION VALUE=\"90\">90%</OPTION>\r\n");
       out.write("                    <OPTION VALUE=\"100\">100%</OPTION>\r\n");
       out.write("                </SELECT> <br/>\r\n");
+      out.write("                <label for=\"male\">Id Producto</label> <br/> \r\n");
+      out.write("                <INPUT class =\"tb1\" NAME = \"Cedula\" TYPE = \"text\" id=\"Cedula\"> <br/>\r\n");
       out.write("                <input type=\"checkbox\" name=\"id\" value=\"id\"> Confirmar Venta<BR>\r\n");
       out.write("            <input class=\"myButton\" type=\"submit\" value=\"Vender\"><input class=\"myButton\" type=\"submit\" value=\"Cancelar Venta\">\r\n");
       out.write("        </form>\r\n");

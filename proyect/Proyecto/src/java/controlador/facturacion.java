@@ -32,6 +32,7 @@ public class facturacion extends HttpServlet{
         int varCant = Cantidad.length();
         int varIdPV = IdPV.length();
         System.out.println(cedu);
+        System.out.println(IdPV);
         oracleConn conect;
         conect = new oracleConn();
         
