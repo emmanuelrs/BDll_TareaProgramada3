@@ -107,9 +107,15 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <br/>\r\n");
       out.write("            <br/>\r\n");
       out.write("            <a href=\"compraXcliente.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Compras por Cliente\"></a>\r\n");
+      out.write("\r\n");
       out.write("            <a href=\"ventasGenerales.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Ventas Generales y por Punto de Venta\"></a> \r\n");
+      out.write("            <br/>\r\n");
+      out.write("            <br/>\r\n");
       out.write("            <a href=\"inventario.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Inventario Actual\"></a>\r\n");
+      out.write("\r\n");
       out.write("            <a href=\"infoProvedores.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Proveedores\"></a>\r\n");
+      out.write("            <br/>\r\n");
+      out.write("            <br/>\r\n");
       out.write("            <a href=\"reporteFactura.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Facturas\"></a>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
