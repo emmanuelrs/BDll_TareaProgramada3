@@ -3,14 +3,14 @@ package controlador;
 
 public class ProductXPersona {
 
-String PRODUCTO;
-String DESCRIPCION;
-String PRECIOUNITARIO;
-String MARCA;
-String CATEGORIA;
-String ID_FACTURA;
-String CANTIDAD;
-String TOTAL;
+String PRODUCTO = "";
+String DESCRIPCION = "";
+String PRECIOUNITARIO = "";
+String MARCA = "";
+String CATEGORIA = "";
+String ID_FACTURA = "";
+String CANTIDAD = "";
+String TOTAL = "";
 
     public ProductXPersona() {
     }

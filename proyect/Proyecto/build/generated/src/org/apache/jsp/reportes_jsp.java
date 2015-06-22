@@ -123,7 +123,6 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <td>Cantidad  </td>\r\n");
       out.write("            <td>Total </td>\r\n");
       out.write("            </tr>\r\n");
-      out.write("            </tr>\r\n");
       out.write("        </thead>\r\n");
       out.write("        <tbody>\r\n");
       out.write("        ");

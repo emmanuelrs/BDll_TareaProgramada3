@@ -17,7 +17,15 @@
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/FacturacionCSS.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="datables/media/css/jquery.dataTables.css">
+    
+    <script type="text/javascript" language="javascript" src="datables//media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="datables//media/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#example').DataTable();} );
+        </script>
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -80,7 +88,6 @@
             <td>Id Factura </td>
             <td>Cantidad  </td>
             <td>Total </td>
-            </tr>
             </tr>
         </thead>
         <tbody>
