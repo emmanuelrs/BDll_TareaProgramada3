@@ -4,6 +4,9 @@
     Author     : LUIS
 --%>
 
+<%@page import="java.util.LinkedList"%>
+<%@page import="controlador.ProductXPersona"%>
+<%@page import="controlador.oracleConn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,5 +58,52 @@
             </ul>
           </div>
         </div><!--/sidebar-->
+               <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+            <br/>
+            <h2> Realizar Venta </h2>
+            <br/>
+            <img class="divimg" src="img/user.png">
+        <form action="reportes" class="ui form segment"  method="post"> 
+            <label for="male">Cedula del Cliente</label> <br/> 
+            <INPUT class ="tb1" NAME = "ced" TYPE = "text" id="ced" required> <br/>
+            <input class="myButton" type="submit" value="Consultar">
+        </form>
+            
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+            <td>Producto  </td>
+            <td>Descripcion  </td>
+            <td>Precio unitario  </td>
+            <td>Marca  </td>
+            <td>Categoria  </td>
+            <td>Id Factura </td>
+            <td>Cantidad  </td>
+            <td>Total </td>
+            </tr>
+            </tr>
+        </thead>
+        <tbody>
+        <%
+        oracleConn con = new oracleConn();
+        LinkedList<ProductXPersona> listaPXP = con.getProductXPersona(304700200);
+        for (int i=0;i<listaPXP.size();i++)
+        {
+        out.println("<tr>");
+        out.println("<td>"+listaPXP.get(i).getPRODUCTO()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getDESCRIPCION()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getPRECIOUNITARIO()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getMARCA()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getCATEGORIA()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getID_FACTURA()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getCANTIDAD()+"</td>");
+        out.println("<td>"+listaPXP.get(i).getTOTAL()+"</td>");
+        out.println("</tr>");
+        }
+        %>
+        
+        </tbody>
+        </table>
+
 </
 </html>

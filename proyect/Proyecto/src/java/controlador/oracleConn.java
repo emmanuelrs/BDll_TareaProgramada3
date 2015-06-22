@@ -727,4 +727,44 @@ public LinkedList<Persona> getProvedores(){
       return listaProd;
     }
 
+public LinkedList<ProductXPersona> getProductXPersona(int ced){
+        LinkedList<ProductXPersona> listaPXP = new LinkedList<ProductXPersona>();
+        try{
+            oracleConn ora1 = new oracleConn();
+            int idFactura = ora1.IdFactura();
+            OracleDataSource ds;
+            ds = new OracleDataSource();
+            ds.setURL(jdbcUrl);
+            conn=ds.getConnection(userid,password);
+            String idFacturaS = Integer.toString(idFactura);
+            String sql = "SELECT pf.Id_factura, pf.ID_producto, Cantidadproductos FROM productoxfactura pf, factura f WHERE f.PERSONA = '"+ ced +"'and pf.id_factura = f.id_factura"; 
+            Statement ejec = conn.createStatement();     
+            ResultSet rs = ejec.executeQuery(sql);
+            while (rs.next()){
+                ProductXPersona PXP = new ProductXPersona();
+                PXP.setCANTIDAD(rs.getNString("Cantidadproductos"));
+                PXP.setID_FACTURA(rs.getNString("pf.Id_factura"));
+                String sql1 = "select p.producto, p.descripcion, p.preciounitario, m.marca, ca.categoria from producto p, marca m, categoria ca where p.idcategoria = ca.id_categoria and p.idmarca = m.id_marca and p.id_producto = " + rs.getNString("pf.ID_producto");
+                Statement ejc = conn.createStatement();     
+                ResultSet rs1 = ejc.executeQuery(sql1);
+                while (rs1.next()){
+                    PXP.setCATEGORIA(rs1.getNString("ca.categoria"));
+                    PXP.setDESCRIPCION(rs1.getNString("p.descripcion"));
+                    PXP.setMARCA(rs1.getNString("m.marca"));
+                    PXP.setPRECIOUNITARIO(rs1.getNString("p.preciounitario"));
+                    PXP.setPRODUCTO(rs1.getNString("p.producto"));
+                    PXP.setTOTAL();
+                }
+                listaPXP.add(PXP);
+            }
+            rs.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+         e.printStackTrace();
+        }
+      return listaPXP;
+    }
+
 }
