@@ -102,6 +102,7 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
             resetPivot();
             ActualizarFactura(IdFactura,tot);
             insertarControl(puntoVenta, tot, IdFactura);
+            control(tot);
         }
         catch (Exception e)
         {
@@ -138,6 +139,21 @@ private void ActualizarFactura(Integer idFactura,Integer total) throws SQLExcept
     //populate stored proc parameters
     cs.setInt(1, idFactura);
     cs.setInt(2, total);
+    //execute stored procedure
+    cs.execute();
+    cs.close();
+    conn.close(); 
+}
+
+private void control (Integer total) throws SQLException{
+    OracleDataSource ds;
+    ds = new OracleDataSource();
+    ds.setURL(jdbcUrl);
+    conn=ds.getConnection(userid,password);
+    CallableStatement cs;
+    cs = conn.prepareCall("{ CALL TotalXdia(?)}");
+    //populate stored proc parameters
+    cs.setInt(1, total);
     //execute stored procedure
     cs.execute();
     cs.close();

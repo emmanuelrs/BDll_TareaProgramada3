@@ -455,4 +455,24 @@ BEGIN
   ELSE RETURN 0;
   END IF;
 END;
+
+CREATE OR REPLACE procedure TotalXdia(tota NUMBER)IS 
+dia date;
+tot number(10);
+BEGIN
+  dia := TO_DATE(SYSDATE,'DD-MM-YYYY');
+  
+  SELECT total INTO tot
+  FROM total_puntoventa
+  WHERE fecha = dia;
+  
+  update total_puntoventa set total = tot + tota where fecha = dia;
+  commit;  
+  
+  EXCEPTION
+  WHEN no_data_found THEN
+  insert into total_puntoventa(fecha, total)
+  values(TO_DATE(SYSDATE,'DD-MM-YYYY'), tota);
+  commit;
+END;
      
