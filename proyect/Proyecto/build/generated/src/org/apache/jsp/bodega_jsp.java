@@ -3,11 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import java.util.LinkedList;
-import controlador.ProductXPersona;
 import controlador.oracleConn;
+import controlador.bodega;
+import java.util.LinkedList;
 
-public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class bodega_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,10 +46,9 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write(" \r\n");
+      out.write(" \r\n");
+      out.write(" \r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
       out.write("<head>\r\n");
@@ -59,8 +58,17 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <meta name=\"generator\" content=\"Bootply\" />\r\n");
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\r\n");
       out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
-      out.write("    <link href=\"css/FacturacionCSS.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link href=\"css/styles.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link href=\"css/bodegaCSS.css\" rel=\"stylesheet\">\r\n");
+      out.write("     <link href=\"css/inventarioCss.css\" rel=\"stylesheet\">\r\n");
       out.write("    <link rel=\"stylesheet\" type=\"text/css\" href=\"datables/media/css/jquery.dataTables.css\">\r\n");
+      out.write("        \r\n");
+      out.write("\t<script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.js\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" language=\"javascript\" src=\"datables//media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script>\r\n");
+      out.write("            $(document).ready(function() {\r\n");
+      out.write("            $('#example').DataTable();} );\r\n");
+      out.write("        </script>\r\n");
       out.write("</head>\r\n");
       out.write("<body id=\"page-top\">\r\n");
       out.write("    <nav id=\"mainNav\" class=\"navbar navbar-default navbar-fixed-top\">\r\n");
@@ -78,10 +86,8 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <!-- Collect the nav links, forms, and other content for toggling -->\r\n");
       out.write("            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n");
       out.write("                <ul class=\"nav navbar-nav navbar-right\">\r\n");
-      out.write("                   <!-- <li><a class=\"page-scroll\" href=\"facturacion.jsp\">Facturación</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"inventario.jsp\">Inventario</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"reportes.jsp\">Reportes</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"respaldo.jsp\">Respaldo</a></li>-->\r\n");
+      out.write("                    <li><a class=\"page-scroll\" href=\"newProduct.jsp\">Nuevo Producto</a></li>\r\n");
+      out.write("                    <li><a class=\"page-scroll\" href=\"crearBodega.jsp\">Crear Bodega</a></li>\r\n");
       out.write("                </ul>\r\n");
       out.write("            </div>\r\n");
       out.write("            <!-- /.navbar-collapse -->\r\n");
@@ -98,26 +104,45 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              <li><a href=\"inventario.jsp\">Inventario</a></li>\r\n");
       out.write("              <li><a href=\"reportes.jsp\">Reportes</a></li>\r\n");
       out.write("              <li><a href=\"respaldo.jsp\">Respaldo</a></li>\r\n");
+      out.write("              <li><a href=\"crearBodega.jsp\">Crear Bodega</a></li>\r\n");
       out.write("            </ul>\r\n");
       out.write("          </div>\r\n");
       out.write("        </div><!--/sidebar-->\r\n");
-      out.write("               <div class=\"col-xs-12 col-sm-9\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <h2>REPORTES</h2>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <a href=\"compraXcliente.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Compras por Cliente\"></a>\r\n");
+      out.write("        \r\n");
+      out.write("        <table id=\"example\" class=\"display\" cellspacing=\"0\" width=\"100%\">\r\n");
+      out.write("        <thead>\r\n");
+      out.write("            <tr>\r\n");
+      out.write("            <td>id</td>\r\n");
+      out.write("            <td>Nombre</td>\r\n");
+      out.write("            <td>Pais</td>\r\n");
+      out.write("            <td>Provincia</td>\r\n");
+      out.write("            <td>Canton </td>\r\n");
+      out.write("            <td>Direccion Exacta</td>\r\n");
+      out.write("            <td>Telefono</td>\r\n");
+      out.write("            </tr>\r\n");
+      out.write("            </thead>\r\n");
+      out.write("        <tbody>\r\n");
+      out.write("        ");
+
+        LinkedList<bodega> lista = oracleConn.getBodega();
+        for (int i=0;i<lista.size();i++)
+        {
+        out.println("<tr>");
+        out.println("<td>"+lista.get(i).getId()+"</td>");
+        out.println("<td>"+lista.get(i).getNombre()+"</td>");
+        out.println("<td>"+lista.get(i).getPais()+"</td>");
+        out.println("<td>"+lista.get(i).getProvincia()+"</td>");
+        out.println("<td>"+lista.get(i).getCanton()+"</td>");
+        out.println("<td>"+lista.get(i).getDireccion()+"</td>");
+        out.println("<td>"+lista.get(i).getTelefono()+"</td>");
+        out.println("</tr>");
+        }
+        
       out.write("\r\n");
-      out.write("            <a href=\"ventasGenerales.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Ventas Generales y por Punto de Venta\"></a> \r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <a href=\"inventario.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Inventario Actual\"></a>\r\n");
+      out.write("        </tbody>\r\n");
+      out.write("        </table>\r\n");
       out.write("\r\n");
-      out.write("            <a href=\"infoProvedores.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Proveedores\"></a>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <a href=\"reporteFactura.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Facturas\"></a>\r\n");
-      out.write("</html>");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

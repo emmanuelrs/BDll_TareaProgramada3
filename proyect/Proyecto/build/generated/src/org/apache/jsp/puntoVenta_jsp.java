@@ -4,10 +4,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.util.LinkedList;
-import controlador.ProductXPersona;
+import controlador.PuntoDeVenta;
 import controlador.oracleConn;
 
-public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class puntoVenta_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -59,8 +59,12 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <meta name=\"generator\" content=\"Bootply\" />\r\n");
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\r\n");
       out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
-      out.write("    <link href=\"css/FacturacionCSS.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
+      out.write("    <link href=\"css/crearUserCSS.css\" rel=\"stylesheet\">\r\n");
       out.write("    <link rel=\"stylesheet\" type=\"text/css\" href=\"datables/media/css/jquery.dataTables.css\">\r\n");
+      out.write("        \r\n");
+      out.write("\r\n");
+      out.write("    \r\n");
       out.write("</head>\r\n");
       out.write("<body id=\"page-top\">\r\n");
       out.write("    <nav id=\"mainNav\" class=\"navbar navbar-default navbar-fixed-top\">\r\n");
@@ -78,10 +82,8 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <!-- Collect the nav links, forms, and other content for toggling -->\r\n");
       out.write("            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n");
       out.write("                <ul class=\"nav navbar-nav navbar-right\">\r\n");
-      out.write("                   <!-- <li><a class=\"page-scroll\" href=\"facturacion.jsp\">Facturación</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"inventario.jsp\">Inventario</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"reportes.jsp\">Reportes</a></li>\r\n");
-      out.write("                    <li><a class=\"page-scroll\" href=\"respaldo.jsp\">Respaldo</a></li>-->\r\n");
+      out.write("                    <li><a class=\"page-scroll\" href=\"newProduct.jsp\">Nuevo Producto</a></li>\r\n");
+      out.write("                    <li><a class=\"page-scroll\" href=\"bodega.jsp\">Bodegas</a></li>\r\n");
       out.write("                </ul>\r\n");
       out.write("            </div>\r\n");
       out.write("            <!-- /.navbar-collapse -->\r\n");
@@ -101,22 +103,28 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </ul>\r\n");
       out.write("          </div>\r\n");
       out.write("        </div><!--/sidebar-->\r\n");
-      out.write("               <div class=\"col-xs-12 col-sm-9\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\r\n");
+      out.write("        <div class=\"col-xs-12 col-sm-9\" data-spy=\"scroll\" data-target=\"#sidebar-nav\">\r\n");
       out.write("            <br/>\r\n");
-      out.write("            <h2>REPORTES</h2>\r\n");
+      out.write("            <h2> Crear Punto de Venta </h2>\r\n");
       out.write("            <br/>\r\n");
+      out.write("        <form action=\"crearPuntoVenta\" class=\"ui form segment\"  method=\"post\"> \r\n");
+      out.write("            <label for=\"male\">Nombre del punto de veta: </label> <br/>\r\n");
+      out.write("                <INPUT class=\"tb1\" NAME = \"nombre\" TYPE = \"text\" id=\"nombre\" required> <br/>\r\n");
+      out.write("            <label for=\"male\">Pais: </label> <br/>\r\n");
+      out.write("                <INPUT class=\"tb1\" NAME = \"pais\" TYPE = \"text\" id=\"pais\" required> <br/>\r\n");
+      out.write("            <label for=\"male\">Provincia: </label> <br/>                   \r\n");
+      out.write("                <INPUT class=\"tb1\" NAME = \"provincia\" TYPE = \"text\" id=\"provincia\" required> <br/>\r\n");
+      out.write("            <label for=\"male\">Canton: </label> <br/> \r\n");
+      out.write("                <INPUT class=\"tb1\" NAME = \"Canton\" TYPE = \"text\" id=\"Canton\" required> <br/>\r\n");
+      out.write("            <label for=\"male\">Direccion exacta: </label> <br/> \r\n");
+      out.write("                <INPUT class=\"tb1\" NAME = \"direccion\" TYPE = \"text\" id=\"direccion\" required> <br/>\r\n");
+      out.write("            <label for=\"male\">Numero Telefono: </label> <br/> \r\n");
+      out.write("                <INPUT class=\"tb1\" NAME = \"telefono\" TYPE = \"text\" id=\"telefono\" required> <br/>\r\n");
       out.write("            <br/>\r\n");
-      out.write("            <a href=\"compraXcliente.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Compras por Cliente\"></a>\r\n");
-      out.write("\r\n");
-      out.write("            <a href=\"ventasGenerales.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Ventas Generales y por Punto de Venta\"></a> \r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <a href=\"inventario.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Inventario Actual\"></a>\r\n");
-      out.write("\r\n");
-      out.write("            <a href=\"infoProvedores.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Proveedores\"></a>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <br/>\r\n");
-      out.write("            <a href=\"reporteFactura.jsp\"><input class=\"myButton\" type=\"submit\" value=\"Facturas\"></a>\r\n");
+      out.write("            <input class=\"myButton\" type=\"submit\" value=\"Crear\"> </form>\r\n");
+      out.write("        </div>\r\n");
+      out.write("       \r\n");
+      out.write("</\r\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

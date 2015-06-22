@@ -33,10 +33,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="facturacion.jsp">Facturación</a></li>
+                   <!-- <li><a class="page-scroll" href="facturacion.jsp">Facturación</a></li>
                     <li><a class="page-scroll" href="inventario.jsp">Inventario</a></li>
                     <li><a class="page-scroll" href="reportes.jsp">Reportes</a></li>
-                    <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>
+                    <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -58,7 +58,7 @@
         
         </div><!--/sidebar-->
         <img class="divimg" src="img/user.png">
-        <div class="col-xs-12 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
+        <div class="col-xs-18 col-sm-9" data-spy="scroll" data-target="#sidebar-nav">
             <br/>
             <h2> Agregar un nuevo Proveedor/Cliente </h2>
             <br/>
@@ -89,7 +89,8 @@
                     <OPTION VALUE="CLIENTE">Cliente</OPTION>
                     <OPTION VALUE="PROVEEDOR">Proveedor</OPTION> 
                 </SELECT> <br/>
-                <label for="male">Si el tipo de Usuario es Vendedor o Administrador favor rellenar los siguientes campos</label> <br/> 
+                <br/>
+            <label for="male">Si el tipo de Usuario es Vendedor o Administrador favor rellenar los siguientes campos</label> <br/> 
             <label for="male">UserName</label> <br/> 
                 <INPUT class ="tb1" NAME = "userName" TYPE = "text" id="userName"> <br/>
             <label for="male">Password</label> <br/> 

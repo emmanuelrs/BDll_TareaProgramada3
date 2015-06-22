@@ -44,7 +44,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="facturacion.jsp">Facturación</a></li>
                     <li><a class="page-scroll" href="puntoVenta.jsp">Crear Punto de Venta</a></li>
                 </ul>
             </div>
