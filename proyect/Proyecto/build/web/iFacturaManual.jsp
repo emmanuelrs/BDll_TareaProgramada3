@@ -27,7 +27,6 @@
         <div>(506) 800-900-FacturaTÉ</div>
         <div><a href="mailto:company@example.com">staff@facturaTEC.com</a></div>
       </div>
-      </div>
     </header>
     <main>
       <div id="details" class="clearfix">

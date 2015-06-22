@@ -1,8 +1,3 @@
-<%-- 
-    Document   : reporteFactura
-    Created on : Jun 21, 2015, 3:38:00 PM
-    Author     : Emmanuel
---%>
 
 <%@page import="controlador.ventas"%>
 <%@page import="java.util.LinkedList"%>
@@ -73,7 +68,7 @@
             <br/>
         <form action="reporteFactura" class="ui form segment"  method="post"> 
             <label for="male">ID de la Factura</label> <br/> 
-            <INPUT class ="tb1" NAME = "idFactura" TYPE = "text" id="idFactura" required> <br/>
+            <INPUT class ="tb1" NAME = "idFactura" TYPE = "number" id="idFactura" required> <br/>
             <br/>
             <input class="myButton" type="submit" value="Ver detalles de la Factura">
         </form>
@@ -111,21 +106,5 @@
         </table>
         <h3><%//= request.getParameter("nom")!=null?request.getParameter("nom"):""%> </h3>
         <br/> 
-        <!--<table id="example" class="display" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-            <td>Producto  </td>
-            <td>Descripcion  </td>
-            <td>Precio unitario  </td>
-            <td>Marca  </td>
-            <td>Categoria  </td>
-            <td>Id Factura </td>
-            <td>Cantidad  </td>
-            <td>Total </td>
-            </tr>
-        </thead>
-        <%//= request.getParameter("tab")!=null?request.getParameter("tab"):""%>    
-        </table>-->
-        
-        
+    </
 </html>

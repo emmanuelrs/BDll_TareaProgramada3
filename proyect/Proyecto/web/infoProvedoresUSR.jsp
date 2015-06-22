@@ -1,8 +1,3 @@
-<%-- 
-    Document   : infoProvedores
-    Created on : Jun 20, 2015, 10:35:07 PM
-    Author     : Emmanuel
---%>
 
 <%@page import="controlador.Persona"%>
 <%@page import="controlador.PuntosVenta"%>
@@ -97,4 +92,5 @@
         %>
         </tbody>
         </table>
+    </
 </html>

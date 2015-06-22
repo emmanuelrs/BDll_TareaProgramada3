@@ -1,8 +1,3 @@
-<%-- 
-    Document   : reportes
-    Created on : 16-jun-2015, 21:59:15
-    Author     : LUIS
---%>
 
 <%@page import="java.util.LinkedList"%>
 <%@page import="controlador.ProductXPersona"%>
@@ -75,4 +70,5 @@
             <br/>
             <br/>
             <a href="reporteFactura.jsp"><input class="myButton" type="submit" value="Facturas"></a>
+    </
 </html>

@@ -46,6 +46,7 @@
                     <li><a class="page-scroll" href="inventarioUSR.jsp">Inventario</a></li>
                     <li><a class="page-scroll" href="reportesUSR.jsp">Reportes</a></li>
                     <li><a class="page-scroll" href="infoProvedoresUSR.jsp">Provedores</a></li>
+                    <li><a class="page-scroll" href="index.jsp">Cerrar Sesion</a></li>
                     
                 </ul>
             </div>

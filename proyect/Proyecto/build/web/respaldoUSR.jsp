@@ -1,9 +1,3 @@
-<%-- 
-    Document   : respaldo
-    Created on : 16-jun-2015, 22:00:07
-    Author     : LUIS
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : ventasGenerales
-    Created on : Jun 21, 2015, 2:01:09 PM
-    Author     : Emmanuel
---%>
 
 <%@page import="controlador.ventas"%>
 <%@page import="java.util.LinkedList"%>

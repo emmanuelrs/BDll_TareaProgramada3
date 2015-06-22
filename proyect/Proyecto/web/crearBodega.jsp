@@ -73,7 +73,8 @@
             <label for="male">Dirección Exacta</label> <br/> 
                 <INPUT class="tb2" NAME = "direccion" TYPE = "text" id="direccion" required> <br/>
             <label for="male">Número de Teléfono</label> <br/> 
-                <INPUT class="tb2" NAME = "telefono" TYPE = "text" id="telefono" required> <br/>          
+                <INPUT class="tb2" NAME = "telefono" TYPE = "number" id="telefono" required> <br/>          
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
+    </
 </html>

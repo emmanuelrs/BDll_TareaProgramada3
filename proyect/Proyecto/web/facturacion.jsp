@@ -67,9 +67,9 @@
             <img class="divimg" src="img/user.png">
         <form action="facturacion" class="ui form segment"  method="post"> 
             <label for="male">Id Producto</label> <br/> 
-                <INPUT class ="tb1" NAME = "IdProducto" TYPE = "text" id="IdProducto"> <br/>
+                <INPUT class ="tb1" NAME = "IdProducto" TYPE = "number" id="IdProducto"> <br/>
             <label for="male">Cantidad</label> <br/> 
-                <INPUT class ="tb1" NAME = "Cantidad" TYPE = "text" id="Cantidad"> <br/>
+                <INPUT class ="tb1" NAME = "Cantidad" TYPE = "number" id="Cantidad"> <br/>
             <input class="myButton" type="submit" value="Agregar"> 
             <br/>
             <label for="male">Punto de Venta</label> <br/> 
@@ -95,7 +95,7 @@
                     <OPTION VALUE="100">100%</OPTION>
                 </SELECT> <br/>
                 <label for="male">Cedula del Cliente</label> <br/> 
-                <INPUT class ="tb1" NAME = "Cedula" TYPE = "text" id="Cedula"> <br/>
+                <INPUT class ="tb1" NAME = "Cedula" TYPE = "number" id="Cedula"> <br/>
                 <input type="checkbox" name="id" value="id"> Confirmar Venta<BR>
             <input class="myButton" type="submit" value="Vender"><input class="myButton" type="submit" value="Cancelar Venta">
         </form>

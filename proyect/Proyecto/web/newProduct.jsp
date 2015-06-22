@@ -1,9 +1,3 @@
-<%-- 
-    Document   : newProduct
-    Created on : 16-jun-2015, 21:54:32
-    Author     : LUIS
---%>
-
 
 <%@page import="controlador.Persona"%>
 <%@page import="java.util.LinkedList"%>
@@ -71,15 +65,15 @@
             <label for="male">Descripcion del producto: </label> <br/>
                 <INPUT class="tb1" NAME = "descripcion" TYPE = "text" id="descripcion" required> <br/>
             <label for="male">Precio: </label> <br/>                   
-                <INPUT class="tb1" NAME = "precio" TYPE = "text" id="precio" required> <br/>
+                <INPUT class="tb1" NAME = "precio" TYPE = "number" id="precio" required> <br/>
             <label for="male">Marca: </label> <br/> 
                 <INPUT class="tb1" NAME = "marca" TYPE = "text" id="marca" required> <br/>
             <label for="male">Tipo de producto: </label> <br/> 
                 <INPUT class="tb1" NAME = "categoria" TYPE = "text" id="categoria" required> <br/>
             <label for="male">Total de Unidades: </label> <br/> 
-                <INPUT class="tb1" NAME = "cantidad" TYPE = "text" id="cantidad" required> <br/>
+                <INPUT class="tb1" NAME = "cantidad" TYPE = "number" id="cantidad" required> <br/>
             <label for="male">Minimo para Reordenar:</label> <br/>  
-                <INPUT class="tb1" NAME = "minimo" TYPE = "text" id="minimo" required> <br/>           
+                <INPUT class="tb1" NAME = "minimo" TYPE = "number" id="minimo" required> <br/>           
             <label for="male">Bodega donde se encuentra:</label> <br/>  
                 <SELECT class ="tb1" NAME="NOMBRE_BODEGA" SIZE=1 onChange="this.form);">
                     <% LinkedList<bodega> lista = oracleConn.getBodega();
@@ -88,7 +82,7 @@
                     }
                     %>
                 </select> <br/>
-            <label for="male">Cedula del provedor:</label> <br/>  
+            <label for="male">Provedor:</label> <br/>  
                 <SELECT class ="tb1" NAME="ced" SIZE=1 onChange="this.form);">
                     <% LinkedList<Persona> listaP = oracleConn.getPersona();
                     for (int i=0;i<listaP.size();i++){

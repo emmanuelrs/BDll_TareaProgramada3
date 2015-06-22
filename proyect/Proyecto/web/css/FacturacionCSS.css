@@ -245,7 +245,7 @@ boton1{
 .myButton:active {
 	position:relative;
 	top: 2px;
-        padding: 50px;
+        padding: 10px;
         
 }
 

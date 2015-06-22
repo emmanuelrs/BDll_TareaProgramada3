@@ -69,7 +69,7 @@
             <label for="male">Apellido</label> <br/>
                 <INPUT class ="tb1" NAME = "apellido" TYPE = "text" id="apellido" required> <br/>
             <label for="male">Cédula</label> <br/>
-                <INPUT class ="tb1" NAME = "cedula" TYPE = "text" id="cedula" required> <br/>
+                <INPUT class ="tb1" NAME = "cedula" TYPE = "number" id="cedula" required> <br/>
             <label for="male">País</label> <br/>
                 <INPUT class ="tb1" NAME = "pais" TYPE = "text" id="pais" required > <br/>
             <label for="male">Provincia</label> <br/>                   
@@ -81,7 +81,7 @@
             <label for="male">Email</label> <br/>
                 <INPUT class ="tb1"  NAME = "email" TYPE = "text" id="email" required> <br/>
             <label for="male">Número de Teléfono</label> <br/> 
-                <INPUT class ="tb1" NAME = "telefono" TYPE = "text" id="telefono" required> <br/>
+                <INPUT class ="tb1" NAME = "telefono" TYPE = "number" id="telefono" required> <br/>
             <label for="male">Tipo</label> <br/> 
                 <SELECT class ="tb1" NAME="selCombo" SIZE=1 onChange="this.form);"> 
                     <OPTION VALUE="ADMINISTRADOR">Administrador</OPTION>
@@ -98,5 +98,5 @@
             <input class="myButton" type="submit" value="Crear">
            
         </form>
-
+    </
 </html>

@@ -48,6 +48,7 @@
                     <li><a class="page-scroll" href="respaldo.jsp">Respaldo</a></li>
                     <li><a class="page-scroll" href="crearUsuario.jsp">Crear Usuario</a></li>
                     <li><a class="page-scroll" href="infoProvedores.jsp">Provedores</a></li>
+                    <li><a class="page-scroll" href="index.jsp">Cerrar Sesion</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

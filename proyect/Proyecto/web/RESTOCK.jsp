@@ -1,8 +1,3 @@
-<%-- 
-    Document   : RESTOCK
-    Created on : Jun 20, 2015, 5:36:56 PM
-    Author     : Emmanuel
---%>
 
 <%@page import="java.util.LinkedList"%>
 <%@page import="controlador.inventario"%>
@@ -75,9 +70,9 @@
             <img class="divimg" src="img/restock.jpg">
         <form action="RESTOCK" class="ui form segment"  method="post"> 
             <label for="male">ID PRODUCTO</label> <br/>
-                <INPUT class ="tb1"  NAME = "producto" TYPE = "text" id="producto" required> <br/>
+                <INPUT class ="tb1"  NAME = "producto" TYPE = "number" id="producto" required> <br/>
             <label for="male">CANTIDAD</label> <br/>
-            <INPUT class ="tb1" NAME = "cantidad" TYPE = "text" id="cantidad" required> <br/>
+            <INPUT class ="tb1" NAME = "cantidad" TYPE = "number" id="cantidad" required> <br/>
             <label for="male">Tipo Transacción</label> <br/> 
                 <SELECT class ="tb1" NAME="selCombo" SIZE=1 onChange="this.form);"> 
                     <OPTION VALUE="CREDITO">CRÉDITO</OPTION>
@@ -98,7 +93,6 @@
             <td>Cantidad  </td>
             <td>Minimo  </td>
             <td>Bodega  </td>
-            </tr>
             </tr>
         </thead>
         <tbody>
@@ -122,4 +116,5 @@
         }
         %>
         </tbody>
+    </
 </html>

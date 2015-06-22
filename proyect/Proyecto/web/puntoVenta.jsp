@@ -1,8 +1,3 @@
-<%-- 
-    Document   : puntoVenta
-    Created on : 17-jun-2015, 21:26:31
-    Author     : LUIS
---%>
 
 <%@page import="java.util.LinkedList"%>
 <%@page import="controlador.PuntoDeVenta"%>
@@ -77,7 +72,7 @@
             <label for="male">Direccion exacta: </label> <br/> 
                 <INPUT class="tb1" NAME = "direccion" TYPE = "text" id="direccion" required> <br/>
             <label for="male">Numero Telefono: </label> <br/> 
-                <INPUT class="tb1" NAME = "telefono" TYPE = "text" id="telefono" required> <br/>
+                <INPUT class="tb1" NAME = "telefono" TYPE = "number" id="telefono" required> <br/>
             <br/>
             <input class="myButton" type="submit" value="Crear"> </form>
         </div>

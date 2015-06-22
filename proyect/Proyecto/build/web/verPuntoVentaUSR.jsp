@@ -1,8 +1,3 @@
-<%-- 
-    Document   : verPuntoVenta
-    Created on : 19-jun-2015, 17:20:39
-    Author     : LUIS
---%>
 
 <%@page import="controlador.PuntoDeVenta"%>
 <%@page import="java.util.LinkedList"%>
@@ -97,7 +92,7 @@
         out.println("</tr>");
         }
         %>
-</table>
+        </table>
         </div>
 </
 </html>

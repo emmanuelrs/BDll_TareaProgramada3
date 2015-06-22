@@ -19,7 +19,7 @@ public class RESTOCK extends HttpServlet {
         String IdProducto = request.getParameter("producto");
         String cantidad = request.getParameter("cantidad");
         String transaccionP = request.getParameter("selCombo");
-        
+        System.out.print("id Product > " + IdProducto + "cantidad > " +cantidad + "tipo transaccion > " + transaccionP);
         int idProduct = Integer.parseInt(IdProducto);
         int cantidadP = Integer.parseInt(cantidad);
         oracleConn conect;

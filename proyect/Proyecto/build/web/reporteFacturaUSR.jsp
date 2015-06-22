@@ -73,7 +73,7 @@
             <br/>
         <form action="reporteFacturaUSR" class="ui form segment"  method="post"> 
             <label for="male">ID de la Factura</label> <br/> 
-            <INPUT class ="tb1" NAME = "idFactura" TYPE = "text" id="idFactura" required> <br/>
+            <INPUT class ="tb1" NAME = "idFactura" TYPE = "number" id="idFactura" required> <br/>
             <br/>
             <input class="myButton" type="submit" value="Ver detalles de la Factura">
         </form>
@@ -109,5 +109,5 @@
         %>
         </tbody>
         </table>
-        
+    </    
 </html>

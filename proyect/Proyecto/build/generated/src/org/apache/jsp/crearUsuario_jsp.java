@@ -128,7 +128,8 @@ public final class crearUsuario_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                    <OPTION VALUE=\"CLIENTE\">Cliente</OPTION>\r\n");
       out.write("                    <OPTION VALUE=\"PROVEEDOR\">Proveedor</OPTION> \r\n");
       out.write("                </SELECT> <br/>\r\n");
-      out.write("                <label for=\"male\">Si el tipo de Usuario es Vendedor o Administrador favor rellenar los siguientes campos</label> <br/> \r\n");
+      out.write("                <br/>\r\n");
+      out.write("            <label for=\"male\">Si el tipo de Usuario es Vendedor o Administrador favor rellenar los siguientes campos</label> <br/> \r\n");
       out.write("            <label for=\"male\">UserName</label> <br/> \r\n");
       out.write("                <INPUT class =\"tb1\" NAME = \"userName\" TYPE = \"text\" id=\"userName\"> <br/>\r\n");
       out.write("            <label for=\"male\">Password</label> <br/> \r\n");

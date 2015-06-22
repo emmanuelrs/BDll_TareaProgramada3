@@ -49,7 +49,6 @@ public final class RESTOCK_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -117,9 +116,9 @@ public final class RESTOCK_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <img class=\"divimg\" src=\"img/restock.jpg\">\r\n");
       out.write("        <form action=\"RESTOCK\" class=\"ui form segment\"  method=\"post\"> \r\n");
       out.write("            <label for=\"male\">ID PRODUCTO</label> <br/>\r\n");
-      out.write("                <INPUT class =\"tb1\"  NAME = \"producto\" TYPE = \"text\" id=\"producto\" required> <br/>\r\n");
+      out.write("                <INPUT class =\"tb1\"  NAME = \"producto\" TYPE = \"number\" id=\"producto\" required> <br/>\r\n");
       out.write("            <label for=\"male\">CANTIDAD</label> <br/>\r\n");
-      out.write("            <INPUT class =\"tb1\" NAME = \"cantidad\" TYPE = \"text\" id=\"cantidad\" required> <br/>\r\n");
+      out.write("            <INPUT class =\"tb1\" NAME = \"cantidad\" TYPE = \"number\" id=\"cantidad\" required> <br/>\r\n");
       out.write("            <label for=\"male\">Tipo Transacción</label> <br/> \r\n");
       out.write("                <SELECT class =\"tb1\" NAME=\"selCombo\" SIZE=1 onChange=\"this.form);\"> \r\n");
       out.write("                    <OPTION VALUE=\"CREDITO\">CRÉDITO</OPTION>\r\n");
@@ -140,7 +139,6 @@ public final class RESTOCK_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <td>Cantidad  </td>\r\n");
       out.write("            <td>Minimo  </td>\r\n");
       out.write("            <td>Bodega  </td>\r\n");
-      out.write("            </tr>\r\n");
       out.write("            </tr>\r\n");
       out.write("        </thead>\r\n");
       out.write("        <tbody>\r\n");
@@ -166,6 +164,7 @@ public final class RESTOCK_jsp extends org.apache.jasper.runtime.HttpJspBase
         
       out.write("\r\n");
       out.write("        </tbody>\r\n");
+      out.write("    </\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

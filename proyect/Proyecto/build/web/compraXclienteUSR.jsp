@@ -72,7 +72,7 @@
             <br/>
         <form action="compraXclienteUSR" class="ui form segment"  method="post"> 
             <label for="male">Cedula del Cliente</label> <br/> 
-            <INPUT class ="tb1" NAME = "ced" TYPE = "text" id="ced" required> <br/>
+            <INPUT class ="tb1" NAME = "ced" TYPE = "number" id="ced" required> <br/>
             <br/>
             <input class="myButton" type="submit" value="Consultar">
         </form>
