@@ -1,8 +1,18 @@
 
 package controlador;
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
+
+// Esta clase guarda los datos de el producto que se compra por persona
+// se utiliza en la aplicación para guardar los datos que vienen de la base
+// y que sean mostrados en la aplicación web.
 
 public class ProductXPersona {
-
+    
+//Atributos respectivos para la clase
+    
 String PRODUCTO = "";
 String DESCRIPCION = "";
 String PRECIOUNITARIO = "";
@@ -12,6 +22,7 @@ String ID_FACTURA = "";
 String CANTIDAD = "";
 String TOTAL = "";
 
+//Métodos de la clase necesarios.
     public ProductXPersona() {
     }
 

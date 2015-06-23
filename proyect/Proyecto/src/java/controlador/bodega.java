@@ -1,7 +1,15 @@
 
 package controlador;
 
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
+
 public class bodega {
+    
+    //Atributos de la clase
+    
     private String id;
     private String nombre;
     private String pais;
@@ -9,6 +17,10 @@ public class bodega {
     private String canton;
     private String direccion;
     private String telefono;
+    
+    
+     // Métodos de Setters and Getters 
+    // Constructor de la clase
 
     public bodega() {
     }

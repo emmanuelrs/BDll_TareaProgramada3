@@ -1,6 +1,15 @@
 package controlador;
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
 
+//Clase de punto de venta, almacena los datos de punto de ventas
+//Para ser utilizados en la aplicación para guardarlos y mostrarlos en pantalla.
 public class PuntoDeVenta {
+    
+     // Atributos necesarios para el funcionamiento de la clase.
+    
     private String Id;
     private String nombre;
     private String Pais;
@@ -9,6 +18,9 @@ public class PuntoDeVenta {
     private String Direccion;
     private String telefono;
 
+    //Métodos de la clase y su constructor.
+    //Setters and Getters.
+    
     public PuntoDeVenta() {
     }
 
