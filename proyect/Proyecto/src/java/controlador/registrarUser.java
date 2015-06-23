@@ -1,6 +1,10 @@
 
 package controlador;
-
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
+//Imports necesarios
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +17,9 @@ public class registrarUser extends HttpServlet{
     public registrarUser(){
         super();
     }
-    
+    //Esta clase recibe los datos que son enviados por el usuario mediante la aplicación
+    //realiza la conexión con la base de datos y ejecuta un procedimiento para
+    //agregar el nuevo usuario.
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		String contextPath = request.getContextPath();

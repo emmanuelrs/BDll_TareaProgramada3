@@ -1,7 +1,10 @@
-
 package controlador;
-
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
 public class inventario {
+        //Atributos de la clase inventarios
     private String id;
     private String Producto;
     private String Descripcion;
@@ -11,7 +14,7 @@ public class inventario {
     private String Cantidad;
     private String minimo;
     private String bodega;
-
+    //Setters and Getters
     public String getBodega() {
         return bodega;
     }
@@ -68,7 +71,7 @@ public class inventario {
     public void setMinimo(String minimo) {
         this.minimo = minimo;
     }
-
+//constructor
     public inventario() {
         this.id = null;
         this.Producto = null;

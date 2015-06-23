@@ -1,4 +1,10 @@
 package controlador;
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
+
+//Imports necerios para la clase
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+//WebServlet y el constructor de la clase
 @WebServlet("/index")
 public class index extends HttpServlet {
     public index(){

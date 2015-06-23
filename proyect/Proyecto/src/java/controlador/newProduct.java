@@ -1,5 +1,9 @@
 package controlador;
-
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
+//Imports necesarios para la clase
 import java.io.IOException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.ServletException;
@@ -9,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+//SebServlet y el constructor de la clase
 @WebServlet("/newProduct")
 public class newProduct extends HttpServlet {
     
@@ -20,7 +24,7 @@ public class newProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		String contextPath = request.getContextPath();
-		
+				//Lee los datos que vienen en pantalla
 		String producto = request.getParameter("nombre");
 		String descripcion = request.getParameter("descripcion");
 		String precio = request.getParameter("precio");
@@ -40,6 +44,7 @@ public class newProduct extends HttpServlet {
                 conect = new oracleConn();
 
         try {
+                        //Llama al procedimiento que agrega los productos a la base de datos
             conect.insertarProducto(producto, descripcion, precio, marca, categoria, cantidad, minimo, bodega, ced);
         } catch (SQLException ex) {
             System.out.print("Error");

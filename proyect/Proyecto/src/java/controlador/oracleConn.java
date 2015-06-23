@@ -1,9 +1,22 @@
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
+
+//Imports necerios para la clase
 package controlador;
 import java.sql.*;
 import oracle.jdbc.pool.OracleDataSource;
 import java.util.LinkedList;
+//En esta clase se encuentran todos los métodos/funciones de la aplicación
+//desde aquí se hace las consultas a la base de datos realizando procesos o
+//obteniendo información de funciones que posteriormente son utilizadas 
+//en las diferentes secciónes de la aplicación.
 
 public class oracleConn {
+        
+    //Define los atributos que tienen la información correspondiente
+    //para la conexión con la base de datos Oracle 12c.
     static String jdbcUrl = "jdbc:oracle:thin:@localhost:1521/GestorEmpresa";
     static String userid = "GestorEmpresarial";
     static String password = "gestorE"; 
@@ -11,6 +24,7 @@ public class oracleConn {
     static Object dataSource;
     
 public void oracleConn() throws SQLException{
+            //Utiliza los atributos definidos anteriormente y realiza la conexión
         OracleDataSource ds;
         ds = new OracleDataSource();
         ds.setURL(jdbcUrl);
@@ -19,6 +33,11 @@ public void oracleConn() throws SQLException{
     }
 
 public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException{
+        /*Este método realiza inserts a la tabla pivot, la cual guarda los productos
+    que son comprados por un usuario, es decir, va insertnado uno a uno cada 
+    producto que es elegido por un usuario, una vez que finalice su compra, esta
+    información se utiliza para crear la factura correspondiente a la compra
+    */
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -35,6 +54,8 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
 }
 
     public void resetPivot(){
+                //Una vez que la compra es realizada y la factura se crea, se utiliza
+        //este método para limpiar esta tabla y este lista para la siguiente compra
         try{
             OracleDataSource ds;
             ds = new OracleDataSource();
@@ -53,6 +74,11 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
     }
     
     public String Login(String userName){
+                /*
+        Este método realiza una consulta a la base de datos para saber si el
+        usuario está o no registrado, va a retorar un String con TRUE o FALSE
+        determinando si está o no en la base.
+        */
         String tipo = "";
         try{
             OracleDataSource ds;
@@ -76,6 +102,7 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
     }
 
     public void getPivot(Integer IdFactura, String puntoVenta){
+                //Este método trea la información de la tabla pivot 
         try{
             Integer tot = 0;
             PuntoDeVenta PV = new PuntoDeVenta();
@@ -108,6 +135,8 @@ public void agregarPivot(Integer IdProduct,Integer cantidad) throws SQLException
     }
     
 private void insertarControl(String PuntoDeVenta, Integer tota, Integer idFac) throws SQLException{
+        //Este procedimiento inserta la información correspondiente a las compras
+    // de las ventas que se realizan por punto de venta.
 OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
@@ -127,6 +156,9 @@ OracleDataSource ds;
 }
     
 private void ActualizarFactura(Integer idFactura,Integer total) throws SQLException{
+        //Esta función se le envían los parámetros que son el id de la factura
+    // y su total para actualizar la misma 
+    
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -143,6 +175,10 @@ private void ActualizarFactura(Integer idFactura,Integer total) throws SQLExcept
 }
 
 private void control (Integer total) throws SQLException{
+       //Esta función ejecuta el procedimiento de totalXdía que actualiza el valor
+    // de el total de ventas que se realizan por día
+    // es decir la cantidad de dinero que se realizo.
+    
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -158,6 +194,9 @@ private void control (Integer total) throws SQLException{
 }
     
 private void agregarProducto(Integer idFactura,Integer IdProducto,Integer cantidad) throws SQLException{
+        //Está función recibe los parámetros enviados por el usuario mediante
+    //la aplicación web y agregan el producto a la factura.
+    
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -175,6 +214,8 @@ private void agregarProducto(Integer idFactura,Integer IdProducto,Integer cantid
 }
 
 private Integer Precio(Integer idProducto) throws SQLException{
+        //Este método ejecuta una función dentro de la base de datos que 
+    //retorna el precio de cada producto en específico utilizando su id respectivo.
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -190,6 +231,8 @@ private Integer Precio(Integer idProducto) throws SQLException{
     return precio;
 }
 public Integer IdFactura() throws SQLException{
+    //Este método retorna el id de la factura que se realizó por última vez
+    //es decir, la factura de la última compra que se realizó en el sistema.
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -205,6 +248,12 @@ public Integer IdFactura() throws SQLException{
     
 }
 public Integer crearFactura(String PuntoDeVenta,String descuento, String cedula) throws SQLException{
+    
+    //Este método llama un procedimiento en la base de datos que inserta la 
+    //información de la factura en su respectiva tabla para poder guardar
+    //dicha información que va hacer utilizada en diferentes momentos de la 
+    //aplicación.
+    
     int desc = Integer.parseInt(descuento);
     int ced = Integer.parseInt(cedula);
     OracleDataSource ds;
@@ -225,6 +274,9 @@ public Integer crearFactura(String PuntoDeVenta,String descuento, String cedula)
 }
 
 public void insertarProducto(String producto,String descripcion,String precio,String marca,String categoria,String cantidad,String minimo, String NOMBRE_BODEGA, Integer cedu) throws SQLException{
+       
+    //Método que llama a un procedimiento que inserta un nuevo producto a la base
+    //de datos, recibe la información respectiva para agregarlo correctamente.
     int precio1 = Integer.parseInt(precio);
     int cantidad1 = Integer.parseInt(cantidad);
     int minimo1 = Integer.parseInt(minimo);
@@ -252,6 +304,10 @@ public void insertarProducto(String producto,String descripcion,String precio,St
     conn.close(); 
 }
 public void ActualizarInventario(String IdProducto, String Cantidad) throws SQLException{ 
+        //Este método actualiza el inventario actual de productos en la base de datos
+    //ya sea si se agrega un producto o si se compran, realiza las respectivas
+    //sumas o restas.
+    
     int id = Integer.parseInt(IdProducto);
     int Cant = Integer.parseInt(Cantidad);
     OracleDataSource ds;
@@ -269,7 +325,10 @@ public void ActualizarInventario(String IdProducto, String Cantidad) throws SQLE
 }
 
 public void crearBodega(String pNombreB, String pPais, String pProvincia,
-        String pCanton, String pDireccion, String pNumero) throws SQLException{  
+        String pCanton, String pDireccion, String pNumero) throws SQLException{ 
+        
+    //Este método recibe la información necesaria y ejecuta un procedimiento
+    //escrito en la base de datos que inserta nuevas bodegas
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
@@ -296,6 +355,12 @@ public void crearBodega(String pNombreB, String pPais, String pProvincia,
 public void crearUsuario(String pNombre, String pCedula,String pApellido,
         String pPais, String pProvincia,String pCanton, String pDireccion, String pEmail,
         String pNumero,String pTipo) throws SQLException{
+        
+    //Este método recibe los datos de una persona y la crea como usuario en la
+    //base de datos
+    
+    //Revisa que el número de cédula no sea mayor a 10 dígitos.
+    
     if(pCedula.length() > 10){
         System.out.println("Numeromuylargo");
     }
@@ -328,6 +393,8 @@ public void crearUsuario(String pNombre, String pCedula,String pApellido,
 }
 
 public void crearUsuario2(Integer cedula, String contra, String tipo, String usrName) throws SQLException{
+        //Crea usuario2 realiza el insert para crear un usuario y la contraseña
+    // para que una persona previamente agregada pueda utilizar la aplicación
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL("jdbc:oracle:thin:@localhost:1521/GestorEmpresa");
@@ -348,6 +415,8 @@ public void crearUsuario2(Integer cedula, String contra, String tipo, String usr
 
 public void crearPuntoVenta(String NombrePV, String Pais, String Provincia,
         String Canton, String Direccion, String Numero) throws SQLException{  
+        //Este método recibe la información necesaria y ejecuta un procedimiento
+    //en la base de datos que agrega un nuevo punto de venta.
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -374,6 +443,9 @@ public Connection ejecutarSQL() throws SQLException{
             return conn;
 }
 public LinkedList<contenidoFactura> getProductosFactura(){
+        //Este método retorna una LinkedList con todos los productos que tiene
+    //una factura en especifico, se utiliza en la clase iFacture para poder
+    //imprimir en pantalla los productos que tiene esa respectiva factura.
         LinkedList<contenidoFactura> listaProd = new LinkedList<contenidoFactura>();
         try{
             oracleConn ora1 = new oracleConn();
@@ -411,6 +483,8 @@ public LinkedList<contenidoFactura> getProductosFactura(){
     }
 
     public int totalDescuento(){
+        //Este método retorna un número entero con el descuento que se realizó 
+        //a una factura.
         int descuento = 0;
         try{
             oracleConn ora1 = new oracleConn();
@@ -433,6 +507,8 @@ public LinkedList<contenidoFactura> getProductosFactura(){
         return descuento;
     }
     public int totalPagar(){
+        //Retorna un número entero con el monto total a pagar para la última
+        //factura que se realizó.
         int total = -1;
         try{
         oracleConn ora1 = new oracleConn();
@@ -455,6 +531,8 @@ public LinkedList<contenidoFactura> getProductosFactura(){
     }
 
     public LinkedList<inventario> getInventario(){
+         //Este método retorna una LinkedList con todos los productos y su
+        //información respectiva para mostrarlo en la pantalla de inventario
         LinkedList<inventario> listaInv =new LinkedList<inventario>();
         try{
             
@@ -489,6 +567,9 @@ public LinkedList<contenidoFactura> getProductosFactura(){
     }
     
     public static LinkedList<bodega> getBodega(){
+                //Este método retorna una LinkedList con todas las bodegas que se encuentran
+        //registradas en la base de datos
+        
         LinkedList<bodega> listaBodega = new LinkedList<bodega>();
         try{
             OracleDataSource ds;
@@ -520,6 +601,9 @@ public LinkedList<contenidoFactura> getProductosFactura(){
     }
     
     public static LinkedList<PuntosVenta> getNombrePuntoVenta(){
+        //Este método retorna un LinkedList con todos los nombres de los puntos
+        //de ventas en la base de datos, esto para poder utilizarlos en 
+        //diferentes combobox en la aplicación.
         LinkedList<PuntosVenta> listaPuntosVenta = new LinkedList<PuntosVenta>();
         try{
             OracleDataSource ds;
@@ -545,6 +629,9 @@ public LinkedList<contenidoFactura> getProductosFactura(){
     }
     
     public static LinkedList<PuntoDeVenta> getPuntoVenta(){
+        //Este método retorna una LinkedList con todos los puntos de ventas
+        //y su información respectiva para ser mostrada en la aplicación.
+        
         LinkedList<PuntoDeVenta> listaPV =new LinkedList<PuntoDeVenta>();
         try{            
             OracleDataSource ds;
@@ -580,6 +667,7 @@ public LinkedList<contenidoFactura> getProductosFactura(){
     }
     
 public void agregarUser(Integer pCedula,String pPassword,String pTipo,String pUserName) throws SQLException{
+    //Método que agrega un usuario a la base de datos     
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -597,6 +685,10 @@ public void agregarUser(Integer pCedula,String pPassword,String pTipo,String pUs
     conn.close(); 
 }
 public int verificaLogin(String pUser, String pPassword) throws SQLException{
+    //Este es el primer método que se utiliza en la aplicación, verifica los
+    //datos enviados por un usuario para saber si este se encuentra o no
+    //registrado en la base de datos.
+    
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -614,6 +706,10 @@ public int verificaLogin(String pUser, String pPassword) throws SQLException{
         
     }
 public int verificaStock(int pID_PRODUCTO) throws SQLException{
+    //Este método verifica todos los productos en el inventario, cuando alguno
+    //llegue a una cantidad menor a la minima para ordenar retorna un numero 
+    //1 --> como true y quiere decir que SI se debe realizar un pedido de ese 
+    //producto, y si es un 0 quiere decir que aún no es necesario
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -631,6 +727,9 @@ public int verificaStock(int pID_PRODUCTO) throws SQLException{
 }
 
    public static LinkedList<Persona> getPersona(){
+       //Retorna una LinkedList con todas las personas registradas en la 
+       //base de datos.
+       
         LinkedList<Persona> listaPersona = new LinkedList<Persona>();
         try{
             OracleDataSource ds;
@@ -659,6 +758,8 @@ public int verificaStock(int pID_PRODUCTO) throws SQLException{
       
 
 public void reStock(int pID_PRODUCTO, int pCANTIDAD) throws SQLException{
+    //Este método es el que realiza el restock del producto que se encuentra 
+    //con menos del minimo de productos.
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -674,6 +775,8 @@ public void reStock(int pID_PRODUCTO, int pCANTIDAD) throws SQLException{
     }
 
 public void reStockManual(int pID_PRODUCTO,int pCANTIDAD, String pTransaccion) throws SQLException{
+    //Este método es el que realiza el restock del producto que se encuentra 
+    //con menos del minimo de productos manualmente.
     OracleDataSource ds;
     ds = new OracleDataSource();
     ds.setURL(jdbcUrl);
@@ -691,6 +794,8 @@ public void reStockManual(int pID_PRODUCTO,int pCANTIDAD, String pTransaccion) t
 }
 
 public LinkedList<Persona> getProvedores(){
+    //Retorna una LinkedList con los nombres de todos los proveedores registrados
+    // en la base de datos.
         LinkedList<Persona> listaProd = new LinkedList<Persona>();
         try{
             oracleConn ora1 = new oracleConn();
@@ -725,6 +830,8 @@ public LinkedList<Persona> getProvedores(){
     }
 
 public LinkedList<ProductXPersona> getProductXPersona(int ced){
+    //Retorna una linkedListo con todos los productos por persona que se
+    //encuentran registrados en la base de datos.
         LinkedList<ProductXPersona> listaPXP = new LinkedList<ProductXPersona>();
         try{
             oracleConn ora1 = new oracleConn();
@@ -764,6 +871,8 @@ public LinkedList<ProductXPersona> getProductXPersona(int ced){
       return listaPXP;
     }
 public LinkedList<ventas> ventasGeneralesXPV(){
+    //Retorna una linkedList con objetos de ventas generales, es decir una lista
+    // con todos las ventas que se han realizado en el sistema.
         LinkedList<ventas> listaV = new LinkedList<ventas>();
         try{
             oracleConn ora1 = new oracleConn();
@@ -797,6 +906,7 @@ public LinkedList<ventas> ventasGeneralesXPV(){
     }
 
    public String getCliente(int cedula){
+       //Retorna toda la información de un cliente mediante su cédula.
        String Client = "";
         try{
             OracleDataSource ds;
@@ -823,6 +933,8 @@ public LinkedList<ventas> ventasGeneralesXPV(){
     }
    
    public int totalPagarManual(int id_factura){
+       //Se utiliza para la creación de la factura manual, recibe el id de la 
+       //factura y retorna el monto total a pagar de esa factura.
         int total = -1;
         try{
 
@@ -844,6 +956,8 @@ public LinkedList<ventas> ventasGeneralesXPV(){
     }
    
    public LinkedList<contenidoFactura> getProductosFacturaManual(int id_factura){
+       //Retorna una linlkedList con todos los productos de una factura en especifica
+       // recibiendo el número su id
         LinkedList<contenidoFactura> listaProd = new LinkedList<contenidoFactura>();
         try{
             
@@ -879,6 +993,8 @@ public LinkedList<ventas> ventasGeneralesXPV(){
       return listaProd;
     }
     public int totalDescuentoManual(int id_factura){
+        //Retorna un número entero con el total del descuento que se aplica a una
+        //factura manualmente, recibiendo el id de dicha factura.
         int descuento = 0;
         try{
             OracleDataSource ds;

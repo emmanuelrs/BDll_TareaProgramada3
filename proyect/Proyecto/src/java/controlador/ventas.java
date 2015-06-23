@@ -1,15 +1,22 @@
 
 package controlador;
+/*
+Elaborado por: Emmanuel Rosales Salas, Luis Serrano y Cristiam Flores Nuñez
+Bases de Datos 2.
+*/
 
+//Esta clase guarda los datos de la base de datos que corresponden a las ventas
+// con el fin de utiizar los objetos en la aplicación para mostrarlos en
+//pantalla
 public class ventas {
-    
+        //Atributos
     private String factura;
     private String nombre;
     private String apellido;
     private String puntoDeVenta;
     private String descuento;
     private String total;
-    
+    //Constructor de la clase
     public ventas(){
         setFactura(null);
         setNombre(null);
@@ -18,7 +25,7 @@ public class ventas {
         setDescuento(null);
         setTotal(null);   
     }
-
+//Setters and Getters.
     public String getFactura() {
         return factura;
     }
